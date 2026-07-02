@@ -229,8 +229,18 @@ def main():
         findings.extend(f)
         if updated: changes_made += 1; config_dirty = True
         findings_map[name] = findings
-    if changes_made:
-        log(f"✏️ {changes_made} URL auto-update(s) applied to HTML")
+    html_dirty = False
+    eyebrow = soup.select_one(".header-eyebrow")
+    if eyebrow:
+        expected_text = f"Complete Reference · Last Updated: {time.strftime('%B %d, %Y')}"
+        if eyebrow.string != expected_text:
+            eyebrow.string = expected_text
+            html_dirty = True
+            log(f"📅 Updated last updated date in HTML to: {time.strftime('%B %d, %Y')}")
+
+    if changes_made or html_dirty:
+        if changes_made:
+            log(f"✏️ {changes_made} URL auto-update(s) applied to HTML")
         save_html(soup)
     if config_dirty:
         cfg["tools"] = config_tools
