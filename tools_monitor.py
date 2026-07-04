@@ -2,6 +2,12 @@
 """AI Tools Directory Monitor - Checks URLs daily for 404s, redirects, version changes."""
 import json, re, sys, time
 from pathlib import Path
+
+# Force UTF-8 encoding for stdout/stderr to avoid Windows charmap encoding crashes
+if sys.platform.startswith('win'):
+    import io
+    sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding='utf-8')
+    sys.stderr = io.TextIOWrapper(sys.stderr.buffer, encoding='utf-8')
 import requests
 from bs4 import BeautifulSoup
 
