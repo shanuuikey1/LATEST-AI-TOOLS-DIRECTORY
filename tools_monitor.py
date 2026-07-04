@@ -35,8 +35,11 @@ def parse_html():
         return BeautifulSoup(f.read(), "html.parser")
 
 def save_html(soup):
+    html = str(soup)
+    # Fix BeautifulSoup converting SVG viewBox to lowercase viewbox
+    html = html.replace('viewbox="', 'viewBox="')
     with open(HTML_FILE, "w", encoding="utf-8") as f:
-        f.write(str(soup))
+        f.write(html)
 
 def extract_tools(soup):
     tools = []
