@@ -2095,18 +2095,34 @@
       }
 
       // 9. Page Entrance Animations
+      // Use fromTo with explicit visible end-states + clearProps so GSAP never
+      // leaves an element stranded in its hidden "from" state if a tween is
+      // interrupted. A failsafe below guarantees visibility regardless.
+      const entranceTargets = '.header-eyebrow, #hero-title, .hero p, .instagram-btn, .stat-card, .controls-wrapper, .cat-section';
       if (typeof gsap !== 'undefined') {
         try {
-          gsap.from('.header-eyebrow', { opacity: 0, y: -20, duration: 0.8, ease: 'power3.out' });
-          gsap.from('#hero-title', { opacity: 0, scale: 0.95, duration: 1, delay: 0.2, ease: 'power4.out' });
-          gsap.from('.hero p, .instagram-btn', { opacity: 0, y: 15, duration: 0.8, delay: 0.4, ease: 'power3.out' });
-          gsap.from('.stat-card', { opacity: 0, y: 30, duration: 0.8, delay: 0.6, stagger: 0.1, ease: 'power3.out' });
-          gsap.from('.controls-wrapper', { opacity: 0, y: 20, duration: 0.8, delay: 0.9, ease: 'power3.out' });
-          gsap.from('.cat-section', { opacity: 0, y: 40, duration: 1, delay: 1.1, stagger: 0.1, ease: 'power3.out' });
+          gsap.fromTo('.header-eyebrow', { opacity: 0, y: -20 }, { opacity: 1, y: 0, duration: 0.8, ease: 'power3.out', clearProps: 'opacity,transform' });
+          gsap.fromTo('#hero-title', { opacity: 0, scale: 0.95 }, { opacity: 1, scale: 1, duration: 1, delay: 0.2, ease: 'power4.out', clearProps: 'opacity,transform' });
+          gsap.fromTo('.hero p, .instagram-btn', { opacity: 0, y: 15 }, { opacity: 1, y: 0, duration: 0.8, delay: 0.4, ease: 'power3.out', clearProps: 'opacity,transform' });
+          gsap.fromTo('.stat-card', { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 0.8, delay: 0.6, stagger: 0.1, ease: 'power3.out', clearProps: 'opacity,transform' });
+          gsap.fromTo('.controls-wrapper', { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.8, delay: 0.9, ease: 'power3.out', clearProps: 'opacity,transform' });
+          gsap.fromTo('.cat-section', { opacity: 0, y: 40 }, { opacity: 1, y: 0, duration: 1, delay: 1.1, stagger: 0.1, ease: 'power3.out', clearProps: 'opacity,transform' });
         } catch (e) {
           console.warn('GSAP animations failed to run:', e);
         }
       }
+
+      // Failsafe: if any entrance element is still hidden after animations
+      // should have finished (e.g. a tween got killed), force it visible so
+      // content is never permanently invisible.
+      setTimeout(() => {
+        document.querySelectorAll(entranceTargets).forEach(el => {
+          if (parseFloat(getComputedStyle(el).opacity) < 1) {
+            el.style.opacity = '1';
+            el.style.transform = 'none';
+          }
+        });
+      }, 3600);
     });
   </script>
 </body>
