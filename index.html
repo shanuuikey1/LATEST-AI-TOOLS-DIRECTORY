@@ -11,17 +11,19 @@
   
   <style>
     :root {
-      --bg: #050505;
-      --surface: #0a0a0a;
-      --surface-light: #121212;
-      --border: rgba(255, 255, 255, 0.08);
-      --border-hover: rgba(255, 255, 255, 0.2);
-      --text: #f8fafc;
-      --text-muted: #94a3b8;
+      --bg: #030712;
+      --surface: rgba(17, 24, 39, 0.45);
+      --surface-light: rgba(31, 41, 55, 0.35);
+      --border: rgba(255, 255, 255, 0.06);
+      --border-hover: rgba(255, 255, 255, 0.15);
+      --text: #f3f4f6;
+      --text-muted: #9ca3af;
+      --text-subtle: #6b7280;
       
       --accent: #8b5cf6;
       --accent-glow: rgba(139, 92, 246, 0.15);
       
+      /* Accent colors */
       --color-free: #10b981;
       --color-budget: #6366f1;
       --color-trial: #f59e0b;
@@ -42,12 +44,13 @@
       -webkit-font-smoothing: antialiased;
     }
 
-    ::-webkit-scrollbar { width: 10px; }
+    /* Webkit scrollbars */
+    ::-webkit-scrollbar { width: 8px; height: 8px; }
     ::-webkit-scrollbar-track { background: var(--bg); }
-    ::-webkit-scrollbar-thumb { background: #333; border-radius: 5px; }
-    ::-webkit-scrollbar-thumb:hover { background: #555; }
+    ::-webkit-scrollbar-thumb { background: rgba(255, 255, 255, 0.1); border-radius: 4px; }
+    ::-webkit-scrollbar-thumb:hover { background: rgba(255, 255, 255, 0.25); }
 
-    /* Floating Particles BG */
+    /* Particles Background */
     #particles-js {
       position: fixed;
       top: 0;
@@ -55,7 +58,8 @@
       width: 100%;
       height: 100%;
       z-index: -1;
-      opacity: 0.4;
+      opacity: 0.5;
+      pointer-events: none;
     }
     
     /* Top Header */
@@ -66,15 +70,19 @@
         padding: 24px 40px;
         max-width: 1440px;
         margin: 0 auto;
+        z-index: 10;
+        position: relative;
     }
     .logo-mark {
         font-family: 'Space Grotesk', sans-serif;
         font-weight: 700;
-        font-size: 20px;
+        font-size: 22px;
         letter-spacing: -0.5px;
         display: flex;
         align-items: center;
-        gap: 8px;
+        gap: 10px;
+        text-decoration: none;
+        color: #fff;
     }
     .logo-mark span {
         background: linear-gradient(135deg, #c084fc, #60a5fa);
@@ -82,9 +90,9 @@
         -webkit-text-fill-color: transparent;
     }
     .top-actions .github-btn {
-        background: rgba(255,255,255,0.05);
-        border: 1px solid rgba(255,255,255,0.1);
-        padding: 8px 16px;
+        background: rgba(255,255,255,0.03);
+        border: 1px solid rgba(255,255,255,0.08);
+        padding: 10px 20px;
         border-radius: 100px;
         color: #fff;
         text-decoration: none;
@@ -93,49 +101,61 @@
         display: inline-flex;
         align-items: center;
         gap: 8px;
-        transition: all 0.3s;
+        transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+        backdrop-filter: blur(10px);
     }
-    .top-actions .github-btn:hover {
-        background: rgba(255,255,255,0.1);
+    @media (hover: hover) {
+      .top-actions .github-btn:hover {
+          background: rgba(255,255,255,0.08);
+          border-color: rgba(255,255,255,0.2);
+          transform: translateY(-2px);
+      }
     }
 
     .app-container {
       max-width: 1440px;
       margin: 0 auto;
       padding: 0 40px 120px;
+      position: relative;
     }
-    @media (max-width: 768px) { .app-container { padding: 0 20px 80px; } .top-header { padding: 20px; } }
+    @media (max-width: 768px) { 
+      .app-container { padding: 0 20px 80px; } 
+      .top-header { padding: 20px; } 
+    }
 
-    /* Animated Hero */
+    /* Premium Hero styling */
     .hero-premium {
       text-align: center;
-      padding: 100px 0 80px;
+      padding: 80px 0 60px;
       position: relative;
     }
     .eyebrow-badge {
       display: inline-flex;
       align-items: center;
       gap: 8px;
-      background: rgba(139, 92, 246, 0.1);
-      border: 1px solid rgba(139, 92, 246, 0.2);
+      background: rgba(139, 92, 246, 0.08);
+      border: 1px solid rgba(139, 92, 246, 0.15);
       color: #c084fc;
-      padding: 6px 16px;
+      padding: 6px 18px;
       border-radius: 100px;
-      font-size: 13px;
+      font-size: 12px;
       font-weight: 600;
       margin-bottom: 24px;
+      font-family: 'Space Grotesk', sans-serif;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
     }
     .hero-premium h1 {
       font-family: 'Space Grotesk', sans-serif;
-      font-size: clamp(40px, 8vw, 76px);
+      font-size: clamp(38px, 7vw, 72px);
       font-weight: 700;
-      line-height: 1.1;
+      line-height: 1.15;
       letter-spacing: -0.03em;
-      margin-bottom: 24px;
+      margin-bottom: 20px;
     }
     .typewriter-wrap {
-      display: block;
-      background: linear-gradient(135deg, #fff, #93c5fd);
+      display: inline-block;
+      background: linear-gradient(135deg, #fff 20%, #c084fc 60%, #60a5fa 100%);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
     }
@@ -144,43 +164,10 @@
       color: var(--text-muted);
       max-width: 600px;
       margin: 0 auto 40px;
+      line-height: 1.6;
     }
 
-    /* Interactive Search */
-    .hero-search {
-      max-width: 600px;
-      margin: 0 auto;
-      position: relative;
-    }
-    .hero-search input {
-      width: 100%;
-      background: rgba(255, 255, 255, 0.03);
-      border: 1px solid rgba(255, 255, 255, 0.1);
-      border-radius: 100px;
-      padding: 20px 24px 20px 56px;
-      font-size: 16px;
-      color: #fff;
-      font-family: inherit;
-      outline: none;
-      transition: all 0.3s;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-    }
-    .hero-search input:focus {
-      background: rgba(255, 255, 255, 0.06);
-      border-color: var(--accent);
-      box-shadow: 0 0 0 4px rgba(139, 92, 246, 0.15), 0 10px 30px rgba(0,0,0,0.3);
-    }
-    .hero-search svg {
-      position: absolute;
-      left: 24px;
-      top: 50%;
-      transform: translateY(-50%);
-      color: var(--text-muted);
-      width: 20px;
-      height: 20px;
-    }
-
-    /* Floating Logos (Desktop Only) */
+    /* Floating branding icons (desktop only) */
     .floating-logos {
       position: absolute;
       top: 0;
@@ -195,40 +182,42 @@
       width: 48px;
       height: 48px;
       border-radius: 12px;
-      background: var(--surface-light);
+      background: rgba(17, 24, 39, 0.8);
       border: 1px solid var(--border);
-      padding: 8px;
+      padding: 10px;
       display: flex;
       align-items: center;
       justify-content: center;
-      box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+      box-shadow: 0 10px 25px rgba(0,0,0,0.4);
       animation: float 6s ease-in-out infinite;
+      backdrop-filter: blur(10px);
     }
-    .f-logo img { width: 100%; border-radius: 8px; }
-    .f-logo:nth-child(1) { top: 20%; left: 15%; animation-delay: 0s; }
-    .f-logo:nth-child(2) { top: 60%; left: 10%; animation-delay: 2s; }
-    .f-logo:nth-child(3) { top: 15%; right: 15%; animation-delay: 1s; }
-    .f-logo:nth-child(4) { top: 55%; right: 10%; animation-delay: 3s; }
+    .f-logo img { width: 100%; border-radius: 6px; }
+    .f-logo:nth-child(1) { top: 15%; left: 12%; animation-delay: 0s; }
+    .f-logo:nth-child(2) { top: 65%; left: 8%; animation-delay: 2s; }
+    .f-logo:nth-child(3) { top: 10%; right: 12%; animation-delay: 1s; }
+    .f-logo:nth-child(4) { top: 60%; right: 8%; animation-delay: 3s; }
     @keyframes float {
       0% { transform: translateY(0px) rotate(0deg); }
-      50% { transform: translateY(-20px) rotate(5deg); }
+      50% { transform: translateY(-15px) rotate(4deg); }
       100% { transform: translateY(0px) rotate(0deg); }
     }
 
-    /* Spotlight Carousel */
+    /* Spotlight Section styling */
     .spotlight-section {
-      margin-bottom: 80px;
+      margin-bottom: 70px;
       position: relative;
     }
     .spotlight-carousel {
       position: relative;
       overflow: hidden;
       border-radius: 24px;
+      border: 1px solid var(--border);
     }
     .carousel-slide {
       display: none;
       width: 100%;
-      animation: fadeScale 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+      animation: fadeScale 0.6s cubic-bezier(0.25, 1, 0.5, 1);
     }
     .carousel-slide.active {
       display: block;
@@ -238,99 +227,110 @@
       to { opacity: 1; transform: scale(1); }
     }
     .spotlight-card {
-      background: var(--surface-light);
-      border: 1px solid var(--border);
-      border-radius: 24px;
-      padding: 60px;
+      background: rgba(17, 24, 39, 0.4);
+      padding: 50px 60px;
       position: relative;
       overflow: hidden;
       display: flex;
       align-items: center;
-      min-height: 340px;
+      min-height: 320px;
+      backdrop-filter: blur(16px);
     }
     @media (max-width: 768px) {
-      .spotlight-card { padding: 40px 24px; }
+      .spotlight-card { padding: 36px 24px; flex-direction: column; text-align: center; align-items: center; }
     }
     .spotlight-content {
       position: relative;
       z-index: 2;
-      max-width: 500px;
+      max-width: 550px;
     }
     .spotlight-badge {
       display: inline-flex;
       align-items: center;
       gap: 6px;
-      font-size: 12px;
+      font-size: 11px;
       font-weight: 700;
       text-transform: uppercase;
       letter-spacing: 0.1em;
-      color: #fff;
-      background: rgba(255,255,255,0.1);
+      color: #c084fc;
+      background: rgba(192, 132, 252, 0.1);
+      border: 1px solid rgba(192, 132, 252, 0.2);
       padding: 6px 14px;
       border-radius: 100px;
-      margin-bottom: 24px;
+      margin-bottom: 20px;
+      font-family: 'Space Grotesk', sans-serif;
     }
-    .fire { font-size: 14px; }
     .spotlight-header {
       display: flex;
       align-items: center;
       gap: 20px;
-      margin-bottom: 20px;
+      margin-bottom: 16px;
+    }
+    @media (max-width: 768px) {
+      .spotlight-header { flex-direction: column; gap: 12px; }
     }
     .spotlight-logo {
-      width: 64px;
-      height: 64px;
-      border-radius: 16px;
-      background: #000;
+      width: 56px;
+      height: 56px;
+      border-radius: 14px;
+      background: rgba(0,0,0,0.5);
       padding: 10px;
       border: 1px solid rgba(255,255,255,0.1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
-    .spotlight-logo img { width: 100%; border-radius: 8px; }
+    .spotlight-logo img { width: 100%; border-radius: 6px; }
     .spotlight-header h2 {
       font-family: 'Space Grotesk', sans-serif;
-      font-size: 42px;
+      font-size: clamp(28px, 4vw, 38px);
       font-weight: 700;
       line-height: 1.1;
+      color: #fff;
     }
     .spotlight-desc {
-      font-size: 16px;
+      font-size: 15px;
       color: var(--text-muted);
       margin-bottom: 24px;
       line-height: 1.6;
     }
     .spotlight-stars {
       color: #fbbf24;
-      font-size: 18px;
+      font-size: 16px;
       letter-spacing: 2px;
-      margin-bottom: 30px;
+      margin-bottom: 24px;
       display: flex;
       align-items: center;
-      gap: 12px;
+      gap: 10px;
     }
+    @media (max-width: 768px) { .spotlight-stars { justify-content: center; } }
     .spotlight-stars span {
       color: #fff;
       font-weight: 600;
-      font-size: 14px;
+      font-size: 13px;
       letter-spacing: 0;
     }
     .spotlight-btn {
       display: inline-flex;
       align-items: center;
-      gap: 10px;
+      gap: 8px;
       background: #fff;
       color: #000;
-      padding: 14px 28px;
+      padding: 12px 24px;
       border-radius: 100px;
       font-weight: 600;
-      font-size: 15px;
+      font-size: 14px;
       text-decoration: none;
       transition: all 0.3s;
     }
-    .spotlight-btn:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 10px 25px rgba(255,255,255,0.2);
+    @media (hover: hover) {
+      .spotlight-btn:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 10px 25px rgba(255,255,255,0.25);
+      }
     }
-    .spotlight-btn svg { width: 18px; height: 18px; }
+    .spotlight-btn svg { width: 16px; height: 16px; transition: transform 0.3s; }
+    .spotlight-btn:hover svg { transform: translateX(3px); }
     
     .spotlight-bg {
       position: absolute;
@@ -342,19 +342,19 @@
       background: radial-gradient(circle at right, var(--spotlight-accent) 0%, transparent 70%);
       opacity: 0.15;
     }
+    @media (max-width: 768px) { .spotlight-bg { width: 100%; height: 100%; background: radial-gradient(circle at center, var(--spotlight-accent) 0%, transparent 70%); } }
 
-    /* Carousel Controls */
     .carousel-dots {
       display: flex;
       justify-content: center;
       gap: 8px;
-      margin-top: 20px;
+      margin-top: 16px;
     }
     .dot {
       width: 8px;
       height: 8px;
       border-radius: 50%;
-      background: rgba(255,255,255,0.2);
+      background: rgba(255,255,255,0.15);
       cursor: pointer;
       transition: all 0.3s;
     }
@@ -364,63 +364,156 @@
       border-radius: 100px;
     }
 
-    /* Visual Category Nav */
-    .category-nav-wrapper {
+    /* Sticky Controls Panel */
+    .controls-wrapper {
       position: sticky;
-      top: 20px;
+      top: 24px;
       z-index: 100;
-      margin-bottom: 60px;
+      max-width: 900px;
+      margin: 0 auto 50px;
+      background: rgba(10, 11, 15, 0.7);
+      backdrop-filter: blur(24px);
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      padding: 16px;
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
+    }
+    @media (max-width: 768px) {
+      .controls-wrapper { top: 12px; padding: 12px; border-radius: 18px; margin-bottom: 30px; }
+    }
+    .search-container {
+      position: relative;
+      margin-bottom: 12px;
+      width: 100%;
+    }
+    .search-input {
+      width: 100%;
+      background: rgba(255, 255, 255, 0.02);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 14px 20px 14px 48px;
+      color: #fff;
+      font-family: inherit;
+      font-size: 16px;
+      outline: none;
+      transition: all 0.3s;
+    }
+    .search-input:focus {
+      background: rgba(255, 255, 255, 0.05);
+      border-color: var(--accent);
+      box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.15);
+    }
+    .search-icon {
+      position: absolute;
+      left: 18px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--text-muted);
+      pointer-events: none;
+      width: 18px;
+      height: 18px;
+    }
+
+    /* Tag Filters bar */
+    .filter-bar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      justify-content: center;
+    }
+    @media (max-width: 768px) {
+      .filter-bar {
+        justify-content: flex-start;
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        padding-bottom: 4px;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+      }
+      .filter-bar::-webkit-scrollbar { display: none; }
+    }
+    .filter-pill {
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      color: var(--text-muted);
+      padding: 8px 16px;
+      border-radius: 12px;
+      font-size: 12px;
+      font-weight: 600;
+      cursor: pointer;
+      font-family: 'Space Grotesk', sans-serif;
+      transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    }
+    @media (hover: hover) {
+      .filter-pill:hover {
+        background: rgba(255, 255, 255, 0.08);
+        color: #fff;
+        transform: translateY(-1px);
+      }
+    }
+    @media (max-width: 768px) {
+      .filter-pill { flex-shrink: 0; padding: 6px 12px; }
+    }
+    .filter-pill.active {
+      color: #fff;
+      background: var(--active-bg, var(--accent));
+      border-color: var(--active-border, var(--accent));
+      box-shadow: 0 0 15px var(--active-glow, rgba(139, 92, 246, 0.3));
+    }
+    .filter-pill[data-filter="FREE"] { --active-bg: rgba(16, 185, 129, 0.2); --active-border: #10b981; --active-glow: rgba(16, 185, 129, 0.3); }
+    .filter-pill[data-filter="BUDGET"] { --active-bg: rgba(99, 102, 241, 0.2); --active-border: #6366f1; --active-glow: rgba(99, 102, 241, 0.3); }
+    .filter-pill[data-filter="TRIAL"] { --active-bg: rgba(245, 158, 11, 0.2); --active-border: #f59e0b; --active-glow: rgba(245, 158, 11, 0.3); }
+    .filter-pill[data-filter="OPEN"] { --active-bg: rgba(6, 182, 212, 0.2); --active-border: #06b6d4; --active-glow: rgba(6, 182, 212, 0.3); }
+    .filter-pill[data-filter="PAID"] { --active-bg: rgba(100, 116, 139, 0.2); --active-border: #64748b; --active-glow: rgba(100, 116, 139, 0.3); }
+    .filter-pill[data-filter="HOT"] { --active-bg: rgba(239, 68, 68, 0.2); --active-border: #ef4444; --active-glow: rgba(239, 68, 68, 0.3); }
+
+    /* Category scroll list (only shown on 'All Tools' filter) */
+    .category-nav-wrapper {
+      margin-bottom: 50px;
+      transition: all 0.3s ease;
     }
     .category-scroll {
       display: flex;
-      gap: 12px;
+      gap: 10px;
       overflow-x: auto;
-      padding: 16px;
-      background: rgba(10, 10, 10, 0.8);
-      backdrop-filter: blur(20px);
-      border: 1px solid rgba(255,255,255,0.05);
-      border-radius: 20px;
-      scrollbar-width: none; /* Firefox */
-      -ms-overflow-style: none; /* IE */
+      padding: 10px;
+      background: rgba(17, 24, 39, 0.3);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      scrollbar-width: none;
     }
     .category-scroll::-webkit-scrollbar { display: none; }
     
     .cat-nav-btn {
       flex: 0 0 auto;
-      background: rgba(255,255,255,0.03);
-      border: 1px solid rgba(255,255,255,0.05);
-      padding: 12px 20px;
-      border-radius: 16px;
+      background: rgba(255, 255, 255, 0.02);
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      padding: 10px 18px;
+      border-radius: 12px;
       display: flex;
       align-items: center;
-      gap: 10px;
+      gap: 8px;
       color: var(--text-muted);
       font-family: inherit;
-      font-size: 14px;
+      font-size: 13px;
       font-weight: 500;
       cursor: pointer;
       transition: all 0.3s;
     }
-    .cat-nav-btn:hover {
-      background: rgba(255,255,255,0.08);
-      color: #fff;
-    }
-    .cat-nav-btn.active {
-      background: #fff;
-      color: #000;
-    }
-    .cat-nav-icon { font-size: 18px; }
+    .cat-nav-btn:hover { background: rgba(255, 255, 255, 0.06); color: #fff; }
+    .cat-nav-btn.active { background: #fff; color: #000; }
+    .cat-nav-icon { font-size: 16px; }
 
-    /* Premium Grid Masonry-style */
+    /* Layout groups & grids */
     .cat-group {
-      margin-bottom: 100px;
-      scroll-margin-top: 120px;
+      margin-bottom: 80px;
+      scroll-margin-top: 210px; /* Offset for sticky controls + nav */
     }
     .cat-group-header {
       display: flex;
       align-items: center;
-      gap: 20px;
-      margin-bottom: 40px;
+      gap: 16px;
+      margin-bottom: 30px;
       position: relative;
     }
     .cat-group-header::after {
@@ -428,54 +521,54 @@
       flex: 1;
       height: 1px;
       background: linear-gradient(90deg, var(--cat-accent), transparent);
-      opacity: 0.3;
+      opacity: 0.2;
     }
     .cat-group-icon {
-      width: 56px;
-      height: 56px;
-      background: rgba(255,255,255,0.03);
-      border: 1px solid rgba(255,255,255,0.08);
-      border-radius: 16px;
+      width: 48px;
+      height: 48px;
+      background: rgba(255,255,255,0.02);
+      border: 1px solid var(--border);
+      border-radius: 12px;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 24px;
+      font-size: 20px;
     }
     .cat-group-title {
       font-family: 'Space Grotesk', sans-serif;
-      font-size: 32px;
+      font-size: 28px;
       font-weight: 700;
-      line-height: 1.2;
+      color: #fff;
     }
     .cat-group-tagline {
       color: var(--text-muted);
-      font-size: 14px;
+      font-size: 13px;
     }
 
-    .premium-grid {
+    .premium-grid, .unified-results-grid {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
-      gap: 24px;
+      gap: 20px;
     }
-    @media (max-width: 1200px) { .premium-grid { grid-template-columns: repeat(3, 1fr); } }
-    @media (max-width: 900px) { .premium-grid { grid-template-columns: repeat(2, 1fr); } }
-    @media (max-width: 600px) { .premium-grid { grid-template-columns: 1fr; } }
+    @media (max-width: 1200px) { 
+      .premium-grid, .unified-results-grid { grid-template-columns: repeat(3, 1fr); } 
+    }
+    @media (max-width: 900px) { 
+      .premium-grid, .unified-results-grid { grid-template-columns: repeat(2, 1fr); } 
+      .hero-card { grid-column: span 1 !important; grid-row: span 1 !important; }
+    }
+    @media (max-width: 600px) { 
+      .premium-grid, .unified-results-grid { grid-template-columns: 1fr; } 
+    }
     
-    /* The first card in a group gets a featured 2x layout on large screens */
     @media (min-width: 900px) {
       .hero-card {
         grid-column: span 2;
         grid-row: span 2;
       }
-      .hero-card .premium-card-inner {
-        padding: 40px;
-      }
-      .hero-card .premium-name {
-        font-size: 32px;
-      }
-      .hero-card .premium-desc {
-        font-size: 16px;
-      }
+      .hero-card .premium-card-inner { padding: 36px; }
+      .hero-card .premium-name { font-size: 28px; }
+      .hero-card .premium-desc { font-size: 15px; }
     }
 
     /* Premium Tool Card */
@@ -484,62 +577,63 @@
       height: 100%;
     }
     .premium-card-inner {
-      background: var(--surface-light);
+      background: rgba(17, 24, 39, 0.4);
       border: 1px solid var(--border);
       border-radius: 20px;
-      padding: 24px;
+      padding: 22px;
       height: 100%;
       display: flex;
       flex-direction: column;
       position: relative;
       overflow: hidden;
-      transform: translateZ(20px);
-      transition: border-color 0.3s;
+      transform: translateZ(15px);
+      transition: all 0.3s ease;
+      backdrop-filter: blur(10px);
     }
     .premium-card:hover .premium-card-inner {
-      border-color: rgba(255,255,255,0.3);
+      border-color: rgba(255, 255, 255, 0.2);
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3), 0 0 20px rgba(139, 92, 246, 0.05);
     }
     .premium-card-inner::before {
       content: '';
       position: absolute;
       top: 0; left: 0; right: 0; bottom: 0;
-      background: radial-gradient(circle at top right, var(--cat-accent), transparent 60%);
+      background: radial-gradient(circle at top right, var(--cat-accent, var(--accent)), transparent 60%);
       opacity: 0;
       transition: opacity 0.4s;
       z-index: 0;
     }
-    .premium-card:hover .premium-card-inner::before {
-      opacity: 0.1;
-    }
+    .premium-card:hover .premium-card-inner::before { opacity: 0.08; }
     
     .premium-card-top {
       display: flex;
       justify-content: space-between;
       align-items: flex-start;
-      margin-bottom: 20px;
+      margin-bottom: 16px;
       z-index: 1;
     }
     .premium-logo {
-      width: 48px;
-      height: 48px;
-      background: rgba(0,0,0,0.5);
-      border: 1px solid rgba(255,255,255,0.1);
-      border-radius: 12px;
+      width: 44px;
+      height: 44px;
+      background: rgba(0,0,0,0.3);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 10px;
       padding: 8px;
       display: flex;
       align-items: center;
       justify-content: center;
+      flex-shrink: 0;
     }
-    .premium-logo img { width: 100%; border-radius: 6px; }
-    .hero-card .premium-logo { width: 64px; height: 64px; padding: 12px; border-radius: 16px; margin-bottom: 10px; }
+    .premium-logo img { width: 100%; border-radius: 4px; }
+    .hero-card .premium-logo { width: 56px; height: 56px; padding: 10px; border-radius: 14px; }
     
     .premium-rating {
       text-align: right;
     }
     .stars {
       color: #fbbf24;
-      font-size: 14px;
-      letter-spacing: 1px;
+      font-size: 13px;
+      letter-spacing: 0.5px;
     }
     .premium-rating span {
       font-size: 12px;
@@ -549,16 +643,17 @@
     
     .premium-name {
       font-family: 'Space Grotesk', sans-serif;
-      font-size: 20px;
+      font-size: 19px;
       font-weight: 700;
-      margin-bottom: 12px;
+      margin-bottom: 10px;
       z-index: 1;
+      color: #fff;
     }
     .premium-desc {
-      font-size: 14px;
+      font-size: 13.5px;
       color: var(--text-muted);
       line-height: 1.5;
-      margin-bottom: 24px;
+      margin-bottom: 20px;
       z-index: 1;
       flex: 1;
     }
@@ -566,7 +661,7 @@
       display: flex;
       flex-wrap: wrap;
       gap: 6px;
-      margin-bottom: 24px;
+      margin-bottom: 20px;
       z-index: 1;
     }
     .premium-badge {
@@ -576,54 +671,91 @@
       letter-spacing: 0.5px;
       padding: 4px 10px;
       border-radius: 100px;
-      background: rgba(255,255,255,0.05);
-      border: 1px solid rgba(255,255,255,0.1);
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.06);
+      font-family: 'Space Grotesk', sans-serif;
     }
-    /* Status Badge Colors */
-    .premium-badge.free { color: var(--color-free); border-color: rgba(16,185,129,0.3); background: rgba(16,185,129,0.05); }
-    .premium-badge.budget-friendly { color: var(--color-budget); border-color: rgba(99,102,241,0.3); background: rgba(99,102,241,0.05); }
-    .premium-badge.free-trial { color: var(--color-trial); border-color: rgba(245,158,11,0.3); background: rgba(245,158,11,0.05); }
-    .premium-badge.paid-only { color: var(--color-paid); border-color: rgba(100,116,139,0.3); background: rgba(100,116,139,0.05); }
-    .premium-badge.open-source { color: var(--color-open); border-color: rgba(6,182,212,0.3); background: rgba(6,182,212,0.05); }
-    .premium-badge.trending, .premium-badge.hot { color: var(--color-hot); border-color: rgba(239,68,68,0.3); background: rgba(239,68,68,0.05); }
+    
+    /* Dynamic Badge Colors (mapped correctly using b- classes) */
+    .premium-badge.b-free { color: var(--color-free); border-color: rgba(16,185,129,0.3); background: rgba(16,185,129,0.05); }
+    .premium-badge.b-budget { color: var(--color-budget); border-color: rgba(99,102,241,0.3); background: rgba(99,102,241,0.05); }
+    .premium-badge.b-trial { color: var(--color-trial); border-color: rgba(245,158,11,0.3); background: rgba(245,158,11,0.05); }
+    .premium-badge.b-paid { color: var(--color-paid); border-color: rgba(100,116,139,0.3); background: rgba(100,116,139,0.05); }
+    .premium-badge.b-open { color: var(--color-open); border-color: rgba(6,182,212,0.3); background: rgba(6,182,212,0.05); }
+    .premium-badge.b-hot { color: var(--color-hot); border-color: rgba(239,68,68,0.3); background: rgba(239,68,68,0.05); }
     
     .premium-visit {
       display: flex;
       align-items: center;
       justify-content: center;
-      gap: 8px;
+      gap: 6px;
       width: 100%;
-      background: rgba(255,255,255,0.03);
-      border: 1px solid rgba(255,255,255,0.1);
+      background: rgba(255,255,255,0.02);
+      border: 1px solid rgba(255,255,255,0.08);
       color: #fff;
       text-decoration: none;
-      padding: 12px;
-      border-radius: 12px;
+      padding: 10px;
+      border-radius: 10px;
       font-weight: 600;
-      font-size: 14px;
+      font-size: 13.5px;
       transition: all 0.3s;
       z-index: 1;
     }
-    .premium-visit svg { width: 16px; height: 16px; transition: transform 0.3s; }
+    .premium-visit svg { width: 14px; height: 14px; transition: transform 0.3s; }
     .premium-card:hover .premium-visit {
       background: #fff;
       color: #000;
     }
-    .premium-card:hover .premium-visit svg {
-      transform: translateX(4px);
+    .premium-card:hover .premium-visit svg { transform: translateX(3px); }
+
+    /* Unified View specific card tags */
+    .unified-card-cat {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 10px;
+      font-weight: 700;
+      color: var(--cat-accent, var(--accent));
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.06);
+      padding: 4px 10px;
+      border-radius: 100px;
+      margin-bottom: 12px;
+      z-index: 1;
+      width: fit-content;
+      font-family: 'Space Grotesk', sans-serif;
     }
+
+    /* Views Layout Toggle */
+    #categories-view, #unified-view {
+      transition: opacity 0.4s ease, transform 0.4s ease;
+    }
+    
+    /* Empty Results Styling */
+    .no-results {
+      text-align: center;
+      padding: 80px 40px;
+      background: rgba(17, 24, 39, 0.2);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      max-width: 600px;
+      margin: 0 auto;
+      backdrop-filter: blur(10px);
+    }
+    .no-results-icon { font-size: 40px; margin-bottom: 16px; opacity: 0.6; }
+    .no-results h3 { font-family: 'Space Grotesk', sans-serif; font-size: 22px; margin-bottom: 8px; color: #fff; }
+    .no-results p { color: var(--text-muted); font-size: 14px; }
   </style>
 </head>
 <body>
-  <!-- Particles Background -->
   <div id="particles-js"></div>
 
   <!-- Header -->
   <header class="top-header">
-    <div class="logo-mark">
+    <a href="./" class="logo-mark">
       <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="url(#grad)" stroke-width="2" stroke-linecap="round"><defs><linearGradient id="grad" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#c084fc" /><stop offset="100%" stop-color="#60a5fa" /></linearGradient></defs><polygon points="12 2 2 7 12 12 22 7 12 2"></polygon><polyline points="2 17 12 22 22 17"></polyline><polyline points="2 12 12 17 22 12"></polyline></svg>
       <span>AI Directory</span>
-    </div>
+    </a>
     <div class="top-actions">
       <a href="https://github.com/shanuuikey1" target="_blank" class="github-btn">
         <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
@@ -636,21 +768,15 @@
     <!-- Hero -->
     <section class="hero-premium">
       <div class="floating-logos">
-        <!-- Floating Logo Bubbles -->
         <div class="f-logo"><img src="https://www.google.com/s2/favicons?domain=openai.com&sz=64" alt=""></div>
         <div class="f-logo"><img src="https://www.google.com/s2/favicons?domain=midjourney.com&sz=64" alt=""></div>
         <div class="f-logo"><img src="https://www.google.com/s2/favicons?domain=anthropic.com&sz=64" alt=""></div>
         <div class="f-logo"><img src="https://www.google.com/s2/favicons?domain=figma.com&sz=64" alt=""></div>
       </div>
       
-      <div class="eyebrow-badge">✨ Updated for 2026</div>
+      <div class="eyebrow-badge">✨ Redesigned Premium Directory</div>
       <h1>Find the best AI tools for <br><span class="typewriter-wrap"><span id="typewriter"></span><span class="cursor">|</span></span></h1>
-      <p>Discover, compare, and filter through the most comprehensive directory of premium artificial intelligence tools on the web.</p>
-      
-      <div class="hero-search" data-scroll-reveal>
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
-        <input type="text" id="global-search" placeholder="Search for ChatGPT, Midjourney, Video Generators...">
-      </div>
+      <p>Discover, search, and filter the internet's most comprehensive catalog of cutting-edge artificial intelligence tools.</p>
     </section>
 
     <!-- Spotlight Carousel -->
@@ -660,72 +786,84 @@
         <div class="carousel-slide active">
           <div class="spotlight-card" style="--spotlight-accent: #6366f1">
             <div class="spotlight-content">
-              <div class="spotlight-badge"><span class="fire">🔥</span> Featured Tool</div>
+              <div class="spotlight-badge"><span class="fire">🔥</span> Spotlight</div>
               <div class="spotlight-header">
-                <div class="spotlight-logo"><img src="https://www.google.com/s2/favicons?domain=chatgpt.com&sz=128" alt="ChatGPT logo" onerror="this.style.display='none'"></div>
+                <div class="spotlight-logo">
+                  <img src="https://www.google.com/s2/favicons?domain=chatgpt.com&sz=128" alt="" onerror="this.style.display='none'">
+                </div>
                 <h2>ChatGPT</h2>
               </div>
               <p class="spotlight-desc">Best all-rounder · writing, coding, research, images</p>
-              <div class="spotlight-stars">★★★★★ <span>4.9</span></div>
-              <a href="https://chatgpt.com/" target="_blank" class="spotlight-btn">Visit Website <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+              <div class="spotlight-stars">★★★★★ <span>4.6</span></div>
+              <a href="https://chatgpt.com/" target="_blank" class="spotlight-btn">
+                Visit Website
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              </a>
             </div>
-            <div class="spotlight-bg">
-                <div class="spotlight-glow"></div>
-            </div>
+            <div class="spotlight-bg"></div>
           </div>
         </div>
         
         <div class="carousel-slide ">
           <div class="spotlight-card" style="--spotlight-accent: #6366f1">
             <div class="spotlight-content">
-              <div class="spotlight-badge"><span class="fire">🔥</span> Featured Tool</div>
+              <div class="spotlight-badge"><span class="fire">🔥</span> Spotlight</div>
               <div class="spotlight-header">
-                <div class="spotlight-logo"><img src="https://www.google.com/s2/favicons?domain=claude.ai&sz=128" alt="Claude (Anthropic) logo" onerror="this.style.display='none'"></div>
+                <div class="spotlight-logo">
+                  <img src="https://www.google.com/s2/favicons?domain=claude.ai&sz=128" alt="" onerror="this.style.display='none'">
+                </div>
                 <h2>Claude (Anthropic)</h2>
               </div>
               <p class="spotlight-desc">Best for coding, reasoning, long documents</p>
               <div class="spotlight-stars">★★★★★ <span>4.7</span></div>
-              <a href="https://claude.ai" target="_blank" class="spotlight-btn">Visit Website <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+              <a href="https://claude.ai" target="_blank" class="spotlight-btn">
+                Visit Website
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              </a>
             </div>
-            <div class="spotlight-bg">
-                <div class="spotlight-glow"></div>
-            </div>
+            <div class="spotlight-bg"></div>
           </div>
         </div>
         
         <div class="carousel-slide ">
           <div class="spotlight-card" style="--spotlight-accent: #6366f1">
             <div class="spotlight-content">
-              <div class="spotlight-badge"><span class="fire">🔥</span> Featured Tool</div>
+              <div class="spotlight-badge"><span class="fire">🔥</span> Spotlight</div>
               <div class="spotlight-header">
-                <div class="spotlight-logo"><img src="https://www.google.com/s2/favicons?domain=perplexity.ai&sz=128" alt="Perplexity AI logo" onerror="this.style.display='none'"></div>
+                <div class="spotlight-logo">
+                  <img src="https://www.google.com/s2/favicons?domain=perplexity.ai&sz=128" alt="" onerror="this.style.display='none'">
+                </div>
                 <h2>Perplexity AI</h2>
               </div>
               <p class="spotlight-desc">AI search with live citations · research powerhouse</p>
-              <div class="spotlight-stars">★★★★★ <span>4.8</span></div>
-              <a href="https://www.perplexity.ai" target="_blank" class="spotlight-btn">Visit Website <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+              <div class="spotlight-stars">★★★★★ <span>4.6</span></div>
+              <a href="https://www.perplexity.ai" target="_blank" class="spotlight-btn">
+                Visit Website
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              </a>
             </div>
-            <div class="spotlight-bg">
-                <div class="spotlight-glow"></div>
-            </div>
+            <div class="spotlight-bg"></div>
           </div>
         </div>
         
         <div class="carousel-slide ">
           <div class="spotlight-card" style="--spotlight-accent: #ec4899">
             <div class="spotlight-content">
-              <div class="spotlight-badge"><span class="fire">🔥</span> Featured Tool</div>
+              <div class="spotlight-badge"><span class="fire">🔥</span> Spotlight</div>
               <div class="spotlight-header">
-                <div class="spotlight-logo"><img src="https://www.google.com/s2/favicons?domain=midjourney.com&sz=128" alt="Midjourney V8.1 logo" onerror="this.style.display='none'"></div>
+                <div class="spotlight-logo">
+                  <img src="https://www.google.com/s2/favicons?domain=midjourney.com&sz=128" alt="" onerror="this.style.display='none'">
+                </div>
                 <h2>Midjourney V8.1</h2>
               </div>
               <p class="spotlight-desc">Best artistic quality · branding, concept art</p>
-              <div class="spotlight-stars">★★★★★ <span>4.9</span></div>
-              <a href="https://www.midjourney.com" target="_blank" class="spotlight-btn">Visit Website <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+              <div class="spotlight-stars">★★★★★ <span>4.5</span></div>
+              <a href="https://www.midjourney.com" target="_blank" class="spotlight-btn">
+                Visit Website
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              </a>
             </div>
-            <div class="spotlight-bg">
-                <div class="spotlight-glow"></div>
-            </div>
+            <div class="spotlight-bg"></div>
           </div>
         </div>
         
@@ -735,7 +873,24 @@
       </div>
     </section>
 
-    <!-- Category Nav -->
+    <!-- Unified Controls Wrapper -->
+    <div class="controls-wrapper">
+      <div class="search-container">
+        <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+        <input type="text" id="global-search" class="search-input" placeholder="Search ChatGPT, Midjourney, coding agents...">
+      </div>
+      <div class="filter-bar">
+        <button class="filter-pill active" data-filter="all">All Tools</button>
+        <button class="filter-pill" data-filter="FREE">Free Options</button>
+        <button class="filter-pill" data-filter="BUDGET">Budget Friendly</button>
+        <button class="filter-pill" data-filter="TRIAL">Free Trial</button>
+        <button class="filter-pill" data-filter="OPEN">Open Source</button>
+        <button class="filter-pill" data-filter="PAID">Paid Only</button>
+        <button class="filter-pill" data-filter="HOT">Trending</button>
+      </div>
+    </div>
+
+    <!-- Category Nav Bar (All Tools layout) -->
     <div class="category-nav-wrapper" data-scroll-reveal>
       <div class="category-scroll">
         
@@ -802,9 +957,10 @@
       </div>
     </div>
 
-    <!-- Main Grid -->
-    <div id="tools-container">
-        
+    <!-- MAIN VIEWPORTS -->
+    <!-- Viewport A: Grouped categories -->
+    <div id="categories-view">
+      
         <div class="cat-group" id="AI-Assistants-and-Chatbots" style="--cat-accent: #6366f1;">
             <div class="cat-group-header" data-scroll-reveal>
                 <div class="cat-group-icon">💬</div>
@@ -821,7 +977,7 @@
                             <div class="premium-logo"><img src="https://www.google.com/s2/favicons?domain=chatgpt.com&sz=64" alt="" onerror="this.style.display='none'"></div>
                             <div class="premium-rating">
                                 <div class="stars">★★★★★</div>
-                                <span>4.9</span>
+                                <span>4.6</span>
                             </div>
                         </div>
                         <h4 class="premium-name">ChatGPT</h4>
@@ -863,7 +1019,7 @@
                             <div class="premium-logo"><img src="https://www.google.com/s2/favicons?domain=gemini.google.com&sz=64" alt="" onerror="this.style.display='none'"></div>
                             <div class="premium-rating">
                                 <div class="stars">★★★★★</div>
-                                <span>4.7</span>
+                                <span>5.0</span>
                             </div>
                         </div>
                         <h4 class="premium-name">Gemini (Google)</h4>
@@ -884,7 +1040,7 @@
                             <div class="premium-logo"><img src="https://www.google.com/s2/favicons?domain=perplexity.ai&sz=64" alt="" onerror="this.style.display='none'"></div>
                             <div class="premium-rating">
                                 <div class="stars">★★★★★</div>
-                                <span>4.8</span>
+                                <span>4.6</span>
                             </div>
                         </div>
                         <h4 class="premium-name">Perplexity AI</h4>
@@ -905,7 +1061,7 @@
                             <div class="premium-logo"><img src="https://www.google.com/s2/favicons?domain=x.ai&sz=64" alt="" onerror="this.style.display='none'"></div>
                             <div class="premium-rating">
                                 <div class="stars">★★★★★</div>
-                                <span>4.9</span>
+                                <span>4.8</span>
                             </div>
                         </div>
                         <h4 class="premium-name">Grok (xAI)</h4>
@@ -926,7 +1082,7 @@
                             <div class="premium-logo"><img src="https://www.google.com/s2/favicons?domain=copilot.microsoft.com&sz=64" alt="" onerror="this.style.display='none'"></div>
                             <div class="premium-rating">
                                 <div class="stars">★★★★★</div>
-                                <span>4.7</span>
+                                <span>4.6</span>
                             </div>
                         </div>
                         <h4 class="premium-name">Microsoft Copilot</h4>
@@ -947,7 +1103,7 @@
                             <div class="premium-logo"><img src="https://www.google.com/s2/favicons?domain=chat.deepseek.com&sz=64" alt="" onerror="this.style.display='none'"></div>
                             <div class="premium-rating">
                                 <div class="stars">★★★★★</div>
-                                <span>4.8</span>
+                                <span>4.6</span>
                             </div>
                         </div>
                         <h4 class="premium-name">DeepSeek</h4>
@@ -968,7 +1124,7 @@
                             <div class="premium-logo"><img src="https://www.google.com/s2/favicons?domain=huggingface.co&sz=64" alt="" onerror="this.style.display='none'"></div>
                             <div class="premium-rating">
                                 <div class="stars">★★★★★</div>
-                                <span>4.9</span>
+                                <span>4.6</span>
                             </div>
                         </div>
                         <h4 class="premium-name">HuggingChat</h4>
@@ -1002,7 +1158,7 @@
                             <div class="premium-logo"><img src="https://www.google.com/s2/favicons?domain=midjourney.com&sz=64" alt="" onerror="this.style.display='none'"></div>
                             <div class="premium-rating">
                                 <div class="stars">★★★★★</div>
-                                <span>4.9</span>
+                                <span>4.5</span>
                             </div>
                         </div>
                         <h4 class="premium-name">Midjourney V8.1</h4>
@@ -1023,7 +1179,7 @@
                             <div class="premium-logo"><img src="https://www.google.com/s2/favicons?domain=openai.com&sz=64" alt="" onerror="this.style.display='none'"></div>
                             <div class="premium-rating">
                                 <div class="stars">★★★★★</div>
-                                <span>4.7</span>
+                                <span>4.8</span>
                             </div>
                         </div>
                         <h4 class="premium-name">DALL-E 3 (OpenAI)</h4>
@@ -1044,7 +1200,7 @@
                             <div class="premium-logo"><img src="https://www.google.com/s2/favicons?domain=firefly.adobe.com&sz=64" alt="" onerror="this.style.display='none'"></div>
                             <div class="premium-rating">
                                 <div class="stars">★★★★★</div>
-                                <span>4.8</span>
+                                <span>4.6</span>
                             </div>
                         </div>
                         <h4 class="premium-name">Adobe Firefly</h4>
@@ -1086,7 +1242,7 @@
                             <div class="premium-logo"><img src="https://www.google.com/s2/favicons?domain=ideogram.ai&sz=64" alt="" onerror="this.style.display='none'"></div>
                             <div class="premium-rating">
                                 <div class="stars">★★★★★</div>
-                                <span>4.8</span>
+                                <span>4.7</span>
                             </div>
                         </div>
                         <h4 class="premium-name">Ideogram 4.0</h4>
@@ -1128,7 +1284,7 @@
                             <div class="premium-logo"><img src="https://www.google.com/s2/favicons?domain=canva.com&sz=64" alt="" onerror="this.style.display='none'"></div>
                             <div class="premium-rating">
                                 <div class="stars">★★★★★</div>
-                                <span>4.9</span>
+                                <span>4.5</span>
                             </div>
                         </div>
                         <h4 class="premium-name">Canva AI (Magic Studio)</h4>
@@ -1149,7 +1305,7 @@
                             <div class="premium-logo"><img src="https://www.google.com/s2/favicons?domain=bfl.ai&sz=64" alt="" onerror="this.style.display='none'"></div>
                             <div class="premium-rating">
                                 <div class="stars">★★★★★</div>
-                                <span>5.0</span>
+                                <span>4.7</span>
                             </div>
                         </div>
                         <h4 class="premium-name">Flux 2 (Black Forest Labs)</h4>
@@ -1183,7 +1339,7 @@
                             <div class="premium-logo"><img src="https://www.google.com/s2/favicons?domain=runwayml.com&sz=64" alt="" onerror="this.style.display='none'"></div>
                             <div class="premium-rating">
                                 <div class="stars">★★★★★</div>
-                                <span>5.0</span>
+                                <span>4.5</span>
                             </div>
                         </div>
                         <h4 class="premium-name">Runway ML (Gen-4.5)</h4>
@@ -1204,7 +1360,7 @@
                             <div class="premium-logo"><img src="https://www.google.com/s2/favicons?domain=deepmind.google&sz=64" alt="" onerror="this.style.display='none'"></div>
                             <div class="premium-rating">
                                 <div class="stars">★★★★★</div>
-                                <span>4.8</span>
+                                <span>4.5</span>
                             </div>
                         </div>
                         <h4 class="premium-name">Veo 3.1 (Google)</h4>
@@ -1225,7 +1381,7 @@
                             <div class="premium-logo"><img src="https://www.google.com/s2/favicons?domain=pika.art&sz=64" alt="" onerror="this.style.display='none'"></div>
                             <div class="premium-rating">
                                 <div class="stars">★★★★★</div>
-                                <span>4.9</span>
+                                <span>5.0</span>
                             </div>
                         </div>
                         <h4 class="premium-name">Pika Labs</h4>
@@ -1288,7 +1444,7 @@
                             <div class="premium-logo"><img src="https://www.google.com/s2/favicons?domain=synthesia.io&sz=64" alt="" onerror="this.style.display='none'"></div>
                             <div class="premium-rating">
                                 <div class="stars">★★★★★</div>
-                                <span>4.7</span>
+                                <span>4.9</span>
                             </div>
                         </div>
                         <h4 class="premium-name">Synthesia</h4>
@@ -1322,7 +1478,7 @@
                             <div class="premium-logo"><img src="https://www.google.com/s2/favicons?domain=elevenlabs.io&sz=64" alt="" onerror="this.style.display='none'"></div>
                             <div class="premium-rating">
                                 <div class="stars">★★★★★</div>
-                                <span>4.9</span>
+                                <span>4.8</span>
                             </div>
                         </div>
                         <h4 class="premium-name">ElevenLabs</h4>
@@ -1343,7 +1499,7 @@
                             <div class="premium-logo"><img src="https://www.google.com/s2/favicons?domain=suno.com&sz=64" alt="" onerror="this.style.display='none'"></div>
                             <div class="premium-rating">
                                 <div class="stars">★★★★★</div>
-                                <span>4.9</span>
+                                <span>4.7</span>
                             </div>
                         </div>
                         <h4 class="premium-name">Suno V5.5</h4>
@@ -1364,7 +1520,7 @@
                             <div class="premium-logo"><img src="https://www.google.com/s2/favicons?domain=podcast.adobe.com&sz=64" alt="" onerror="this.style.display='none'"></div>
                             <div class="premium-rating">
                                 <div class="stars">★★★★★</div>
-                                <span>4.8</span>
+                                <span>4.5</span>
                             </div>
                         </div>
                         <h4 class="premium-name">Adobe Podcast (Enhance)</h4>
@@ -1406,7 +1562,7 @@
                             <div class="premium-logo"><img src="https://www.google.com/s2/favicons?domain=murf.ai&sz=64" alt="" onerror="this.style.display='none'"></div>
                             <div class="premium-rating">
                                 <div class="stars">★★★★★</div>
-                                <span>4.9</span>
+                                <span>4.5</span>
                             </div>
                         </div>
                         <h4 class="premium-name">Murf AI</h4>
@@ -1440,7 +1596,7 @@
                             <div class="premium-logo"><img src="https://www.google.com/s2/favicons?domain=cursor.com&sz=64" alt="" onerror="this.style.display='none'"></div>
                             <div class="premium-rating">
                                 <div class="stars">★★★★★</div>
-                                <span>4.8</span>
+                                <span>4.6</span>
                             </div>
                         </div>
                         <h4 class="premium-name">Cursor</h4>
@@ -1503,7 +1659,7 @@
                             <div class="premium-logo"><img src="https://www.google.com/s2/favicons?domain=replit.com&sz=64" alt="" onerror="this.style.display='none'"></div>
                             <div class="premium-rating">
                                 <div class="stars">★★★★★</div>
-                                <span>4.8</span>
+                                <span>5.0</span>
                             </div>
                         </div>
                         <h4 class="premium-name">Replit AI</h4>
@@ -1524,7 +1680,7 @@
                             <div class="premium-logo"><img src="https://www.google.com/s2/favicons?domain=devin.ai&sz=64" alt="" onerror="this.style.display='none'"></div>
                             <div class="premium-rating">
                                 <div class="stars">★★★★★</div>
-                                <span>4.9</span>
+                                <span>4.7</span>
                             </div>
                         </div>
                         <h4 class="premium-name">Windsurf (Codeium)</h4>
@@ -1545,7 +1701,7 @@
                             <div class="premium-logo"><img src="https://www.google.com/s2/favicons?domain=v0.dev&sz=64" alt="" onerror="this.style.display='none'"></div>
                             <div class="premium-rating">
                                 <div class="stars">★★★★★</div>
-                                <span>4.7</span>
+                                <span>4.8</span>
                             </div>
                         </div>
                         <h4 class="premium-name">v0 (Vercel)</h4>
@@ -1579,7 +1735,7 @@
                             <div class="premium-logo"><img src="https://www.google.com/s2/favicons?domain=jasper.ai&sz=64" alt="" onerror="this.style.display='none'"></div>
                             <div class="premium-rating">
                                 <div class="stars">★★★★★</div>
-                                <span>4.8</span>
+                                <span>4.7</span>
                             </div>
                         </div>
                         <h4 class="premium-name">Jasper AI</h4>
@@ -1600,7 +1756,7 @@
                             <div class="premium-logo"><img src="https://www.google.com/s2/favicons?domain=copy.ai&sz=64" alt="" onerror="this.style.display='none'"></div>
                             <div class="premium-rating">
                                 <div class="stars">★★★★★</div>
-                                <span>5.0</span>
+                                <span>4.5</span>
                             </div>
                         </div>
                         <h4 class="premium-name">Copy.ai</h4>
@@ -1621,7 +1777,7 @@
                             <div class="premium-logo"><img src="https://www.google.com/s2/favicons?domain=writesonic.com&sz=64" alt="" onerror="this.style.display='none'"></div>
                             <div class="premium-rating">
                                 <div class="stars">★★★★★</div>
-                                <span>4.9</span>
+                                <span>4.5</span>
                             </div>
                         </div>
                         <h4 class="premium-name">Writesonic</h4>
@@ -1663,7 +1819,7 @@
                             <div class="premium-logo"><img src="https://www.google.com/s2/favicons?domain=grammarly.com&sz=64" alt="" onerror="this.style.display='none'"></div>
                             <div class="premium-rating">
                                 <div class="stars">★★★★★</div>
-                                <span>5.0</span>
+                                <span>4.7</span>
                             </div>
                         </div>
                         <h4 class="premium-name">Grammarly</h4>
@@ -1684,7 +1840,7 @@
                             <div class="premium-logo"><img src="https://www.google.com/s2/favicons?domain=notion.so&sz=64" alt="" onerror="this.style.display='none'"></div>
                             <div class="premium-rating">
                                 <div class="stars">★★★★★</div>
-                                <span>5.0</span>
+                                <span>4.7</span>
                             </div>
                         </div>
                         <h4 class="premium-name">Notion AI</h4>
@@ -1705,7 +1861,7 @@
                             <div class="premium-logo"><img src="https://www.google.com/s2/favicons?domain=quillbot.com&sz=64" alt="" onerror="this.style.display='none'"></div>
                             <div class="premium-rating">
                                 <div class="stars">★★★★★</div>
-                                <span>4.7</span>
+                                <span>4.9</span>
                             </div>
                         </div>
                         <h4 class="premium-name">Quillbot</h4>
@@ -1760,7 +1916,7 @@
                             <div class="premium-logo"><img src="https://www.google.com/s2/favicons?domain=elicit.com&sz=64" alt="" onerror="this.style.display='none'"></div>
                             <div class="premium-rating">
                                 <div class="stars">★★★★★</div>
-                                <span>4.7</span>
+                                <span>4.5</span>
                             </div>
                         </div>
                         <h4 class="premium-name">Elicit</h4>
@@ -1781,7 +1937,7 @@
                             <div class="premium-logo"><img src="https://www.google.com/s2/favicons?domain=consensus.app&sz=64" alt="" onerror="this.style.display='none'"></div>
                             <div class="premium-rating">
                                 <div class="stars">★★★★★</div>
-                                <span>4.8</span>
+                                <span>4.5</span>
                             </div>
                         </div>
                         <h4 class="premium-name">Consensus</h4>
@@ -1802,7 +1958,7 @@
                             <div class="premium-logo"><img src="https://www.google.com/s2/favicons?domain=napkin.ai&sz=64" alt="" onerror="this.style.display='none'"></div>
                             <div class="premium-rating">
                                 <div class="stars">★★★★★</div>
-                                <span>4.8</span>
+                                <span>5.0</span>
                             </div>
                         </div>
                         <h4 class="premium-name">Napkin AI</h4>
@@ -1823,7 +1979,7 @@
                             <div class="premium-logo"><img src="https://www.google.com/s2/favicons?domain=gamma.app&sz=64" alt="" onerror="this.style.display='none'"></div>
                             <div class="premium-rating">
                                 <div class="stars">★★★★★</div>
-                                <span>4.8</span>
+                                <span>5.0</span>
                             </div>
                         </div>
                         <h4 class="premium-name">Gamma</h4>
@@ -1857,7 +2013,7 @@
                             <div class="premium-logo"><img src="https://www.google.com/s2/favicons?domain=figma.com&sz=64" alt="" onerror="this.style.display='none'"></div>
                             <div class="premium-rating">
                                 <div class="stars">★★★★★</div>
-                                <span>4.7</span>
+                                <span>4.6</span>
                             </div>
                         </div>
                         <h4 class="premium-name">Figma AI</h4>
@@ -1878,7 +2034,7 @@
                             <div class="premium-logo"><img src="https://www.google.com/s2/favicons?domain=looka.com&sz=64" alt="" onerror="this.style.display='none'"></div>
                             <div class="premium-rating">
                                 <div class="stars">★★★★★</div>
-                                <span>4.8</span>
+                                <span>4.6</span>
                             </div>
                         </div>
                         <h4 class="premium-name">Looka</h4>
@@ -1899,7 +2055,7 @@
                             <div class="premium-logo"><img src="https://www.google.com/s2/favicons?domain=uizard.io&sz=64" alt="" onerror="this.style.display='none'"></div>
                             <div class="premium-rating">
                                 <div class="stars">★★★★★</div>
-                                <span>4.9</span>
+                                <span>4.8</span>
                             </div>
                         </div>
                         <h4 class="premium-name">Uizard</h4>
@@ -1954,7 +2110,7 @@
                             <div class="premium-logo"><img src="https://www.google.com/s2/favicons?domain=n8n.io&sz=64" alt="" onerror="this.style.display='none'"></div>
                             <div class="premium-rating">
                                 <div class="stars">★★★★★</div>
-                                <span>4.9</span>
+                                <span>4.8</span>
                             </div>
                         </div>
                         <h4 class="premium-name">n8n</h4>
@@ -1975,7 +2131,7 @@
                             <div class="premium-logo"><img src="https://www.google.com/s2/favicons?domain=zapier.com&sz=64" alt="" onerror="this.style.display='none'"></div>
                             <div class="premium-rating">
                                 <div class="stars">★★★★★</div>
-                                <span>5.0</span>
+                                <span>4.6</span>
                             </div>
                         </div>
                         <h4 class="premium-name">Zapier</h4>
@@ -1996,7 +2152,7 @@
                             <div class="premium-logo"><img src="https://www.google.com/s2/favicons?domain=make.com&sz=64" alt="" onerror="this.style.display='none'"></div>
                             <div class="premium-rating">
                                 <div class="stars">★★★★★</div>
-                                <span>4.8</span>
+                                <span>4.6</span>
                             </div>
                         </div>
                         <h4 class="premium-name">Make (Integromat)</h4>
@@ -2017,7 +2173,7 @@
                             <div class="premium-logo"><img src="https://www.google.com/s2/favicons?domain=lindy.ai&sz=64" alt="" onerror="this.style.display='none'"></div>
                             <div class="premium-rating">
                                 <div class="stars">★★★★★</div>
-                                <span>4.8</span>
+                                <span>4.6</span>
                             </div>
                         </div>
                         <h4 class="premium-name">Lindy AI</h4>
@@ -2051,7 +2207,7 @@
                             <div class="premium-logo"><img src="https://www.google.com/s2/favicons?domain=surferseo.com&sz=64" alt="" onerror="this.style.display='none'"></div>
                             <div class="premium-rating">
                                 <div class="stars">★★★★★</div>
-                                <span>4.8</span>
+                                <span>4.5</span>
                             </div>
                         </div>
                         <h4 class="premium-name">Surfer SEO</h4>
@@ -2072,7 +2228,7 @@
                             <div class="premium-logo"><img src="https://www.google.com/s2/favicons?domain=hubspot.com&sz=64" alt="" onerror="this.style.display='none'"></div>
                             <div class="premium-rating">
                                 <div class="stars">★★★★★</div>
-                                <span>4.8</span>
+                                <span>5.0</span>
                             </div>
                         </div>
                         <h4 class="premium-name">HubSpot AI</h4>
@@ -2093,7 +2249,7 @@
                             <div class="premium-logo"><img src="https://www.google.com/s2/favicons?domain=tidio.com&sz=64" alt="" onerror="this.style.display='none'"></div>
                             <div class="premium-rating">
                                 <div class="stars">★★★★★</div>
-                                <span>4.7</span>
+                                <span>4.9</span>
                             </div>
                         </div>
                         <h4 class="premium-name">Tidio AI (Lyro)</h4>
@@ -2114,7 +2270,7 @@
                             <div class="premium-logo"><img src="https://www.google.com/s2/favicons?domain=adcreative.ai&sz=64" alt="" onerror="this.style.display='none'"></div>
                             <div class="premium-rating">
                                 <div class="stars">★★★★★</div>
-                                <span>5.0</span>
+                                <span>4.5</span>
                             </div>
                         </div>
                         <h4 class="premium-name">AdCreative.ai</h4>
@@ -2169,7 +2325,7 @@
                             <div class="premium-logo"><img src="https://www.google.com/s2/favicons?domain=otter.ai&sz=64" alt="" onerror="this.style.display='none'"></div>
                             <div class="premium-rating">
                                 <div class="stars">★★★★★</div>
-                                <span>4.8</span>
+                                <span>4.5</span>
                             </div>
                         </div>
                         <h4 class="premium-name">Otter.ai</h4>
@@ -2190,7 +2346,7 @@
                             <div class="premium-logo"><img src="https://www.google.com/s2/favicons?domain=fireflies.ai&sz=64" alt="" onerror="this.style.display='none'"></div>
                             <div class="premium-rating">
                                 <div class="stars">★★★★★</div>
-                                <span>5.0</span>
+                                <span>4.7</span>
                             </div>
                         </div>
                         <h4 class="premium-name">Fireflies.ai</h4>
@@ -2211,7 +2367,7 @@
                             <div class="premium-logo"><img src="https://www.google.com/s2/favicons?domain=krisp.ai&sz=64" alt="" onerror="this.style.display='none'"></div>
                             <div class="premium-rating">
                                 <div class="stars">★★★★★</div>
-                                <span>4.8</span>
+                                <span>4.6</span>
                             </div>
                         </div>
                         <h4 class="premium-name">Krisp</h4>
@@ -2232,7 +2388,7 @@
                             <div class="premium-logo"><img src="https://www.google.com/s2/favicons?domain=tldv.io&sz=64" alt="" onerror="this.style.display='none'"></div>
                             <div class="premium-rating">
                                 <div class="stars">★★★★★</div>
-                                <span>4.7</span>
+                                <span>4.9</span>
                             </div>
                         </div>
                         <h4 class="premium-name">Tldv</h4>
@@ -2287,7 +2443,7 @@
                             <div class="premium-logo"><img src="https://www.google.com/s2/favicons?domain=research.duolingo.com&sz=64" alt="" onerror="this.style.display='none'"></div>
                             <div class="premium-rating">
                                 <div class="stars">★★★★★</div>
-                                <span>5.0</span>
+                                <span>4.6</span>
                             </div>
                         </div>
                         <h4 class="premium-name">Duolingo Max</h4>
@@ -2327,78 +2483,1494 @@
         </div>
         
     </div>
-    
+
+    <!-- Viewport B: Unified grid layout (loaded dynamically on filters) -->
+    <div id="unified-view" style="display: none;">
+      <div class="cat-group">
+         <div class="cat-group-header">
+            <div class="cat-group-icon">🔎</div>
+            <div class="cat-group-title-wrap">
+               <h3 class="cat-group-title" id="unified-title">Filtered Results</h3>
+               <p class="cat-group-tagline" id="unified-tagline">Searching the directory</p>
+            </div>
+         </div>
+         <div class="unified-results-grid" id="unified-grid">
+            <!-- Dynamic unified content -->
+         </div>
+      </div>
+    </div>
   </main>
 
   <!-- Scripts -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/particles.js/2.0.0/particles.min.js"></script>
-  <!-- Vanilla Tilt for 3D Cards -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.8.0/vanilla-tilt.min.js"></script>
   
   <script>
+    // Embedded Database
+    const TOOLS_DATABASE = [
+  {
+    "num": "01",
+    "name": "ChatGPT",
+    "url": "https://chatgpt.com/",
+    "domain": "chatgpt.com",
+    "desc": "Best all-rounder · writing, coding, research, images",
+    "badges": [
+      {
+        "text": "FREE",
+        "class": "b-free"
+      },
+      {
+        "text": "$8/mo",
+        "class": "b-budget"
+      },
+      {
+        "text": "🔥 HOT",
+        "class": "b-hot"
+      }
+    ],
+    "cat_title": "AI Assistants & Chatbots",
+    "accent": "#6366f1",
+    "icon": "💬",
+    "rating": "4.6"
+  },
+  {
+    "num": "02",
+    "name": "Claude (Anthropic)",
+    "url": "https://claude.ai",
+    "domain": "claude.ai",
+    "desc": "Best for coding, reasoning, long documents",
+    "badges": [
+      {
+        "text": "FREE",
+        "class": "b-free"
+      },
+      {
+        "text": "$20/mo Pro",
+        "class": "b-budget"
+      },
+      {
+        "text": "🔥 HOT",
+        "class": "b-hot"
+      }
+    ],
+    "cat_title": "AI Assistants & Chatbots",
+    "accent": "#6366f1",
+    "icon": "💬",
+    "rating": "4.7"
+  },
+  {
+    "num": "03",
+    "name": "Gemini (Google)",
+    "url": "https://gemini.google.com",
+    "domain": "gemini.google.com",
+    "desc": "Deep Google Workspace integration · large context",
+    "badges": [
+      {
+        "text": "FREE",
+        "class": "b-free"
+      },
+      {
+        "text": "$20/mo Advanced",
+        "class": "b-budget"
+      }
+    ],
+    "cat_title": "AI Assistants & Chatbots",
+    "accent": "#6366f1",
+    "icon": "💬",
+    "rating": "5.0"
+  },
+  {
+    "num": "04",
+    "name": "Perplexity AI",
+    "url": "https://www.perplexity.ai",
+    "domain": "perplexity.ai",
+    "desc": "AI search with live citations · research powerhouse",
+    "badges": [
+      {
+        "text": "FREE",
+        "class": "b-free"
+      },
+      {
+        "text": "$20/mo Pro",
+        "class": "b-budget"
+      },
+      {
+        "text": "🔥 HOT",
+        "class": "b-hot"
+      }
+    ],
+    "cat_title": "AI Assistants & Chatbots",
+    "accent": "#6366f1",
+    "icon": "💬",
+    "rating": "4.6"
+  },
+  {
+    "num": "05",
+    "name": "Grok (xAI)",
+    "url": "https://x.ai/grok",
+    "domain": "x.ai",
+    "desc": "Real-time X/Twitter data · current events focus",
+    "badges": [
+      {
+        "text": "FREE",
+        "class": "b-free"
+      },
+      {
+        "text": "$8/mo Premium",
+        "class": "b-budget"
+      }
+    ],
+    "cat_title": "AI Assistants & Chatbots",
+    "accent": "#6366f1",
+    "icon": "💬",
+    "rating": "4.8"
+  },
+  {
+    "num": "06",
+    "name": "Microsoft Copilot",
+    "url": "https://copilot.microsoft.com",
+    "domain": "copilot.microsoft.com",
+    "desc": "Integrated into Windows, Office 365, Teams",
+    "badges": [
+      {
+        "text": "FREE",
+        "class": "b-free"
+      },
+      {
+        "text": "Included in M365",
+        "class": "b-budget"
+      }
+    ],
+    "cat_title": "AI Assistants & Chatbots",
+    "accent": "#6366f1",
+    "icon": "💬",
+    "rating": "4.6"
+  },
+  {
+    "num": "07",
+    "name": "DeepSeek",
+    "url": "https://chat.deepseek.com",
+    "domain": "chat.deepseek.com",
+    "desc": "Strong reasoning · DeepSeek-V4 Pro / V4-Flash · open weights",
+    "badges": [
+      {
+        "text": "FREE",
+        "class": "b-free"
+      },
+      {
+        "text": "OPEN",
+        "class": "b-open"
+      }
+    ],
+    "cat_title": "AI Assistants & Chatbots",
+    "accent": "#6366f1",
+    "icon": "💬",
+    "rating": "4.6"
+  },
+  {
+    "num": "08",
+    "name": "HuggingChat",
+    "url": "https://huggingface.co/chat/",
+    "domain": "huggingface.co",
+    "desc": "Open-source chatbot · multiple models · no login needed",
+    "badges": [
+      {
+        "text": "FREE",
+        "class": "b-free"
+      },
+      {
+        "text": "OPEN",
+        "class": "b-open"
+      }
+    ],
+    "cat_title": "AI Assistants & Chatbots",
+    "accent": "#6366f1",
+    "icon": "💬",
+    "rating": "4.6"
+  },
+  {
+    "num": "09",
+    "name": "Midjourney V8.1",
+    "url": "https://www.midjourney.com",
+    "domain": "midjourney.com",
+    "desc": "Best artistic quality · branding, concept art",
+    "badges": [
+      {
+        "text": "$10/mo Basic",
+        "class": "b-budget"
+      },
+      {
+        "text": "🔥 HOT",
+        "class": "b-hot"
+      }
+    ],
+    "cat_title": "Image Generation & Design",
+    "accent": "#ec4899",
+    "icon": "🎨",
+    "rating": "4.5"
+  },
+  {
+    "num": "10",
+    "name": "DALL-E 3 (OpenAI)",
+    "url": "https://openai.com/index/dall-e-3/",
+    "domain": "openai.com",
+    "desc": "Fast generation · inside ChatGPT · great for utility",
+    "badges": [
+      {
+        "text": "FREE",
+        "class": "b-free"
+      },
+      {
+        "text": "Via ChatGPT $8/mo",
+        "class": "b-budget"
+      }
+    ],
+    "cat_title": "Image Generation & Design",
+    "accent": "#ec4899",
+    "icon": "🎨",
+    "rating": "4.8"
+  },
+  {
+    "num": "11",
+    "name": "Adobe Firefly",
+    "url": "https://firefly.adobe.com",
+    "domain": "firefly.adobe.com",
+    "desc": "Commercial-safe · licensed stock training data",
+    "badges": [
+      {
+        "text": "25 free credits",
+        "class": "b-trial"
+      },
+      {
+        "text": "$10/mo",
+        "class": "b-budget"
+      }
+    ],
+    "cat_title": "Image Generation & Design",
+    "accent": "#ec4899",
+    "icon": "🎨",
+    "rating": "4.6"
+  },
+  {
+    "num": "12",
+    "name": "Leonardo AI",
+    "url": "https://leonardo.ai",
+    "domain": "leonardo.ai",
+    "desc": "Product & game art focus · generous free tier",
+    "badges": [
+      {
+        "text": "FREE",
+        "class": "b-free"
+      },
+      {
+        "text": "$12/mo Essential",
+        "class": "b-budget"
+      }
+    ],
+    "cat_title": "Image Generation & Design",
+    "accent": "#ec4899",
+    "icon": "🎨",
+    "rating": "4.8"
+  },
+  {
+    "num": "13",
+    "name": "Ideogram 4.0",
+    "url": "https://ideogram.ai",
+    "domain": "ideogram.ai",
+    "desc": "Best for text inside images · 2K resolution · transparent PNG · open weights",
+    "badges": [
+      {
+        "text": "FREE",
+        "class": "b-free"
+      },
+      {
+        "text": "$8/mo Basic",
+        "class": "b-budget"
+      },
+      {
+        "text": "🔥 HOT",
+        "class": "b-hot"
+      }
+    ],
+    "cat_title": "Image Generation & Design",
+    "accent": "#ec4899",
+    "icon": "🎨",
+    "rating": "4.7"
+  },
+  {
+    "num": "14",
+    "name": "Stable Diffusion",
+    "url": "https://stability.ai",
+    "domain": "stability.ai",
+    "desc": "Run locally · fully open-source · unlimited generations",
+    "badges": [
+      {
+        "text": "FREE",
+        "class": "b-free"
+      },
+      {
+        "text": "OPEN",
+        "class": "b-open"
+      }
+    ],
+    "cat_title": "Image Generation & Design",
+    "accent": "#ec4899",
+    "icon": "🎨",
+    "rating": "5.0"
+  },
+  {
+    "num": "15",
+    "name": "Canva AI (Magic Studio)",
+    "url": "https://www.canva.com/ai-image-generator/",
+    "domain": "canva.com",
+    "desc": "Design + AI generation · templates · social media",
+    "badges": [
+      {
+        "text": "FREE",
+        "class": "b-free"
+      },
+      {
+        "text": "$12/mo Pro",
+        "class": "b-budget"
+      }
+    ],
+    "cat_title": "Image Generation & Design",
+    "accent": "#ec4899",
+    "icon": "🎨",
+    "rating": "4.5"
+  },
+  {
+    "num": "16",
+    "name": "Flux 2 (Black Forest Labs)",
+    "url": "https://bfl.ai/",
+    "domain": "bfl.ai",
+    "desc": "High-realism open model · Flux 2 Max / Pro / Dev lineup",
+    "badges": [
+      {
+        "text": "FREE",
+        "class": "b-free"
+      },
+      {
+        "text": "OPEN",
+        "class": "b-open"
+      },
+      {
+        "text": "🔥 HOT",
+        "class": "b-hot"
+      }
+    ],
+    "cat_title": "Image Generation & Design",
+    "accent": "#ec4899",
+    "icon": "🎨",
+    "rating": "4.7"
+  },
+  {
+    "num": "17",
+    "name": "Runway ML (Gen-4.5)",
+    "url": "https://runwayml.com",
+    "domain": "runwayml.com",
+    "desc": "Best cinematic AI video · Aleph editor · Act-Two MoCap",
+    "badges": [
+      {
+        "text": "125 free credits",
+        "class": "b-trial"
+      },
+      {
+        "text": "$12/mo Std",
+        "class": "b-budget"
+      },
+      {
+        "text": "🔥 HOT",
+        "class": "b-hot"
+      }
+    ],
+    "cat_title": "Video Generation & Editing",
+    "accent": "#f59e0b",
+    "icon": "📹",
+    "rating": "4.5"
+  },
+  {
+    "num": "18",
+    "name": "Veo 3.1 (Google)",
+    "url": "https://deepmind.google/models/veo/",
+    "domain": "deepmind.google",
+    "desc": "Realistic scenes · Google's flagship video model",
+    "badges": [
+      {
+        "text": "Via AI Ultra $249/mo",
+        "class": "b-paid"
+      },
+      {
+        "text": "🔥 HOT",
+        "class": "b-hot"
+      }
+    ],
+    "cat_title": "Video Generation & Editing",
+    "accent": "#f59e0b",
+    "icon": "📹",
+    "rating": "4.5"
+  },
+  {
+    "num": "19",
+    "name": "Pika Labs",
+    "url": "https://pika.art",
+    "domain": "pika.art",
+    "desc": "Quick short-form clips · social media focused · affordable",
+    "badges": [
+      {
+        "text": "FREE tier",
+        "class": "b-free"
+      },
+      {
+        "text": "$8/mo Basic",
+        "class": "b-budget"
+      }
+    ],
+    "cat_title": "Video Generation & Editing",
+    "accent": "#f59e0b",
+    "icon": "📹",
+    "rating": "5.0"
+  },
+  {
+    "num": "20",
+    "name": "Kling AI 3.5",
+    "url": "https://kling.ai/",
+    "domain": "kling.ai",
+    "desc": "Motion & image-to-video · Kling 3.5 with browser platform",
+    "badges": [
+      {
+        "text": "FREE",
+        "class": "b-free"
+      },
+      {
+        "text": "$10/mo",
+        "class": "b-budget"
+      }
+    ],
+    "cat_title": "Video Generation & Editing",
+    "accent": "#f59e0b",
+    "icon": "📹",
+    "rating": "4.8"
+  },
+  {
+    "num": "21",
+    "name": "Descript",
+    "url": "https://www.descript.com",
+    "domain": "descript.com",
+    "desc": "Edit video like a doc · overdub voice · transcript editing",
+    "badges": [
+      {
+        "text": "FREE",
+        "class": "b-free"
+      },
+      {
+        "text": "$12/mo Hobbyist",
+        "class": "b-budget"
+      }
+    ],
+    "cat_title": "Video Generation & Editing",
+    "accent": "#f59e0b",
+    "icon": "📹",
+    "rating": "4.7"
+  },
+  {
+    "num": "22",
+    "name": "Synthesia",
+    "url": "https://www.synthesia.io",
+    "domain": "synthesia.io",
+    "desc": "AI avatar presenter videos · no camera needed · training",
+    "badges": [
+      {
+        "text": "FREE 3 mins/mo",
+        "class": "b-free"
+      },
+      {
+        "text": "$18/mo Starter",
+        "class": "b-budget"
+      }
+    ],
+    "cat_title": "Video Generation & Editing",
+    "accent": "#f59e0b",
+    "icon": "📹",
+    "rating": "4.9"
+  },
+  {
+    "num": "23",
+    "name": "ElevenLabs",
+    "url": "https://elevenlabs.io",
+    "domain": "elevenlabs.io",
+    "desc": "Most realistic AI voices · dubbing · 30+ languages",
+    "badges": [
+      {
+        "text": "FREE 10k chars/mo",
+        "class": "b-free"
+      },
+      {
+        "text": "$5/mo Starter",
+        "class": "b-budget"
+      },
+      {
+        "text": "🔥 HOT",
+        "class": "b-hot"
+      }
+    ],
+    "cat_title": "Audio, Voice & Music",
+    "accent": "#10b981",
+    "icon": "🎵",
+    "rating": "4.8"
+  },
+  {
+    "num": "24",
+    "name": "Suno V5.5",
+    "url": "https://suno.com",
+    "domain": "suno.com",
+    "desc": "Full songs with vocals from text prompt · music creation",
+    "badges": [
+      {
+        "text": "FREE 50 songs/day",
+        "class": "b-free"
+      },
+      {
+        "text": "$8/mo Pro",
+        "class": "b-budget"
+      }
+    ],
+    "cat_title": "Audio, Voice & Music",
+    "accent": "#10b981",
+    "icon": "🎵",
+    "rating": "4.7"
+  },
+  {
+    "num": "25",
+    "name": "Adobe Podcast (Enhance)",
+    "url": "https://podcast.adobe.com",
+    "domain": "podcast.adobe.com",
+    "desc": "Studio-quality audio from any mic · noise removal",
+    "badges": [
+      {
+        "text": "FREE",
+        "class": "b-free"
+      }
+    ],
+    "cat_title": "Audio, Voice & Music",
+    "accent": "#10b981",
+    "icon": "🎵",
+    "rating": "4.5"
+  },
+  {
+    "num": "26",
+    "name": "Whisper (OpenAI)",
+    "url": "https://openai.com/index/whisper/",
+    "domain": "openai.com",
+    "desc": "Best speech-to-text · open-source · 99 languages",
+    "badges": [
+      {
+        "text": "FREE",
+        "class": "b-free"
+      },
+      {
+        "text": "OPEN",
+        "class": "b-open"
+      }
+    ],
+    "cat_title": "Audio, Voice & Music",
+    "accent": "#10b981",
+    "icon": "🎵",
+    "rating": "4.8"
+  },
+  {
+    "num": "27",
+    "name": "Murf AI",
+    "url": "https://murf.ai",
+    "domain": "murf.ai",
+    "desc": "120+ AI voices · e-learning & explainer voiceovers",
+    "badges": [
+      {
+        "text": "FREE 10 mins",
+        "class": "b-free"
+      },
+      {
+        "text": "$13/mo Basic",
+        "class": "b-budget"
+      }
+    ],
+    "cat_title": "Audio, Voice & Music",
+    "accent": "#10b981",
+    "icon": "🎵",
+    "rating": "4.5"
+  },
+  {
+    "num": "28",
+    "name": "Cursor",
+    "url": "https://cursor.com/",
+    "domain": "cursor.com",
+    "desc": "AI-native code editor · agent mode · best for solo devs",
+    "badges": [
+      {
+        "text": "FREE Hobby",
+        "class": "b-free"
+      },
+      {
+        "text": "$20/mo Pro",
+        "class": "b-budget"
+      },
+      {
+        "text": "🔥 HOT",
+        "class": "b-hot"
+      }
+    ],
+    "cat_title": "Coding & Development",
+    "accent": "#3b82f6",
+    "icon": "💻",
+    "rating": "4.6"
+  },
+  {
+    "num": "29",
+    "name": "GitHub Copilot",
+    "url": "https://github.com/features/copilot",
+    "domain": "github.com",
+    "desc": "In-IDE suggestions · deeply integrated with VS Code",
+    "badges": [
+      {
+        "text": "FREE for students",
+        "class": "b-free"
+      },
+      {
+        "text": "$10/mo",
+        "class": "b-budget"
+      }
+    ],
+    "cat_title": "Coding & Development",
+    "accent": "#3b82f6",
+    "icon": "💻",
+    "rating": "4.7"
+  },
+  {
+    "num": "30",
+    "name": "Claude Code",
+    "url": "https://claude.ai/code",
+    "domain": "claude.ai",
+    "desc": "Terminal-based agentic coding · Opus 4.6 / Sonnet 4.6 / Haiku 4.5",
+    "badges": [
+      {
+        "text": "Free trial credits",
+        "class": "b-trial"
+      },
+      {
+        "text": "🔥 HOT",
+        "class": "b-hot"
+      }
+    ],
+    "cat_title": "Coding & Development",
+    "accent": "#3b82f6",
+    "icon": "💻",
+    "rating": "4.7"
+  },
+  {
+    "num": "31",
+    "name": "Replit AI",
+    "url": "https://replit.com",
+    "domain": "replit.com",
+    "desc": "Browser-based IDE · deploy instantly · beginner-friendly",
+    "badges": [
+      {
+        "text": "FREE",
+        "class": "b-free"
+      },
+      {
+        "text": "$10/mo Core",
+        "class": "b-budget"
+      }
+    ],
+    "cat_title": "Coding & Development",
+    "accent": "#3b82f6",
+    "icon": "💻",
+    "rating": "5.0"
+  },
+  {
+    "num": "32",
+    "name": "Windsurf (Codeium)",
+    "url": "https://devin.ai/desktop",
+    "domain": "devin.ai",
+    "desc": "Free Copilot alternative · multi-file awareness · acquired by Cognition AI (2025)",
+    "badges": [
+      {
+        "text": "FREE",
+        "class": "b-free"
+      },
+      {
+        "text": "$10/mo Pro",
+        "class": "b-budget"
+      }
+    ],
+    "cat_title": "Coding & Development",
+    "accent": "#3b82f6",
+    "icon": "💻",
+    "rating": "4.7"
+  },
+  {
+    "num": "33",
+    "name": "v0 (Vercel)",
+    "url": "https://v0.dev",
+    "domain": "v0.dev",
+    "desc": "Generate React UI from prompt · deploy to Vercel instantly",
+    "badges": [
+      {
+        "text": "FREE tier",
+        "class": "b-free"
+      },
+      {
+        "text": "🔥 HOT",
+        "class": "b-hot"
+      }
+    ],
+    "cat_title": "Coding & Development",
+    "accent": "#3b82f6",
+    "icon": "💻",
+    "rating": "4.8"
+  },
+  {
+    "num": "34",
+    "name": "Jasper AI",
+    "url": "https://www.jasper.ai",
+    "domain": "jasper.ai",
+    "desc": "Marketing copy · brand voice training · long-form",
+    "badges": [
+      {
+        "text": "7-day free trial",
+        "class": "b-trial"
+      },
+      {
+        "text": "$39/mo Creator",
+        "class": "b-budget"
+      }
+    ],
+    "cat_title": "Writing & Content Creation",
+    "accent": "#8b5cf6",
+    "icon": "✍️",
+    "rating": "4.7"
+  },
+  {
+    "num": "35",
+    "name": "Copy.ai",
+    "url": "https://www.copy.ai",
+    "domain": "copy.ai",
+    "desc": "Sales copy · email sequences · landing pages",
+    "badges": [
+      {
+        "text": "FREE 2,000 words",
+        "class": "b-free"
+      },
+      {
+        "text": "$36/mo Pro",
+        "class": "b-budget"
+      }
+    ],
+    "cat_title": "Writing & Content Creation",
+    "accent": "#8b5cf6",
+    "icon": "✍️",
+    "rating": "4.5"
+  },
+  {
+    "num": "36",
+    "name": "Writesonic",
+    "url": "https://writesonic.com",
+    "domain": "writesonic.com",
+    "desc": "SEO articles · Surfer integration · bulk generation",
+    "badges": [
+      {
+        "text": "FREE 10k words",
+        "class": "b-free"
+      },
+      {
+        "text": "$13/mo Individual",
+        "class": "b-budget"
+      }
+    ],
+    "cat_title": "Writing & Content Creation",
+    "accent": "#8b5cf6",
+    "icon": "✍️",
+    "rating": "4.5"
+  },
+  {
+    "num": "37",
+    "name": "Rytr",
+    "url": "https://rytr.me",
+    "domain": "rytr.me",
+    "desc": "Budget writing tool · 40+ use cases · 30 languages",
+    "badges": [
+      {
+        "text": "FREE 10k chars/mo",
+        "class": "b-free"
+      },
+      {
+        "text": "$9/mo Saver",
+        "class": "b-budget"
+      }
+    ],
+    "cat_title": "Writing & Content Creation",
+    "accent": "#8b5cf6",
+    "icon": "✍️",
+    "rating": "4.8"
+  },
+  {
+    "num": "38",
+    "name": "Grammarly",
+    "url": "https://www.grammarly.com",
+    "domain": "grammarly.com",
+    "desc": "Grammar, tone, style · GrammarlyGO AI rewrite",
+    "badges": [
+      {
+        "text": "FREE",
+        "class": "b-free"
+      },
+      {
+        "text": "$12/mo Premium",
+        "class": "b-budget"
+      }
+    ],
+    "cat_title": "Writing & Content Creation",
+    "accent": "#8b5cf6",
+    "icon": "✍️",
+    "rating": "4.7"
+  },
+  {
+    "num": "39",
+    "name": "Notion AI",
+    "url": "https://www.notion.so/product/ai",
+    "domain": "notion.so",
+    "desc": "In-app writing assistant · summarize notes · brainstorm",
+    "badges": [
+      {
+        "text": "FREE limited",
+        "class": "b-free"
+      },
+      {
+        "text": "$8/mo add-on",
+        "class": "b-budget"
+      }
+    ],
+    "cat_title": "Writing & Content Creation",
+    "accent": "#8b5cf6",
+    "icon": "✍️",
+    "rating": "4.7"
+  },
+  {
+    "num": "40",
+    "name": "Quillbot",
+    "url": "https://quillbot.com",
+    "domain": "quillbot.com",
+    "desc": "Paraphrasing, summarizing, citation generation",
+    "badges": [
+      {
+        "text": "FREE",
+        "class": "b-free"
+      },
+      {
+        "text": "$8/mo Premium",
+        "class": "b-budget"
+      }
+    ],
+    "cat_title": "Writing & Content Creation",
+    "accent": "#8b5cf6",
+    "icon": "✍️",
+    "rating": "4.9"
+  },
+  {
+    "num": "41",
+    "name": "NotebookLM (Google)",
+    "url": "https://notebooklm.google.com",
+    "domain": "notebooklm.google.com",
+    "desc": "Upload PDFs · AI podcast generation · deep research",
+    "badges": [
+      {
+        "text": "FREE",
+        "class": "b-free"
+      },
+      {
+        "text": "🔥 HOT",
+        "class": "b-hot"
+      }
+    ],
+    "cat_title": "Research & Productivity",
+    "accent": "#06b6d4",
+    "icon": "🔍",
+    "rating": "5.0"
+  },
+  {
+    "num": "42",
+    "name": "Elicit",
+    "url": "https://elicit.com",
+    "domain": "elicit.com",
+    "desc": "AI for academic research · paper analysis · evidence",
+    "badges": [
+      {
+        "text": "FREE 5 queries/day",
+        "class": "b-free"
+      },
+      {
+        "text": "$10/mo Plus",
+        "class": "b-budget"
+      }
+    ],
+    "cat_title": "Research & Productivity",
+    "accent": "#06b6d4",
+    "icon": "🔍",
+    "rating": "4.5"
+  },
+  {
+    "num": "43",
+    "name": "Consensus",
+    "url": "https://consensus.app",
+    "domain": "consensus.app",
+    "desc": "Scientific paper search with AI summaries",
+    "badges": [
+      {
+        "text": "FREE",
+        "class": "b-free"
+      },
+      {
+        "text": "$8/mo Premium",
+        "class": "b-budget"
+      }
+    ],
+    "cat_title": "Research & Productivity",
+    "accent": "#06b6d4",
+    "icon": "🔍",
+    "rating": "4.5"
+  },
+  {
+    "num": "44",
+    "name": "Napkin AI",
+    "url": "https://www.napkin.ai",
+    "domain": "napkin.ai",
+    "desc": "Auto-generate diagrams from text · visual thinking",
+    "badges": [
+      {
+        "text": "FREE",
+        "class": "b-free"
+      },
+      {
+        "text": "🔥 HOT",
+        "class": "b-hot"
+      }
+    ],
+    "cat_title": "Research & Productivity",
+    "accent": "#06b6d4",
+    "icon": "🔍",
+    "rating": "5.0"
+  },
+  {
+    "num": "45",
+    "name": "Gamma",
+    "url": "https://gamma.app",
+    "domain": "gamma.app",
+    "desc": "AI presentations from prompts · beautiful slides fast",
+    "badges": [
+      {
+        "text": "FREE 400 AI credits",
+        "class": "b-free"
+      },
+      {
+        "text": "$8/mo Plus",
+        "class": "b-budget"
+      }
+    ],
+    "cat_title": "Research & Productivity",
+    "accent": "#06b6d4",
+    "icon": "🔍",
+    "rating": "5.0"
+  },
+  {
+    "num": "46",
+    "name": "Figma AI",
+    "url": "https://www.figma.com/ai/",
+    "domain": "figma.com",
+    "desc": "Auto-layout, wireframe generation, design assistant",
+    "badges": [
+      {
+        "text": "FREE Starter",
+        "class": "b-free"
+      },
+      {
+        "text": "$15/mo Pro",
+        "class": "b-budget"
+      }
+    ],
+    "cat_title": "Design & UI/UX Tools",
+    "accent": "#f97316",
+    "icon": "🖌️",
+    "rating": "4.6"
+  },
+  {
+    "num": "47",
+    "name": "Looka",
+    "url": "https://looka.com",
+    "domain": "looka.com",
+    "desc": "AI logo and brand identity generator",
+    "badges": [
+      {
+        "text": "Free preview",
+        "class": "b-trial"
+      },
+      {
+        "text": "$20 one-time logo",
+        "class": "b-budget"
+      }
+    ],
+    "cat_title": "Design & UI/UX Tools",
+    "accent": "#f97316",
+    "icon": "🖌️",
+    "rating": "4.6"
+  },
+  {
+    "num": "48",
+    "name": "Uizard",
+    "url": "https://uizard.io",
+    "domain": "uizard.io",
+    "desc": "Sketch-to-UI prototype · no design skills needed",
+    "badges": [
+      {
+        "text": "FREE 3 projects",
+        "class": "b-free"
+      },
+      {
+        "text": "$12/mo Pro",
+        "class": "b-budget"
+      }
+    ],
+    "cat_title": "Design & UI/UX Tools",
+    "accent": "#f97316",
+    "icon": "🖌️",
+    "rating": "4.8"
+  },
+  {
+    "num": "49",
+    "name": "Framer AI",
+    "url": "https://www.framer.com",
+    "domain": "framer.com",
+    "desc": "Full website from prompt · animations · CMS",
+    "badges": [
+      {
+        "text": "FREE",
+        "class": "b-free"
+      },
+      {
+        "text": "$15/mo Basic",
+        "class": "b-budget"
+      }
+    ],
+    "cat_title": "Design & UI/UX Tools",
+    "accent": "#f97316",
+    "icon": "🖌️",
+    "rating": "4.9"
+  },
+  {
+    "num": "50",
+    "name": "n8n",
+    "url": "https://n8n.io",
+    "domain": "n8n.io",
+    "desc": "Self-host automation · 400+ integrations · open-source",
+    "badges": [
+      {
+        "text": "FREE self-hosted",
+        "class": "b-free"
+      },
+      {
+        "text": "OPEN",
+        "class": "b-open"
+      },
+      {
+        "text": "🔥 HOT",
+        "class": "b-hot"
+      }
+    ],
+    "cat_title": "Automation & AI Agents",
+    "accent": "#14b8a6",
+    "icon": "⚡",
+    "rating": "4.8"
+  },
+  {
+    "num": "51",
+    "name": "Zapier",
+    "url": "https://zapier.com",
+    "domain": "zapier.com",
+    "desc": "7,000+ app connections · no-code · AI actions",
+    "badges": [
+      {
+        "text": "FREE 100 tasks/mo",
+        "class": "b-free"
+      },
+      {
+        "text": "$20/mo Starter",
+        "class": "b-budget"
+      }
+    ],
+    "cat_title": "Automation & AI Agents",
+    "accent": "#14b8a6",
+    "icon": "⚡",
+    "rating": "4.6"
+  },
+  {
+    "num": "52",
+    "name": "Make (Integromat)",
+    "url": "https://www.make.com/en",
+    "domain": "make.com",
+    "desc": "Visual workflow builder · complex logic · cheaper than Zapier",
+    "badges": [
+      {
+        "text": "FREE 1,000 ops/mo",
+        "class": "b-free"
+      },
+      {
+        "text": "$9/mo Core",
+        "class": "b-budget"
+      }
+    ],
+    "cat_title": "Automation & AI Agents",
+    "accent": "#14b8a6",
+    "icon": "⚡",
+    "rating": "4.6"
+  },
+  {
+    "num": "53",
+    "name": "Lindy AI",
+    "url": "https://www.lindy.ai",
+    "domain": "lindy.ai",
+    "desc": "Personal AI employee · email, calendar, task automation",
+    "badges": [
+      {
+        "text": "FREE 400 tasks",
+        "class": "b-free"
+      },
+      {
+        "text": "$49/mo Pro",
+        "class": "b-budget"
+      }
+    ],
+    "cat_title": "Automation & AI Agents",
+    "accent": "#14b8a6",
+    "icon": "⚡",
+    "rating": "4.6"
+  },
+  {
+    "num": "54",
+    "name": "Surfer SEO",
+    "url": "https://surferseo.com",
+    "domain": "surferseo.com",
+    "desc": "AI SEO content optimization · SERP analysis",
+    "badges": [
+      {
+        "text": "7-day free trial",
+        "class": "b-trial"
+      },
+      {
+        "text": "$79/mo Essential",
+        "class": "b-budget"
+      }
+    ],
+    "cat_title": "Business & Marketing",
+    "accent": "#84cc16",
+    "icon": "📊",
+    "rating": "4.5"
+  },
+  {
+    "num": "55",
+    "name": "HubSpot AI",
+    "url": "https://www.hubspot.com/products/artificial-intelligence",
+    "domain": "hubspot.com",
+    "desc": "CRM + AI email, content, ad copy · all-in-one",
+    "badges": [
+      {
+        "text": "FREE CRM forever",
+        "class": "b-free"
+      }
+    ],
+    "cat_title": "Business & Marketing",
+    "accent": "#84cc16",
+    "icon": "📊",
+    "rating": "5.0"
+  },
+  {
+    "num": "56",
+    "name": "Tidio AI (Lyro)",
+    "url": "https://www.tidio.com",
+    "domain": "tidio.com",
+    "desc": "AI customer support chatbot · e-commerce focused",
+    "badges": [
+      {
+        "text": "FREE 50 chats/mo",
+        "class": "b-free"
+      },
+      {
+        "text": "$29/mo Lyro",
+        "class": "b-budget"
+      }
+    ],
+    "cat_title": "Business & Marketing",
+    "accent": "#84cc16",
+    "icon": "📊",
+    "rating": "4.9"
+  },
+  {
+    "num": "57",
+    "name": "AdCreative.ai",
+    "url": "https://www.adcreative.ai",
+    "domain": "adcreative.ai",
+    "desc": "AI-generated ad creatives · A/B test ready · social ads",
+    "badges": [
+      {
+        "text": "7-day free trial",
+        "class": "b-trial"
+      },
+      {
+        "text": "$21/mo Starter",
+        "class": "b-budget"
+      }
+    ],
+    "cat_title": "Business & Marketing",
+    "accent": "#84cc16",
+    "icon": "📊",
+    "rating": "4.5"
+  },
+  {
+    "num": "58",
+    "name": "Fathom",
+    "url": "https://www.fathom.ai/",
+    "domain": "fathom.ai",
+    "desc": "Best free meeting notes · records & summarizes Zoom calls",
+    "badges": [
+      {
+        "text": "FREE forever",
+        "class": "b-free"
+      },
+      {
+        "text": "🔥 HOT",
+        "class": "b-hot"
+      }
+    ],
+    "cat_title": "Meetings & Transcription",
+    "accent": "#fb923c",
+    "icon": "📝",
+    "rating": "4.8"
+  },
+  {
+    "num": "59",
+    "name": "Otter.ai",
+    "url": "https://otter.ai",
+    "domain": "otter.ai",
+    "desc": "Live transcription · meeting summaries · action items",
+    "badges": [
+      {
+        "text": "FREE 300 mins/mo",
+        "class": "b-free"
+      },
+      {
+        "text": "$10/mo Pro",
+        "class": "b-budget"
+      }
+    ],
+    "cat_title": "Meetings & Transcription",
+    "accent": "#fb923c",
+    "icon": "📝",
+    "rating": "4.5"
+  },
+  {
+    "num": "60",
+    "name": "Fireflies.ai",
+    "url": "https://fireflies.ai",
+    "domain": "fireflies.ai",
+    "desc": "Records all meetings · searchable transcripts · CRM sync",
+    "badges": [
+      {
+        "text": "FREE limited",
+        "class": "b-free"
+      },
+      {
+        "text": "$10/mo Pro",
+        "class": "b-budget"
+      }
+    ],
+    "cat_title": "Meetings & Transcription",
+    "accent": "#fb923c",
+    "icon": "📝",
+    "rating": "4.7"
+  },
+  {
+    "num": "61",
+    "name": "Krisp",
+    "url": "https://krisp.ai",
+    "domain": "krisp.ai",
+    "desc": "AI noise cancellation · background voice removal on calls",
+    "badges": [
+      {
+        "text": "FREE 60 mins/day",
+        "class": "b-free"
+      },
+      {
+        "text": "$8/mo Pro",
+        "class": "b-budget"
+      }
+    ],
+    "cat_title": "Meetings & Transcription",
+    "accent": "#fb923c",
+    "icon": "📝",
+    "rating": "4.6"
+  },
+  {
+    "num": "62",
+    "name": "Tldv",
+    "url": "https://tldv.io",
+    "domain": "tldv.io",
+    "desc": "Record & summarize Google Meet / Zoom · timestamp clips",
+    "badges": [
+      {
+        "text": "FREE unlimited recordings",
+        "class": "b-free"
+      }
+    ],
+    "cat_title": "Meetings & Transcription",
+    "accent": "#fb923c",
+    "icon": "📝",
+    "rating": "4.9"
+  },
+  {
+    "num": "63",
+    "name": "Khan Academy (Khanmigo)",
+    "url": "https://khanmigo.ai",
+    "domain": "khanmigo.ai",
+    "desc": "Socratic AI tutor · never gives answers · guides thinking",
+    "badges": [
+      {
+        "text": "FREE for students",
+        "class": "b-free"
+      }
+    ],
+    "cat_title": "Education & Learning",
+    "accent": "#e879f9",
+    "icon": "🎓",
+    "rating": "4.7"
+  },
+  {
+    "num": "64",
+    "name": "Duolingo Max",
+    "url": "https://research.duolingo.com/",
+    "domain": "research.duolingo.com",
+    "desc": "AI conversation practice · roleplay scenarios",
+    "badges": [
+      {
+        "text": "FREE Basic",
+        "class": "b-free"
+      },
+      {
+        "text": "$8/mo Max",
+        "class": "b-budget"
+      }
+    ],
+    "cat_title": "Education & Learning",
+    "accent": "#e879f9",
+    "icon": "🎓",
+    "rating": "4.6"
+  },
+  {
+    "num": "65",
+    "name": "Coursera AI Tutor",
+    "url": "https://www.coursera.org",
+    "domain": "coursera.org",
+    "desc": "Contextual learning help · embedded in courses",
+    "badges": [
+      {
+        "text": "FREE audit",
+        "class": "b-free"
+      },
+      {
+        "text": "$49/mo Plus",
+        "class": "b-budget"
+      }
+    ],
+    "cat_title": "Education & Learning",
+    "accent": "#e879f9",
+    "icon": "🎓",
+    "rating": "4.8"
+  }
+];
+
     document.addEventListener("DOMContentLoaded", () => {
-      // 1. Particles Background
+      // 1. Particle Background
       particlesJS("particles-js", {
         particles: {
-          number: { value: 40, density: { enable: true, value_area: 800 } },
+          number: { value: 35, density: { enable: true, value_area: 800 } },
           color: { value: "#ffffff" },
           shape: { type: "circle" },
-          opacity: { value: 0.1, random: true },
-          size: { value: 3, random: true },
-          line_linked: { enable: true, distance: 150, color: "#ffffff", opacity: 0.05, width: 1 },
-          move: { enable: true, speed: 1, direction: "none", random: true, straight: false, out_mode: "out", bounce: false }
+          opacity: { value: 0.08, random: true },
+          size: { value: 2.5, random: true },
+          line_linked: { enable: true, distance: 150, color: "#ffffff", opacity: 0.04, width: 1 },
+          move: { enable: true, speed: 0.8, direction: "none", random: true, straight: false, out_mode: "out", bounce: false }
         },
         interactivity: {
           detect_on: "canvas",
           events: { onhover: { enable: true, mode: "grab" }, resize: true },
-          modes: { grab: { distance: 140, line_linked: { opacity: 0.15 } } }
+          modes: { grab: { distance: 140, line_linked: { opacity: 0.12 } } }
         },
         retina_detect: true
       });
 
       // 2. Typewriter Effect
-      const words = ["coding.", "design.", "writing.", "video editing.", "business."];
-      let i = 0;
-      let timer;
-      let isDeleting = false;
-      let txt = '';
-      const speed = 100;
-      const wait = 2000;
+      const words = ["coding.", "design.", "writing.", "video editing.", "productivity."];
+      let i = 0, timer, isDeleting = false, txt = '';
       const el = document.getElementById('typewriter');
       
       function type() {
         const fullTxt = words[i];
-        if (isDeleting) {
-          txt = fullTxt.substring(0, txt.length - 1);
-        } else {
-          txt = fullTxt.substring(0, txt.length + 1);
-        }
+        txt = isDeleting ? fullTxt.substring(0, txt.length - 1) : fullTxt.substring(0, txt.length + 1);
         el.innerHTML = txt;
         
-        let typeSpeed = speed;
-        if (isDeleting) typeSpeed /= 2;
-        
+        let typeSpeed = isDeleting ? 50 : 100;
         if (!isDeleting && txt === fullTxt) {
-          typeSpeed = wait;
+          typeSpeed = 2000;
           isDeleting = true;
         } else if (isDeleting && txt === '') {
           isDeleting = false;
           i = (i + 1) % words.length;
-          typeSpeed = 500;
+          typeSpeed = 400;
         }
         timer = setTimeout(type, typeSpeed);
       }
       type();
       
-      // Cursor blink
-      setInterval(() => {
-        const cursor = document.querySelector('.cursor');
-        if(cursor) cursor.style.opacity = cursor.style.opacity == 0 ? 1 : 0;
-      }, 500);
+      // Fallback logo builder helper
+      function handleLogoLoadError(img, name) {
+          const parent = img.parentElement;
+          if (!parent) return;
+          const firstLetter = name.charAt(0).toUpperCase();
+          const colors = [
+              'linear-gradient(135deg, #c084fc, #6366f1)',
+              'linear-gradient(135deg, #3b82f6, #1d4ed8)',
+              'linear-gradient(135deg, #ec4899, #be185d)',
+              'linear-gradient(135deg, #10b981, #047857)',
+              'linear-gradient(135deg, #f59e0b, #b45309)',
+              'linear-gradient(135deg, #06b6d4, #0891b2)'
+          ];
+          const colorIdx = firstLetter.charCodeAt(0) % colors.length;
+          parent.innerHTML = `<div class="fallback-logo" style="background: ${colors[colorIdx]}; width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; border-radius: 6px; font-weight: 800; color: #fff; font-size: 15px;">${firstLetter}</div>`;
+      }
 
-      // 3. Carousel Logic
+      // Attach fallback load triggers to existing statically generated images
+      document.querySelectorAll('.premium-logo img, .spotlight-logo img').forEach(img => {
+          img.addEventListener('error', function() {
+              const card = this.closest('.premium-card, .spotlight-card');
+              const name = card.querySelector('.premium-name, h2').textContent.trim();
+              handleLogoLoadError(this, name);
+          });
+          // Trigger manually if completed broken
+          if (img.complete && img.naturalWidth === 0) {
+              img.dispatchEvent(new Event('error'));
+          }
+      });
+
+      // 3. Spotlight Carousel Logic
       const slides = document.querySelectorAll('.carousel-slide');
       const dotsContainer = document.querySelector('.carousel-dots');
       if (slides.length > 0) {
@@ -2411,7 +3983,7 @@
         });
         
         let currentSlide = 0;
-        let slideInterval = setInterval(nextSlide, 5000);
+        let slideInterval = setInterval(nextSlide, 6000);
         
         function goToSlide(n) {
           slides[currentSlide].classList.remove('active');
@@ -2420,7 +3992,7 @@
           slides[currentSlide].classList.add('active');
           dotsContainer.children[currentSlide].classList.add('active');
           clearInterval(slideInterval);
-          slideInterval = setInterval(nextSlide, 5000);
+          slideInterval = setInterval(nextSlide, 6000);
         }
         
         function nextSlide() {
@@ -2431,7 +4003,7 @@
       // 4. Category Nav Smooth Scroll
       const navBtns = document.querySelectorAll('.cat-nav-btn');
       navBtns.forEach(btn => {
-        btn.addEventListener('click', (e) => {
+        btn.addEventListener('click', () => {
           const targetId = btn.getAttribute('data-target');
           const el = document.getElementById(targetId);
           if (el) {
@@ -2442,13 +4014,13 @@
         });
       });
       
-      // Update nav on scroll
+      // Update nav active on window scroll
       window.addEventListener('scroll', () => {
+        if (document.getElementById('categories-view').style.display === 'none') return;
         let current = '';
         const sections = document.querySelectorAll('.cat-group');
         sections.forEach(section => {
-          const sectionTop = section.offsetTop;
-          if (scrollY >= sectionTop - 150) {
+          if (scrollY >= section.offsetTop - 230) {
             current = section.getAttribute('id');
           }
         });
@@ -2457,7 +4029,6 @@
           btn.classList.remove('active');
           if (btn.getAttribute('data-target') === current) {
             btn.classList.add('active');
-            // Scroll nav container if active button is out of view
             const scrollContainer = document.querySelector('.category-scroll');
             const btnLeft = btn.offsetLeft;
             if (btnLeft > scrollContainer.scrollLeft + scrollContainer.clientWidth || btnLeft < scrollContainer.scrollLeft) {
@@ -2467,10 +4038,161 @@
         });
       });
 
-      // 5. ScrollTrigger Animations
+      // 5. Dynamic Filtering and Instant Search
+      const searchInput = document.getElementById('global-search');
+      const filterPills = document.querySelectorAll('.filter-pill');
+      const catNavWrapper = document.querySelector('.category-nav-wrapper');
+      const categoriesView = document.getElementById('categories-view');
+      const unifiedView = document.getElementById('unified-view');
+      const unifiedGrid = document.getElementById('unified-grid');
+      const unifiedTitle = document.getElementById('unified-title');
+      const unifiedTagline = document.getElementById('unified-tagline');
+
+      let activeFilter = 'all';
+      let searchQuery = '';
+
+      function applyFilterAndSearch() {
+          if (activeFilter === 'all' && searchQuery === '') {
+              // Show grouped category view
+              unifiedView.style.display = 'none';
+              categoriesView.style.display = 'block';
+              catNavWrapper.style.display = 'block';
+              
+              // Refresh scroll trigger layouts
+              ScrollTrigger.refresh();
+              return;
+          }
+
+          // Hide grouped categories, show unified results list
+          categoriesView.style.display = 'none';
+          catNavWrapper.style.display = 'none';
+          unifiedView.style.display = 'block';
+
+          // Filter matching list
+          const matched = TOOLS_DATABASE.filter(t => {
+              // Search match
+              const matchesSearch = t.name.toLowerCase().includes(searchQuery) ||
+                                    t.desc.toLowerCase().includes(searchQuery) ||
+                                    t.cat_title.toLowerCase().includes(searchQuery);
+              
+              // Filter match
+              let matchesFilter = false;
+              if (activeFilter === 'all') {
+                  matchesFilter = true;
+              } else {
+                  matchesFilter = t.badges.some(b => b.class === `b-${activeFilter.toLowerCase()}`);
+              }
+
+              return matchesSearch && matchesFilter;
+          });
+
+          // Set Title
+          let titleText = 'Filtered Results';
+          let subtitleText = `Found ${matched.length} matching tools`;
+          if (searchQuery) {
+              titleText = `Search Results for "${searchInput.value}"`;
+          } else if (activeFilter !== 'all') {
+              const pillText = Array.from(filterPills).find(p => p.getAttribute('data-filter') === activeFilter).textContent;
+              titleText = `${pillText} Directory`;
+          }
+          
+          unifiedTitle.textContent = titleText;
+          unifiedTagline.textContent = subtitleText;
+
+          // Render Grid
+          if (matched.length === 0) {
+              unifiedGrid.style.display = 'block';
+              unifiedGrid.innerHTML = `
+                 <div class="no-results">
+                     <div class="no-results-icon">🔍</div>
+                     <h3>No Tools Found</h3>
+                     <p>We couldn't find any tools matching your filters. Try clearing your search query or choosing another tag.</p>
+                 </div>
+              `;
+          } else {
+              unifiedGrid.style.display = 'grid';
+              
+              let gridContent = '';
+              matched.forEach(t => {
+                  const logoUrl = `https://www.google.com/s2/favicons?domain=${t.domain}&sz=64`;
+                  
+                  let badgesMarkup = '';
+                  t.badges.forEach(b => {
+                      badgesMarkup += `<span class="premium-badge ${b.class}">${b.text}</span>`;
+                  });
+
+                  gridContent += `
+                      <div class="premium-card" data-tilt data-tilt-max="5" data-tilt-speed="400" data-tilt-glare data-tilt-max-glare="0.1" style="--cat-accent: ${t.accent};">
+                          <div class="premium-card-inner">
+                              <div class="premium-card-top">
+                                  <div class="premium-logo"><img src="${logoUrl}" alt="" onerror="this.style.display='none'"></div>
+                                  <div class="premium-rating">
+                                      <div class="stars">★★★★★</div>
+                                      <span>${t.rating}</span>
+                                  </div>
+                              </div>
+                              <div class="unified-card-cat" style="--cat-accent: ${t.accent}">${t.icon} ${t.cat_title}</div>
+                              <h4 class="premium-name">${t.name}</h4>
+                              <p class="premium-desc">${t.desc}</p>
+                              <div class="premium-badges">
+                                  ${badgesMarkup}
+                              </div>
+                              <a href="${t.url}" target="_blank" rel="noopener" class="premium-visit">
+                                  Visit Site
+                                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                              </a>
+                          </div>
+                      </div>
+                  `;
+              });
+
+              unifiedGrid.innerHTML = gridContent;
+
+              // Initialize VanillaTilt on new items
+              if (typeof VanillaTilt !== 'undefined') {
+                  VanillaTilt.init(unifiedGrid.querySelectorAll('[data-tilt]'));
+              }
+
+              // Dynamic logo load fallbacks on new items
+              unifiedGrid.querySelectorAll('.premium-logo img').forEach(img => {
+                  img.addEventListener('error', function() {
+                      const name = this.closest('.premium-card').querySelector('.premium-name').textContent.trim();
+                      handleLogoLoadError(this, name);
+                  });
+                  if (img.complete && img.naturalWidth === 0) {
+                      img.dispatchEvent(new Event('error'));
+                  }
+              });
+          }
+
+          // Smooth reveal of matches
+          gsap.fromTo(unifiedGrid.children, 
+              { opacity: 0, y: 15 },
+              { opacity: 1, y: 0, duration: 0.4, stagger: 0.05, ease: "power2.out" }
+          );
+      }
+
+      // Input Event Listeners
+      if (searchInput) {
+          searchInput.addEventListener('input', (e) => {
+              searchQuery = e.target.value.toLowerCase().trim();
+              applyFilterAndSearch();
+          });
+      }
+
+      filterPills.forEach(pill => {
+          pill.addEventListener('click', () => {
+              filterPills.forEach(p => p.classList.remove('active'));
+              pill.classList.add('active');
+              activeFilter = pill.getAttribute('data-filter');
+              applyFilterAndSearch();
+          });
+      });
+
+      // 6. GSAP Reveal animations
       gsap.registerPlugin(ScrollTrigger);
       
-      // Reveal elements
+      // Header and sections entrances
       document.querySelectorAll('[data-scroll-reveal]').forEach((el) => {
         gsap.from(el, {
           scrollTrigger: {
@@ -2478,14 +4200,14 @@
             start: "top 85%",
             toggleActions: "play none none reverse"
           },
-          y: 40,
+          y: 30,
           opacity: 0,
-          duration: 0.8,
-          ease: "power3.out"
+          duration: 0.7,
+          ease: "power2.out"
         });
       });
 
-      // Staggered grid cards
+      // Staggered categories layout cards reveal
       document.querySelectorAll('.cat-group').forEach(group => {
         const cards = group.querySelectorAll('.premium-card');
         gsap.from(cards, {
@@ -2493,40 +4215,13 @@
             trigger: group,
             start: "top 80%",
           },
-          y: 30,
+          y: 25,
           opacity: 0,
-          duration: 0.6,
-          stagger: 0.1,
-          ease: "power2.out"
+          duration: 0.5,
+          stagger: 0.08,
+          ease: "power1.out"
         });
       });
-      
-      // 6. Search filtering
-      const searchInput = document.getElementById('global-search');
-      if(searchInput) {
-          searchInput.addEventListener('input', (e) => {
-              const query = e.target.value.toLowerCase();
-              document.querySelectorAll('.premium-card').forEach(card => {
-                  const name = card.querySelector('.premium-name').textContent.toLowerCase();
-                  const desc = card.querySelector('.premium-desc').textContent.toLowerCase();
-                  if(name.includes(query) || desc.includes(query)) {
-                      card.style.display = 'block';
-                  } else {
-                      card.style.display = 'none';
-                  }
-              });
-              
-              // Hide empty categories
-              document.querySelectorAll('.cat-group').forEach(group => {
-                  const visibleCards = group.querySelectorAll('.premium-card[style="display: block;"], .premium-card:not([style*="display: none"])');
-                  if (visibleCards.length === 0) {
-                      group.style.display = 'none';
-                  } else {
-                      group.style.display = 'block';
-                  }
-              });
-          });
-      }
     });
   </script>
 </body>
