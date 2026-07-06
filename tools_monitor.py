@@ -49,14 +49,22 @@ def save_html(soup):
 
 def extract_tools(soup):
     tools = []
-    for row in soup.select(".tool-row"):
+    for row in soup.select(".tool-row, .premium-card"):
         num_el = row.select_one(".tool-num")
-        link_el = row.select_one("a.tool-link")
-        desc_el = row.select_one(".tool-desc")
+        link_el = row.select_one("a.tool-link, a.premium-visit")
+        desc_el = row.select_one(".tool-desc, .premium-desc")
+        name_el = row.select_one(".premium-name")
         if not link_el: continue
+        
+        name = ""
+        if name_el:
+            name = name_el.get_text(strip=True)
+        else:
+            name = link_el.get_text(strip=True).replace("↗", "").strip()
+            
         tools.append({
             "num": num_el.text.strip() if num_el else "",
-            "name": link_el.get_text(strip=True).replace("↗", "").strip(),
+            "name": name,
             "url": link_el.get("href", "").strip(),
             "desc": desc_el.text.strip() if desc_el else "",
             "element": link_el,
