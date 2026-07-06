@@ -1,5 +1,5 @@
 # 🔍 AI Tools Daily Check Report
-**Date:** 2026-07-06 12:22 UTC
+**Date:** 2026-07-06 12:28 UTC
 **Tools checked:** 65
 **Auto-changes (URL updates):** 0
 
@@ -7,16 +7,18 @@
 
 - ✅ Healthy: 54
 - 🔀 Auto-fixed redirects: 0
-- ⚠️ Blocked / needs manual check: 7
-- 📢 Version drift flagged: 1
+- ⚠️ Blocked / needs manual check: 8
+- 📢 Version drift flagged: 2
 - ❌ Dead tools: 0
 
 ## 📢 Version Drift (Needs Review)
 
-- **Suno V5.5**: 📢 Version drift suspected for Suno V5.5: found '6' (expected 'V5.5')
+- **Midjourney V8.1**: 📢 Version drift suspected for Midjourney V8.1: found '6' (expected 'V8.1')
+- **Suno V5.5**: 📢 Version drift suspected for Suno V5.5: found '8' (expected 'V5.5')
 
 ## ⚠️ Blocked / Manual Review
 
+- **Claude (Anthropic)**: ⚠️ Blocked (403) — may need manual check: https://claude.ai
 - **Perplexity AI**: ⚠️ Blocked (403) — may need manual check: https://www.perplexity.ai
 - **Midjourney V8.1**: ⚠️ Blocked (403) — may need manual check: https://www.midjourney.com
 - **Leonardo AI**: ⚠️ Blocked (403) — may need manual check: https://leonardo.ai

@@ -23,7 +23,6 @@
       --accent: #8b5cf6;
       --accent-glow: rgba(139, 92, 246, 0.15);
       
-      /* Accent colors */
       --color-free: #10b981;
       --color-budget: #6366f1;
       --color-trial: #f59e0b;
@@ -44,13 +43,11 @@
       -webkit-font-smoothing: antialiased;
     }
 
-    /* Webkit scrollbars */
     ::-webkit-scrollbar { width: 8px; height: 8px; }
     ::-webkit-scrollbar-track { background: var(--bg); }
-    ::-webkit-scrollbar-thumb { background: rgba(255, 255, 255, 0.1); border-radius: 4px; }
-    ::-webkit-scrollbar-thumb:hover { background: rgba(255, 255, 255, 0.25); }
+    ::-webkit-scrollbar-thumb { background: rgba(255, 255, 255, 0.15); border-radius: 4px; }
+    ::-webkit-scrollbar-thumb:hover { background: rgba(255, 255, 255, 0.3); }
 
-    /* Particles Background */
     #particles-js {
       position: fixed;
       top: 0;
@@ -62,7 +59,6 @@
       pointer-events: none;
     }
     
-    /* Top Header */
     .top-header {
         display: flex;
         justify-content: space-between;
@@ -123,7 +119,6 @@
       .top-header { padding: 20px; } 
     }
 
-    /* Premium Hero styling */
     .hero-premium {
       text-align: center;
       padding: 80px 0 60px;
@@ -167,7 +162,6 @@
       line-height: 1.6;
     }
 
-    /* Floating branding icons (desktop only) */
     .floating-logos {
       position: absolute;
       top: 0;
@@ -203,7 +197,6 @@
       100% { transform: translateY(0px) rotate(0deg); }
     }
 
-    /* Spotlight Section styling */
     .spotlight-section {
       margin-bottom: 70px;
       position: relative;
@@ -364,7 +357,6 @@
       border-radius: 100px;
     }
 
-    /* Sticky Controls Panel */
     .controls-wrapper {
       position: sticky;
       top: 24px;
@@ -414,7 +406,6 @@
       height: 18px;
     }
 
-    /* Tag Filters bar */
     .filter-bar {
       display: flex;
       flex-wrap: wrap;
@@ -467,7 +458,6 @@
     .filter-pill[data-filter="PAID"] { --active-bg: rgba(100, 116, 139, 0.2); --active-border: #64748b; --active-glow: rgba(100, 116, 139, 0.3); }
     .filter-pill[data-filter="HOT"] { --active-bg: rgba(239, 68, 68, 0.2); --active-border: #ef4444; --active-glow: rgba(239, 68, 68, 0.3); }
 
-    /* Category scroll list (only shown on 'All Tools' filter) */
     .category-nav-wrapper {
       margin-bottom: 50px;
       transition: all 0.3s ease;
@@ -504,10 +494,9 @@
     .cat-nav-btn.active { background: #fff; color: #000; }
     .cat-nav-icon { font-size: 16px; }
 
-    /* Layout groups & grids */
     .cat-group {
       margin-bottom: 80px;
-      scroll-margin-top: 210px; /* Offset for sticky controls + nav */
+      scroll-margin-top: 210px;
     }
     .cat-group-header {
       display: flex;
@@ -571,7 +560,6 @@
       .hero-card .premium-desc { font-size: 15px; }
     }
 
-    /* Premium Tool Card */
     .premium-card {
       transform-style: preserve-3d;
       height: 100%;
@@ -592,7 +580,7 @@
     }
     .premium-card:hover .premium-card-inner {
       border-color: rgba(255, 255, 255, 0.2);
-      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3), 0 0 20px rgba(139, 92, 246, 0.05);
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3), 0 0 20px var(--cat-accent-glow, rgba(139, 92, 246, 0.05));
     }
     .premium-card-inner::before {
       content: '';
@@ -676,7 +664,6 @@
       font-family: 'Space Grotesk', sans-serif;
     }
     
-    /* Dynamic Badge Colors (mapped correctly using b- classes) */
     .premium-badge.b-free { color: var(--color-free); border-color: rgba(16,185,129,0.3); background: rgba(16,185,129,0.05); }
     .premium-badge.b-budget { color: var(--color-budget); border-color: rgba(99,102,241,0.3); background: rgba(99,102,241,0.05); }
     .premium-badge.b-trial { color: var(--color-trial); border-color: rgba(245,158,11,0.3); background: rgba(245,158,11,0.05); }
@@ -708,7 +695,6 @@
     }
     .premium-card:hover .premium-visit svg { transform: translateX(3px); }
 
-    /* Unified View specific card tags */
     .unified-card-cat {
       display: inline-flex;
       align-items: center;
@@ -726,12 +712,10 @@
       font-family: 'Space Grotesk', sans-serif;
     }
 
-    /* Views Layout Toggle */
     #categories-view, #unified-view {
       transition: opacity 0.4s ease, transform 0.4s ease;
     }
     
-    /* Empty Results Styling */
     .no-results {
       text-align: center;
       padding: 80px 40px;
@@ -750,7 +734,6 @@
 <body>
   <div id="particles-js"></div>
 
-  <!-- Header -->
   <header class="top-header">
     <a href="./" class="logo-mark">
       <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="url(#grad)" stroke-width="2" stroke-linecap="round"><defs><linearGradient id="grad" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#c084fc" /><stop offset="100%" stop-color="#60a5fa" /></linearGradient></defs><polygon points="12 2 2 7 12 12 22 7 12 2"></polygon><polyline points="2 17 12 22 22 17"></polyline><polyline points="2 12 12 17 22 12"></polyline></svg>
@@ -765,7 +748,6 @@
   </header>
 
   <main class="app-container">
-    <!-- Hero -->
     <section class="hero-premium">
       <div class="floating-logos">
         <div class="f-logo"><img src="https://www.google.com/s2/favicons?domain=openai.com&sz=64" alt=""></div>
@@ -779,7 +761,6 @@
       <p>Discover, search, and filter the internet's most comprehensive catalog of cutting-edge artificial intelligence tools.</p>
     </section>
 
-    <!-- Spotlight Carousel -->
     <section class="spotlight-section" data-scroll-reveal>
       <div class="spotlight-carousel">
         
@@ -873,7 +854,6 @@
       </div>
     </section>
 
-    <!-- Unified Controls Wrapper -->
     <div class="controls-wrapper">
       <div class="search-container">
         <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
@@ -890,7 +870,6 @@
       </div>
     </div>
 
-    <!-- Category Nav Bar (All Tools layout) -->
     <div class="category-nav-wrapper" data-scroll-reveal>
       <div class="category-scroll">
         
@@ -957,11 +936,9 @@
       </div>
     </div>
 
-    <!-- MAIN VIEWPORTS -->
-    <!-- Viewport A: Grouped categories -->
     <div id="categories-view">
       
-        <div class="cat-group" id="AI-Assistants-and-Chatbots" style="--cat-accent: #6366f1;">
+        <div class="cat-group" id="AI-Assistants-and-Chatbots" style="--cat-accent: #6366f1; --cat-accent-bg: rgba(99, 102, 241, 0.04); --cat-accent-border: rgba(99, 102, 241, 0.15); --cat-accent-glow: rgba(99, 102, 241, 0.08);">
             <div class="cat-group-header" data-scroll-reveal>
                 <div class="cat-group-icon">💬</div>
                 <div class="cat-group-title-wrap">
@@ -1142,7 +1119,7 @@
             </div>
         </div>
         
-        <div class="cat-group" id="Image-Generation-and-Design" style="--cat-accent: #ec4899;">
+        <div class="cat-group" id="Image-Generation-and-Design" style="--cat-accent: #ec4899; --cat-accent-bg: rgba(236, 72, 153, 0.04); --cat-accent-border: rgba(236, 72, 153, 0.15); --cat-accent-glow: rgba(236, 72, 153, 0.08);">
             <div class="cat-group-header" data-scroll-reveal>
                 <div class="cat-group-icon">🎨</div>
                 <div class="cat-group-title-wrap">
@@ -1323,7 +1300,7 @@
             </div>
         </div>
         
-        <div class="cat-group" id="Video-Generation-and-Editing" style="--cat-accent: #f59e0b;">
+        <div class="cat-group" id="Video-Generation-and-Editing" style="--cat-accent: #f59e0b; --cat-accent-bg: rgba(245, 158, 11, 0.04); --cat-accent-border: rgba(245, 158, 11, 0.15); --cat-accent-glow: rgba(245, 158, 11, 0.08);">
             <div class="cat-group-header" data-scroll-reveal>
                 <div class="cat-group-icon">📹</div>
                 <div class="cat-group-title-wrap">
@@ -1462,7 +1439,7 @@
             </div>
         </div>
         
-        <div class="cat-group" id="Audio,-Voice-and-Music" style="--cat-accent: #10b981;">
+        <div class="cat-group" id="Audio,-Voice-and-Music" style="--cat-accent: #10b981; --cat-accent-bg: rgba(16, 185, 129, 0.04); --cat-accent-border: rgba(16, 185, 129, 0.15); --cat-accent-glow: rgba(16, 185, 129, 0.08);">
             <div class="cat-group-header" data-scroll-reveal>
                 <div class="cat-group-icon">🎵</div>
                 <div class="cat-group-title-wrap">
@@ -1580,7 +1557,7 @@
             </div>
         </div>
         
-        <div class="cat-group" id="Coding-and-Development" style="--cat-accent: #3b82f6;">
+        <div class="cat-group" id="Coding-and-Development" style="--cat-accent: #3b82f6; --cat-accent-bg: rgba(59, 130, 246, 0.04); --cat-accent-border: rgba(59, 130, 246, 0.15); --cat-accent-glow: rgba(59, 130, 246, 0.08);">
             <div class="cat-group-header" data-scroll-reveal>
                 <div class="cat-group-icon">💻</div>
                 <div class="cat-group-title-wrap">
@@ -1719,7 +1696,7 @@
             </div>
         </div>
         
-        <div class="cat-group" id="Writing-and-Content-Creation" style="--cat-accent: #8b5cf6;">
+        <div class="cat-group" id="Writing-and-Content-Creation" style="--cat-accent: #8b5cf6; --cat-accent-bg: rgba(139, 92, 246, 0.04); --cat-accent-border: rgba(139, 92, 246, 0.15); --cat-accent-glow: rgba(139, 92, 246, 0.08);">
             <div class="cat-group-header" data-scroll-reveal>
                 <div class="cat-group-icon">✍️</div>
                 <div class="cat-group-title-wrap">
@@ -1879,7 +1856,7 @@
             </div>
         </div>
         
-        <div class="cat-group" id="Research-and-Productivity" style="--cat-accent: #06b6d4;">
+        <div class="cat-group" id="Research-and-Productivity" style="--cat-accent: #06b6d4; --cat-accent-bg: rgba(6, 182, 212, 0.04); --cat-accent-border: rgba(6, 182, 212, 0.15); --cat-accent-glow: rgba(6, 182, 212, 0.08);">
             <div class="cat-group-header" data-scroll-reveal>
                 <div class="cat-group-icon">🔍</div>
                 <div class="cat-group-title-wrap">
@@ -1997,7 +1974,7 @@
             </div>
         </div>
         
-        <div class="cat-group" id="Design-and-UI/UX-Tools" style="--cat-accent: #f97316;">
+        <div class="cat-group" id="Design-and-UI/UX-Tools" style="--cat-accent: #f97316; --cat-accent-bg: rgba(249, 115, 22, 0.04); --cat-accent-border: rgba(249, 115, 22, 0.15); --cat-accent-glow: rgba(249, 115, 22, 0.08);">
             <div class="cat-group-header" data-scroll-reveal>
                 <div class="cat-group-icon">🖌️</div>
                 <div class="cat-group-title-wrap">
@@ -2094,7 +2071,7 @@
             </div>
         </div>
         
-        <div class="cat-group" id="Automation-and-AI-Agents" style="--cat-accent: #14b8a6;">
+        <div class="cat-group" id="Automation-and-AI-Agents" style="--cat-accent: #14b8a6; --cat-accent-bg: rgba(20, 184, 166, 0.04); --cat-accent-border: rgba(20, 184, 166, 0.15); --cat-accent-glow: rgba(20, 184, 166, 0.08);">
             <div class="cat-group-header" data-scroll-reveal>
                 <div class="cat-group-icon">⚡</div>
                 <div class="cat-group-title-wrap">
@@ -2191,7 +2168,7 @@
             </div>
         </div>
         
-        <div class="cat-group" id="Business-and-Marketing" style="--cat-accent: #84cc16;">
+        <div class="cat-group" id="Business-and-Marketing" style="--cat-accent: #84cc16; --cat-accent-bg: rgba(132, 204, 22, 0.04); --cat-accent-border: rgba(132, 204, 22, 0.15); --cat-accent-glow: rgba(132, 204, 22, 0.08);">
             <div class="cat-group-header" data-scroll-reveal>
                 <div class="cat-group-icon">📊</div>
                 <div class="cat-group-title-wrap">
@@ -2288,7 +2265,7 @@
             </div>
         </div>
         
-        <div class="cat-group" id="Meetings-and-Transcription" style="--cat-accent: #fb923c;">
+        <div class="cat-group" id="Meetings-and-Transcription" style="--cat-accent: #fb923c; --cat-accent-bg: rgba(251, 146, 60, 0.04); --cat-accent-border: rgba(251, 146, 60, 0.15); --cat-accent-glow: rgba(251, 146, 60, 0.08);">
             <div class="cat-group-header" data-scroll-reveal>
                 <div class="cat-group-icon">📝</div>
                 <div class="cat-group-title-wrap">
@@ -2406,7 +2383,7 @@
             </div>
         </div>
         
-        <div class="cat-group" id="Education-and-Learning" style="--cat-accent: #e879f9;">
+        <div class="cat-group" id="Education-and-Learning" style="--cat-accent: #e879f9; --cat-accent-bg: rgba(232, 121, 249, 0.04); --cat-accent-border: rgba(232, 121, 249, 0.15); --cat-accent-glow: rgba(232, 121, 249, 0.08);">
             <div class="cat-group-header" data-scroll-reveal>
                 <div class="cat-group-icon">🎓</div>
                 <div class="cat-group-title-wrap">
@@ -2484,7 +2461,6 @@
         
     </div>
 
-    <!-- Viewport B: Unified grid layout (loaded dynamically on filters) -->
     <div id="unified-view" style="display: none;">
       <div class="cat-group">
          <div class="cat-group-header">
@@ -2495,20 +2471,17 @@
             </div>
          </div>
          <div class="unified-results-grid" id="unified-grid">
-            <!-- Dynamic unified content -->
          </div>
       </div>
     </div>
   </main>
 
-  <!-- Scripts -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/particles.js/2.0.0/particles.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.8.0/vanilla-tilt.min.js"></script>
   
   <script>
-    // Embedded Database
     const TOOLS_DATABASE = [
   {
     "num": "01",
@@ -2532,6 +2505,9 @@
     ],
     "cat_title": "AI Assistants & Chatbots",
     "accent": "#6366f1",
+    "accent_bg": "rgba(99, 102, 241, 0.04)",
+    "accent_border": "rgba(99, 102, 241, 0.15)",
+    "accent_glow": "rgba(99, 102, 241, 0.08)",
     "icon": "💬",
     "rating": "4.6"
   },
@@ -2557,6 +2533,9 @@
     ],
     "cat_title": "AI Assistants & Chatbots",
     "accent": "#6366f1",
+    "accent_bg": "rgba(99, 102, 241, 0.04)",
+    "accent_border": "rgba(99, 102, 241, 0.15)",
+    "accent_glow": "rgba(99, 102, 241, 0.08)",
     "icon": "💬",
     "rating": "4.7"
   },
@@ -2578,6 +2557,9 @@
     ],
     "cat_title": "AI Assistants & Chatbots",
     "accent": "#6366f1",
+    "accent_bg": "rgba(99, 102, 241, 0.04)",
+    "accent_border": "rgba(99, 102, 241, 0.15)",
+    "accent_glow": "rgba(99, 102, 241, 0.08)",
     "icon": "💬",
     "rating": "5.0"
   },
@@ -2603,6 +2585,9 @@
     ],
     "cat_title": "AI Assistants & Chatbots",
     "accent": "#6366f1",
+    "accent_bg": "rgba(99, 102, 241, 0.04)",
+    "accent_border": "rgba(99, 102, 241, 0.15)",
+    "accent_glow": "rgba(99, 102, 241, 0.08)",
     "icon": "💬",
     "rating": "4.6"
   },
@@ -2624,6 +2609,9 @@
     ],
     "cat_title": "AI Assistants & Chatbots",
     "accent": "#6366f1",
+    "accent_bg": "rgba(99, 102, 241, 0.04)",
+    "accent_border": "rgba(99, 102, 241, 0.15)",
+    "accent_glow": "rgba(99, 102, 241, 0.08)",
     "icon": "💬",
     "rating": "4.8"
   },
@@ -2645,6 +2633,9 @@
     ],
     "cat_title": "AI Assistants & Chatbots",
     "accent": "#6366f1",
+    "accent_bg": "rgba(99, 102, 241, 0.04)",
+    "accent_border": "rgba(99, 102, 241, 0.15)",
+    "accent_glow": "rgba(99, 102, 241, 0.08)",
     "icon": "💬",
     "rating": "4.6"
   },
@@ -2666,6 +2657,9 @@
     ],
     "cat_title": "AI Assistants & Chatbots",
     "accent": "#6366f1",
+    "accent_bg": "rgba(99, 102, 241, 0.04)",
+    "accent_border": "rgba(99, 102, 241, 0.15)",
+    "accent_glow": "rgba(99, 102, 241, 0.08)",
     "icon": "💬",
     "rating": "4.6"
   },
@@ -2687,6 +2681,9 @@
     ],
     "cat_title": "AI Assistants & Chatbots",
     "accent": "#6366f1",
+    "accent_bg": "rgba(99, 102, 241, 0.04)",
+    "accent_border": "rgba(99, 102, 241, 0.15)",
+    "accent_glow": "rgba(99, 102, 241, 0.08)",
     "icon": "💬",
     "rating": "4.6"
   },
@@ -2708,6 +2705,9 @@
     ],
     "cat_title": "Image Generation & Design",
     "accent": "#ec4899",
+    "accent_bg": "rgba(236, 72, 153, 0.04)",
+    "accent_border": "rgba(236, 72, 153, 0.15)",
+    "accent_glow": "rgba(236, 72, 153, 0.08)",
     "icon": "🎨",
     "rating": "4.5"
   },
@@ -2729,6 +2729,9 @@
     ],
     "cat_title": "Image Generation & Design",
     "accent": "#ec4899",
+    "accent_bg": "rgba(236, 72, 153, 0.04)",
+    "accent_border": "rgba(236, 72, 153, 0.15)",
+    "accent_glow": "rgba(236, 72, 153, 0.08)",
     "icon": "🎨",
     "rating": "4.8"
   },
@@ -2750,6 +2753,9 @@
     ],
     "cat_title": "Image Generation & Design",
     "accent": "#ec4899",
+    "accent_bg": "rgba(236, 72, 153, 0.04)",
+    "accent_border": "rgba(236, 72, 153, 0.15)",
+    "accent_glow": "rgba(236, 72, 153, 0.08)",
     "icon": "🎨",
     "rating": "4.6"
   },
@@ -2771,6 +2777,9 @@
     ],
     "cat_title": "Image Generation & Design",
     "accent": "#ec4899",
+    "accent_bg": "rgba(236, 72, 153, 0.04)",
+    "accent_border": "rgba(236, 72, 153, 0.15)",
+    "accent_glow": "rgba(236, 72, 153, 0.08)",
     "icon": "🎨",
     "rating": "4.8"
   },
@@ -2796,6 +2805,9 @@
     ],
     "cat_title": "Image Generation & Design",
     "accent": "#ec4899",
+    "accent_bg": "rgba(236, 72, 153, 0.04)",
+    "accent_border": "rgba(236, 72, 153, 0.15)",
+    "accent_glow": "rgba(236, 72, 153, 0.08)",
     "icon": "🎨",
     "rating": "4.7"
   },
@@ -2817,6 +2829,9 @@
     ],
     "cat_title": "Image Generation & Design",
     "accent": "#ec4899",
+    "accent_bg": "rgba(236, 72, 153, 0.04)",
+    "accent_border": "rgba(236, 72, 153, 0.15)",
+    "accent_glow": "rgba(236, 72, 153, 0.08)",
     "icon": "🎨",
     "rating": "5.0"
   },
@@ -2838,6 +2853,9 @@
     ],
     "cat_title": "Image Generation & Design",
     "accent": "#ec4899",
+    "accent_bg": "rgba(236, 72, 153, 0.04)",
+    "accent_border": "rgba(236, 72, 153, 0.15)",
+    "accent_glow": "rgba(236, 72, 153, 0.08)",
     "icon": "🎨",
     "rating": "4.5"
   },
@@ -2863,6 +2881,9 @@
     ],
     "cat_title": "Image Generation & Design",
     "accent": "#ec4899",
+    "accent_bg": "rgba(236, 72, 153, 0.04)",
+    "accent_border": "rgba(236, 72, 153, 0.15)",
+    "accent_glow": "rgba(236, 72, 153, 0.08)",
     "icon": "🎨",
     "rating": "4.7"
   },
@@ -2888,6 +2909,9 @@
     ],
     "cat_title": "Video Generation & Editing",
     "accent": "#f59e0b",
+    "accent_bg": "rgba(245, 158, 11, 0.04)",
+    "accent_border": "rgba(245, 158, 11, 0.15)",
+    "accent_glow": "rgba(245, 158, 11, 0.08)",
     "icon": "📹",
     "rating": "4.5"
   },
@@ -2909,6 +2933,9 @@
     ],
     "cat_title": "Video Generation & Editing",
     "accent": "#f59e0b",
+    "accent_bg": "rgba(245, 158, 11, 0.04)",
+    "accent_border": "rgba(245, 158, 11, 0.15)",
+    "accent_glow": "rgba(245, 158, 11, 0.08)",
     "icon": "📹",
     "rating": "4.5"
   },
@@ -2930,6 +2957,9 @@
     ],
     "cat_title": "Video Generation & Editing",
     "accent": "#f59e0b",
+    "accent_bg": "rgba(245, 158, 11, 0.04)",
+    "accent_border": "rgba(245, 158, 11, 0.15)",
+    "accent_glow": "rgba(245, 158, 11, 0.08)",
     "icon": "📹",
     "rating": "5.0"
   },
@@ -2951,6 +2981,9 @@
     ],
     "cat_title": "Video Generation & Editing",
     "accent": "#f59e0b",
+    "accent_bg": "rgba(245, 158, 11, 0.04)",
+    "accent_border": "rgba(245, 158, 11, 0.15)",
+    "accent_glow": "rgba(245, 158, 11, 0.08)",
     "icon": "📹",
     "rating": "4.8"
   },
@@ -2972,6 +3005,9 @@
     ],
     "cat_title": "Video Generation & Editing",
     "accent": "#f59e0b",
+    "accent_bg": "rgba(245, 158, 11, 0.04)",
+    "accent_border": "rgba(245, 158, 11, 0.15)",
+    "accent_glow": "rgba(245, 158, 11, 0.08)",
     "icon": "📹",
     "rating": "4.7"
   },
@@ -2993,6 +3029,9 @@
     ],
     "cat_title": "Video Generation & Editing",
     "accent": "#f59e0b",
+    "accent_bg": "rgba(245, 158, 11, 0.04)",
+    "accent_border": "rgba(245, 158, 11, 0.15)",
+    "accent_glow": "rgba(245, 158, 11, 0.08)",
     "icon": "📹",
     "rating": "4.9"
   },
@@ -3018,6 +3057,9 @@
     ],
     "cat_title": "Audio, Voice & Music",
     "accent": "#10b981",
+    "accent_bg": "rgba(16, 185, 129, 0.04)",
+    "accent_border": "rgba(16, 185, 129, 0.15)",
+    "accent_glow": "rgba(16, 185, 129, 0.08)",
     "icon": "🎵",
     "rating": "4.8"
   },
@@ -3039,6 +3081,9 @@
     ],
     "cat_title": "Audio, Voice & Music",
     "accent": "#10b981",
+    "accent_bg": "rgba(16, 185, 129, 0.04)",
+    "accent_border": "rgba(16, 185, 129, 0.15)",
+    "accent_glow": "rgba(16, 185, 129, 0.08)",
     "icon": "🎵",
     "rating": "4.7"
   },
@@ -3056,6 +3101,9 @@
     ],
     "cat_title": "Audio, Voice & Music",
     "accent": "#10b981",
+    "accent_bg": "rgba(16, 185, 129, 0.04)",
+    "accent_border": "rgba(16, 185, 129, 0.15)",
+    "accent_glow": "rgba(16, 185, 129, 0.08)",
     "icon": "🎵",
     "rating": "4.5"
   },
@@ -3077,6 +3125,9 @@
     ],
     "cat_title": "Audio, Voice & Music",
     "accent": "#10b981",
+    "accent_bg": "rgba(16, 185, 129, 0.04)",
+    "accent_border": "rgba(16, 185, 129, 0.15)",
+    "accent_glow": "rgba(16, 185, 129, 0.08)",
     "icon": "🎵",
     "rating": "4.8"
   },
@@ -3098,6 +3149,9 @@
     ],
     "cat_title": "Audio, Voice & Music",
     "accent": "#10b981",
+    "accent_bg": "rgba(16, 185, 129, 0.04)",
+    "accent_border": "rgba(16, 185, 129, 0.15)",
+    "accent_glow": "rgba(16, 185, 129, 0.08)",
     "icon": "🎵",
     "rating": "4.5"
   },
@@ -3123,6 +3177,9 @@
     ],
     "cat_title": "Coding & Development",
     "accent": "#3b82f6",
+    "accent_bg": "rgba(59, 130, 246, 0.04)",
+    "accent_border": "rgba(59, 130, 246, 0.15)",
+    "accent_glow": "rgba(59, 130, 246, 0.08)",
     "icon": "💻",
     "rating": "4.6"
   },
@@ -3144,6 +3201,9 @@
     ],
     "cat_title": "Coding & Development",
     "accent": "#3b82f6",
+    "accent_bg": "rgba(59, 130, 246, 0.04)",
+    "accent_border": "rgba(59, 130, 246, 0.15)",
+    "accent_glow": "rgba(59, 130, 246, 0.08)",
     "icon": "💻",
     "rating": "4.7"
   },
@@ -3165,6 +3225,9 @@
     ],
     "cat_title": "Coding & Development",
     "accent": "#3b82f6",
+    "accent_bg": "rgba(59, 130, 246, 0.04)",
+    "accent_border": "rgba(59, 130, 246, 0.15)",
+    "accent_glow": "rgba(59, 130, 246, 0.08)",
     "icon": "💻",
     "rating": "4.7"
   },
@@ -3186,6 +3249,9 @@
     ],
     "cat_title": "Coding & Development",
     "accent": "#3b82f6",
+    "accent_bg": "rgba(59, 130, 246, 0.04)",
+    "accent_border": "rgba(59, 130, 246, 0.15)",
+    "accent_glow": "rgba(59, 130, 246, 0.08)",
     "icon": "💻",
     "rating": "5.0"
   },
@@ -3207,6 +3273,9 @@
     ],
     "cat_title": "Coding & Development",
     "accent": "#3b82f6",
+    "accent_bg": "rgba(59, 130, 246, 0.04)",
+    "accent_border": "rgba(59, 130, 246, 0.15)",
+    "accent_glow": "rgba(59, 130, 246, 0.08)",
     "icon": "💻",
     "rating": "4.7"
   },
@@ -3228,6 +3297,9 @@
     ],
     "cat_title": "Coding & Development",
     "accent": "#3b82f6",
+    "accent_bg": "rgba(59, 130, 246, 0.04)",
+    "accent_border": "rgba(59, 130, 246, 0.15)",
+    "accent_glow": "rgba(59, 130, 246, 0.08)",
     "icon": "💻",
     "rating": "4.8"
   },
@@ -3249,6 +3321,9 @@
     ],
     "cat_title": "Writing & Content Creation",
     "accent": "#8b5cf6",
+    "accent_bg": "rgba(139, 92, 246, 0.04)",
+    "accent_border": "rgba(139, 92, 246, 0.15)",
+    "accent_glow": "rgba(139, 92, 246, 0.08)",
     "icon": "✍️",
     "rating": "4.7"
   },
@@ -3270,6 +3345,9 @@
     ],
     "cat_title": "Writing & Content Creation",
     "accent": "#8b5cf6",
+    "accent_bg": "rgba(139, 92, 246, 0.04)",
+    "accent_border": "rgba(139, 92, 246, 0.15)",
+    "accent_glow": "rgba(139, 92, 246, 0.08)",
     "icon": "✍️",
     "rating": "4.5"
   },
@@ -3291,6 +3369,9 @@
     ],
     "cat_title": "Writing & Content Creation",
     "accent": "#8b5cf6",
+    "accent_bg": "rgba(139, 92, 246, 0.04)",
+    "accent_border": "rgba(139, 92, 246, 0.15)",
+    "accent_glow": "rgba(139, 92, 246, 0.08)",
     "icon": "✍️",
     "rating": "4.5"
   },
@@ -3312,6 +3393,9 @@
     ],
     "cat_title": "Writing & Content Creation",
     "accent": "#8b5cf6",
+    "accent_bg": "rgba(139, 92, 246, 0.04)",
+    "accent_border": "rgba(139, 92, 246, 0.15)",
+    "accent_glow": "rgba(139, 92, 246, 0.08)",
     "icon": "✍️",
     "rating": "4.8"
   },
@@ -3333,6 +3417,9 @@
     ],
     "cat_title": "Writing & Content Creation",
     "accent": "#8b5cf6",
+    "accent_bg": "rgba(139, 92, 246, 0.04)",
+    "accent_border": "rgba(139, 92, 246, 0.15)",
+    "accent_glow": "rgba(139, 92, 246, 0.08)",
     "icon": "✍️",
     "rating": "4.7"
   },
@@ -3354,6 +3441,9 @@
     ],
     "cat_title": "Writing & Content Creation",
     "accent": "#8b5cf6",
+    "accent_bg": "rgba(139, 92, 246, 0.04)",
+    "accent_border": "rgba(139, 92, 246, 0.15)",
+    "accent_glow": "rgba(139, 92, 246, 0.08)",
     "icon": "✍️",
     "rating": "4.7"
   },
@@ -3375,6 +3465,9 @@
     ],
     "cat_title": "Writing & Content Creation",
     "accent": "#8b5cf6",
+    "accent_bg": "rgba(139, 92, 246, 0.04)",
+    "accent_border": "rgba(139, 92, 246, 0.15)",
+    "accent_glow": "rgba(139, 92, 246, 0.08)",
     "icon": "✍️",
     "rating": "4.9"
   },
@@ -3396,6 +3489,9 @@
     ],
     "cat_title": "Research & Productivity",
     "accent": "#06b6d4",
+    "accent_bg": "rgba(6, 182, 212, 0.04)",
+    "accent_border": "rgba(6, 182, 212, 0.15)",
+    "accent_glow": "rgba(6, 182, 212, 0.08)",
     "icon": "🔍",
     "rating": "5.0"
   },
@@ -3417,6 +3513,9 @@
     ],
     "cat_title": "Research & Productivity",
     "accent": "#06b6d4",
+    "accent_bg": "rgba(6, 182, 212, 0.04)",
+    "accent_border": "rgba(6, 182, 212, 0.15)",
+    "accent_glow": "rgba(6, 182, 212, 0.08)",
     "icon": "🔍",
     "rating": "4.5"
   },
@@ -3438,6 +3537,9 @@
     ],
     "cat_title": "Research & Productivity",
     "accent": "#06b6d4",
+    "accent_bg": "rgba(6, 182, 212, 0.04)",
+    "accent_border": "rgba(6, 182, 212, 0.15)",
+    "accent_glow": "rgba(6, 182, 212, 0.08)",
     "icon": "🔍",
     "rating": "4.5"
   },
@@ -3459,6 +3561,9 @@
     ],
     "cat_title": "Research & Productivity",
     "accent": "#06b6d4",
+    "accent_bg": "rgba(6, 182, 212, 0.04)",
+    "accent_border": "rgba(6, 182, 212, 0.15)",
+    "accent_glow": "rgba(6, 182, 212, 0.08)",
     "icon": "🔍",
     "rating": "5.0"
   },
@@ -3480,6 +3585,9 @@
     ],
     "cat_title": "Research & Productivity",
     "accent": "#06b6d4",
+    "accent_bg": "rgba(6, 182, 212, 0.04)",
+    "accent_border": "rgba(6, 182, 212, 0.15)",
+    "accent_glow": "rgba(6, 182, 212, 0.08)",
     "icon": "🔍",
     "rating": "5.0"
   },
@@ -3501,6 +3609,9 @@
     ],
     "cat_title": "Design & UI/UX Tools",
     "accent": "#f97316",
+    "accent_bg": "rgba(249, 115, 22, 0.04)",
+    "accent_border": "rgba(249, 115, 22, 0.15)",
+    "accent_glow": "rgba(249, 115, 22, 0.08)",
     "icon": "🖌️",
     "rating": "4.6"
   },
@@ -3522,6 +3633,9 @@
     ],
     "cat_title": "Design & UI/UX Tools",
     "accent": "#f97316",
+    "accent_bg": "rgba(249, 115, 22, 0.04)",
+    "accent_border": "rgba(249, 115, 22, 0.15)",
+    "accent_glow": "rgba(249, 115, 22, 0.08)",
     "icon": "🖌️",
     "rating": "4.6"
   },
@@ -3543,6 +3657,9 @@
     ],
     "cat_title": "Design & UI/UX Tools",
     "accent": "#f97316",
+    "accent_bg": "rgba(249, 115, 22, 0.04)",
+    "accent_border": "rgba(249, 115, 22, 0.15)",
+    "accent_glow": "rgba(249, 115, 22, 0.08)",
     "icon": "🖌️",
     "rating": "4.8"
   },
@@ -3564,6 +3681,9 @@
     ],
     "cat_title": "Design & UI/UX Tools",
     "accent": "#f97316",
+    "accent_bg": "rgba(249, 115, 22, 0.04)",
+    "accent_border": "rgba(249, 115, 22, 0.15)",
+    "accent_glow": "rgba(249, 115, 22, 0.08)",
     "icon": "🖌️",
     "rating": "4.9"
   },
@@ -3589,6 +3709,9 @@
     ],
     "cat_title": "Automation & AI Agents",
     "accent": "#14b8a6",
+    "accent_bg": "rgba(20, 184, 166, 0.04)",
+    "accent_border": "rgba(20, 184, 166, 0.15)",
+    "accent_glow": "rgba(20, 184, 166, 0.08)",
     "icon": "⚡",
     "rating": "4.8"
   },
@@ -3610,6 +3733,9 @@
     ],
     "cat_title": "Automation & AI Agents",
     "accent": "#14b8a6",
+    "accent_bg": "rgba(20, 184, 166, 0.04)",
+    "accent_border": "rgba(20, 184, 166, 0.15)",
+    "accent_glow": "rgba(20, 184, 166, 0.08)",
     "icon": "⚡",
     "rating": "4.6"
   },
@@ -3631,6 +3757,9 @@
     ],
     "cat_title": "Automation & AI Agents",
     "accent": "#14b8a6",
+    "accent_bg": "rgba(20, 184, 166, 0.04)",
+    "accent_border": "rgba(20, 184, 166, 0.15)",
+    "accent_glow": "rgba(20, 184, 166, 0.08)",
     "icon": "⚡",
     "rating": "4.6"
   },
@@ -3652,6 +3781,9 @@
     ],
     "cat_title": "Automation & AI Agents",
     "accent": "#14b8a6",
+    "accent_bg": "rgba(20, 184, 166, 0.04)",
+    "accent_border": "rgba(20, 184, 166, 0.15)",
+    "accent_glow": "rgba(20, 184, 166, 0.08)",
     "icon": "⚡",
     "rating": "4.6"
   },
@@ -3673,6 +3805,9 @@
     ],
     "cat_title": "Business & Marketing",
     "accent": "#84cc16",
+    "accent_bg": "rgba(132, 204, 22, 0.04)",
+    "accent_border": "rgba(132, 204, 22, 0.15)",
+    "accent_glow": "rgba(132, 204, 22, 0.08)",
     "icon": "📊",
     "rating": "4.5"
   },
@@ -3690,6 +3825,9 @@
     ],
     "cat_title": "Business & Marketing",
     "accent": "#84cc16",
+    "accent_bg": "rgba(132, 204, 22, 0.04)",
+    "accent_border": "rgba(132, 204, 22, 0.15)",
+    "accent_glow": "rgba(132, 204, 22, 0.08)",
     "icon": "📊",
     "rating": "5.0"
   },
@@ -3711,6 +3849,9 @@
     ],
     "cat_title": "Business & Marketing",
     "accent": "#84cc16",
+    "accent_bg": "rgba(132, 204, 22, 0.04)",
+    "accent_border": "rgba(132, 204, 22, 0.15)",
+    "accent_glow": "rgba(132, 204, 22, 0.08)",
     "icon": "📊",
     "rating": "4.9"
   },
@@ -3732,6 +3873,9 @@
     ],
     "cat_title": "Business & Marketing",
     "accent": "#84cc16",
+    "accent_bg": "rgba(132, 204, 22, 0.04)",
+    "accent_border": "rgba(132, 204, 22, 0.15)",
+    "accent_glow": "rgba(132, 204, 22, 0.08)",
     "icon": "📊",
     "rating": "4.5"
   },
@@ -3753,6 +3897,9 @@
     ],
     "cat_title": "Meetings & Transcription",
     "accent": "#fb923c",
+    "accent_bg": "rgba(251, 146, 60, 0.04)",
+    "accent_border": "rgba(251, 146, 60, 0.15)",
+    "accent_glow": "rgba(251, 146, 60, 0.08)",
     "icon": "📝",
     "rating": "4.8"
   },
@@ -3774,6 +3921,9 @@
     ],
     "cat_title": "Meetings & Transcription",
     "accent": "#fb923c",
+    "accent_bg": "rgba(251, 146, 60, 0.04)",
+    "accent_border": "rgba(251, 146, 60, 0.15)",
+    "accent_glow": "rgba(251, 146, 60, 0.08)",
     "icon": "📝",
     "rating": "4.5"
   },
@@ -3795,6 +3945,9 @@
     ],
     "cat_title": "Meetings & Transcription",
     "accent": "#fb923c",
+    "accent_bg": "rgba(251, 146, 60, 0.04)",
+    "accent_border": "rgba(251, 146, 60, 0.15)",
+    "accent_glow": "rgba(251, 146, 60, 0.08)",
     "icon": "📝",
     "rating": "4.7"
   },
@@ -3816,6 +3969,9 @@
     ],
     "cat_title": "Meetings & Transcription",
     "accent": "#fb923c",
+    "accent_bg": "rgba(251, 146, 60, 0.04)",
+    "accent_border": "rgba(251, 146, 60, 0.15)",
+    "accent_glow": "rgba(251, 146, 60, 0.08)",
     "icon": "📝",
     "rating": "4.6"
   },
@@ -3833,6 +3989,9 @@
     ],
     "cat_title": "Meetings & Transcription",
     "accent": "#fb923c",
+    "accent_bg": "rgba(251, 146, 60, 0.04)",
+    "accent_border": "rgba(251, 146, 60, 0.15)",
+    "accent_glow": "rgba(251, 146, 60, 0.08)",
     "icon": "📝",
     "rating": "4.9"
   },
@@ -3850,6 +4009,9 @@
     ],
     "cat_title": "Education & Learning",
     "accent": "#e879f9",
+    "accent_bg": "rgba(232, 121, 249, 0.04)",
+    "accent_border": "rgba(232, 121, 249, 0.15)",
+    "accent_glow": "rgba(232, 121, 249, 0.08)",
     "icon": "🎓",
     "rating": "4.7"
   },
@@ -3871,6 +4033,9 @@
     ],
     "cat_title": "Education & Learning",
     "accent": "#e879f9",
+    "accent_bg": "rgba(232, 121, 249, 0.04)",
+    "accent_border": "rgba(232, 121, 249, 0.15)",
+    "accent_glow": "rgba(232, 121, 249, 0.08)",
     "icon": "🎓",
     "rating": "4.6"
   },
@@ -3892,6 +4057,9 @@
     ],
     "cat_title": "Education & Learning",
     "accent": "#e879f9",
+    "accent_bg": "rgba(232, 121, 249, 0.04)",
+    "accent_border": "rgba(232, 121, 249, 0.15)",
+    "accent_glow": "rgba(232, 121, 249, 0.08)",
     "icon": "🎓",
     "rating": "4.8"
   }
@@ -3899,23 +4067,29 @@
 
     document.addEventListener("DOMContentLoaded", () => {
       // 1. Particle Background
-      particlesJS("particles-js", {
-        particles: {
-          number: { value: 35, density: { enable: true, value_area: 800 } },
-          color: { value: "#ffffff" },
-          shape: { type: "circle" },
-          opacity: { value: 0.08, random: true },
-          size: { value: 2.5, random: true },
-          line_linked: { enable: true, distance: 150, color: "#ffffff", opacity: 0.04, width: 1 },
-          move: { enable: true, speed: 0.8, direction: "none", random: true, straight: false, out_mode: "out", bounce: false }
-        },
-        interactivity: {
-          detect_on: "canvas",
-          events: { onhover: { enable: true, mode: "grab" }, resize: true },
-          modes: { grab: { distance: 140, line_linked: { opacity: 0.12 } } }
-        },
-        retina_detect: true
-      });
+      if (typeof particlesJS !== "undefined") {
+        try {
+          particlesJS("particles-js", {
+            particles: {
+              number: { value: 35, density: { enable: true, value_area: 800 } },
+              color: { value: "#ffffff" },
+              shape: { type: "circle" },
+              opacity: { value: 0.08, random: true },
+              size: { value: 2.5, random: true },
+              line_linked: { enable: true, distance: 150, color: "#ffffff", opacity: 0.04, width: 1 },
+              move: { enable: true, speed: 0.8, direction: "none", random: true, straight: false, out_mode: "out", bounce: false }
+            },
+            interactivity: {
+              detect_on: "canvas",
+              events: { onhover: { enable: true, mode: "grab" }, resize: true },
+              modes: { grab: { distance: 140, line_linked: { opacity: 0.12 } } }
+            },
+            retina_detect: true
+          });
+        } catch(e) {
+          console.warn("Particles.js init failed:", e);
+        }
+      }
 
       // 2. Typewriter Effect
       const words = ["coding.", "design.", "writing.", "video editing.", "productivity."];
@@ -3923,6 +4097,7 @@
       const el = document.getElementById('typewriter');
       
       function type() {
+        if (!el) return;
         const fullTxt = words[i];
         txt = isDeleting ? fullTxt.substring(0, txt.length - 1) : fullTxt.substring(0, txt.length + 1);
         el.innerHTML = txt;
@@ -3957,14 +4132,16 @@
           parent.innerHTML = `<div class="fallback-logo" style="background: ${colors[colorIdx]}; width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; border-radius: 6px; font-weight: 800; color: #fff; font-size: 15px;">${firstLetter}</div>`;
       }
 
-      // Attach fallback load triggers to existing statically generated images
+      // Attach fallback load triggers
       document.querySelectorAll('.premium-logo img, .spotlight-logo img').forEach(img => {
           img.addEventListener('error', function() {
               const card = this.closest('.premium-card, .spotlight-card');
-              const name = card.querySelector('.premium-name, h2').textContent.trim();
-              handleLogoLoadError(this, name);
+              if (card) {
+                  const nameEl = card.querySelector('.premium-name, h2');
+                  const name = nameEl ? nameEl.textContent.trim() : "AI";
+                  handleLogoLoadError(this, name);
+              }
           });
-          // Trigger manually if completed broken
           if (img.complete && img.naturalWidth === 0) {
               img.dispatchEvent(new Event('error'));
           }
@@ -3973,7 +4150,7 @@
       // 3. Spotlight Carousel Logic
       const slides = document.querySelectorAll('.carousel-slide');
       const dotsContainer = document.querySelector('.carousel-dots');
-      if (slides.length > 0) {
+      if (slides.length > 0 && dotsContainer) {
         slides.forEach((_, idx) => {
           const dot = document.createElement('div');
           dot.classList.add('dot');
@@ -3986,11 +4163,14 @@
         let slideInterval = setInterval(nextSlide, 6000);
         
         function goToSlide(n) {
+          if (!slides[currentSlide] || !dotsContainer.children[currentSlide]) return;
           slides[currentSlide].classList.remove('active');
           dotsContainer.children[currentSlide].classList.remove('active');
           currentSlide = (n + slides.length) % slides.length;
-          slides[currentSlide].classList.add('active');
-          dotsContainer.children[currentSlide].classList.add('active');
+          if (slides[currentSlide] && dotsContainer.children[currentSlide]) {
+            slides[currentSlide].classList.add('active');
+            dotsContainer.children[currentSlide].classList.add('active');
+          }
           clearInterval(slideInterval);
           slideInterval = setInterval(nextSlide, 6000);
         }
@@ -4014,9 +4194,9 @@
         });
       });
       
-      // Update nav active on window scroll
       window.addEventListener('scroll', () => {
-        if (document.getElementById('categories-view').style.display === 'none') return;
+        const catView = document.getElementById('categories-view');
+        if (catView && catView.style.display === 'none') return;
         let current = '';
         const sections = document.querySelectorAll('.cat-group');
         sections.forEach(section => {
@@ -4030,9 +4210,11 @@
           if (btn.getAttribute('data-target') === current) {
             btn.classList.add('active');
             const scrollContainer = document.querySelector('.category-scroll');
-            const btnLeft = btn.offsetLeft;
-            if (btnLeft > scrollContainer.scrollLeft + scrollContainer.clientWidth || btnLeft < scrollContainer.scrollLeft) {
-                scrollContainer.scrollTo({ left: btnLeft - 50, behavior: 'smooth' });
+            if (scrollContainer) {
+              const btnLeft = btn.offsetLeft;
+              if (btnLeft > scrollContainer.scrollLeft + scrollContainer.clientWidth || btnLeft < scrollContainer.scrollLeft) {
+                  scrollContainer.scrollTo({ left: btnLeft - 50, behavior: 'smooth' });
+              }
             }
           }
         });
@@ -4053,29 +4235,25 @@
 
       function applyFilterAndSearch() {
           if (activeFilter === 'all' && searchQuery === '') {
-              // Show grouped category view
-              unifiedView.style.display = 'none';
-              categoriesView.style.display = 'block';
-              catNavWrapper.style.display = 'block';
+              if (unifiedView) unifiedView.style.display = 'none';
+              if (categoriesView) categoriesView.style.display = 'block';
+              if (catNavWrapper) catNavWrapper.style.display = 'block';
               
-              // Refresh scroll trigger layouts
-              ScrollTrigger.refresh();
+              if (typeof ScrollTrigger !== "undefined") {
+                ScrollTrigger.refresh();
+              }
               return;
           }
 
-          // Hide grouped categories, show unified results list
-          categoriesView.style.display = 'none';
-          catNavWrapper.style.display = 'none';
-          unifiedView.style.display = 'block';
+          if (categoriesView) categoriesView.style.display = 'none';
+          if (catNavWrapper) catNavWrapper.style.display = 'none';
+          if (unifiedView) unifiedView.style.display = 'block';
 
-          // Filter matching list
           const matched = TOOLS_DATABASE.filter(t => {
-              // Search match
               const matchesSearch = t.name.toLowerCase().includes(searchQuery) ||
                                     t.desc.toLowerCase().includes(searchQuery) ||
                                     t.cat_title.toLowerCase().includes(searchQuery);
               
-              // Filter match
               let matchesFilter = false;
               if (activeFilter === 'all') {
                   matchesFilter = true;
@@ -4086,20 +4264,20 @@
               return matchesSearch && matchesFilter;
           });
 
-          // Set Title
           let titleText = 'Filtered Results';
           let subtitleText = `Found ${matched.length} matching tools`;
           if (searchQuery) {
               titleText = `Search Results for "${searchInput.value}"`;
           } else if (activeFilter !== 'all') {
-              const pillText = Array.from(filterPills).find(p => p.getAttribute('data-filter') === activeFilter).textContent;
-              titleText = `${pillText} Directory`;
+              const matchedPill = Array.from(filterPills).find(p => p.getAttribute('data-filter') === activeFilter);
+              titleText = matchedPill ? `${matchedPill.textContent} Directory` : 'Filtered Results';
           }
           
-          unifiedTitle.textContent = titleText;
-          unifiedTagline.textContent = subtitleText;
+          if (unifiedTitle) unifiedTitle.textContent = titleText;
+          if (unifiedTagline) unifiedTagline.textContent = subtitleText;
 
-          // Render Grid
+          if (!unifiedGrid) return;
+
           if (matched.length === 0) {
               unifiedGrid.style.display = 'block';
               unifiedGrid.innerHTML = `
@@ -4122,7 +4300,7 @@
                   });
 
                   gridContent += `
-                      <div class="premium-card" data-tilt data-tilt-max="5" data-tilt-speed="400" data-tilt-glare data-tilt-max-glare="0.1" style="--cat-accent: ${t.accent};">
+                      <div class="premium-card" data-tilt data-tilt-max="5" data-tilt-speed="400" data-tilt-glare data-tilt-max-glare="0.1" style="--cat-accent: ${t.accent}; --cat-accent-bg: ${t.accent_bg}; --cat-accent-border: ${t.accent_border}; --cat-accent-glow: ${t.accent_glow};">
                           <div class="premium-card-inner">
                               <div class="premium-card-top">
                                   <div class="premium-logo"><img src="${logoUrl}" alt="" onerror="this.style.display='none'"></div>
@@ -4148,15 +4326,15 @@
 
               unifiedGrid.innerHTML = gridContent;
 
-              // Initialize VanillaTilt on new items
               if (typeof VanillaTilt !== 'undefined') {
                   VanillaTilt.init(unifiedGrid.querySelectorAll('[data-tilt]'));
               }
 
-              // Dynamic logo load fallbacks on new items
               unifiedGrid.querySelectorAll('.premium-logo img').forEach(img => {
                   img.addEventListener('error', function() {
-                      const name = this.closest('.premium-card').querySelector('.premium-name').textContent.trim();
+                      const card = this.closest('.premium-card');
+                      const nameEl = card ? card.querySelector('.premium-name') : null;
+                      const name = nameEl ? nameEl.textContent.trim() : "AI";
                       handleLogoLoadError(this, name);
                   });
                   if (img.complete && img.naturalWidth === 0) {
@@ -4165,14 +4343,14 @@
               });
           }
 
-          // Smooth reveal of matches
-          gsap.fromTo(unifiedGrid.children, 
-              { opacity: 0, y: 15 },
-              { opacity: 1, y: 0, duration: 0.4, stagger: 0.05, ease: "power2.out" }
-          );
+          if (typeof gsap !== 'undefined') {
+            gsap.fromTo(unifiedGrid.children, 
+                { opacity: 0, y: 15 },
+                { opacity: 1, y: 0, duration: 0.4, stagger: 0.05, ease: "power2.out", overwrite: "auto" }
+            );
+          }
       }
 
-      // Input Event Listeners
       if (searchInput) {
           searchInput.addEventListener('input', (e) => {
               searchQuery = e.target.value.toLowerCase().trim();
@@ -4190,38 +4368,40 @@
       });
 
       // 6. GSAP Reveal animations
-      gsap.registerPlugin(ScrollTrigger);
-      
-      // Header and sections entrances
-      document.querySelectorAll('[data-scroll-reveal]').forEach((el) => {
-        gsap.from(el, {
-          scrollTrigger: {
-            trigger: el,
-            start: "top 85%",
-            toggleActions: "play none none reverse"
-          },
-          y: 30,
-          opacity: 0,
-          duration: 0.7,
-          ease: "power2.out"
-        });
-      });
+      if (typeof gsap !== "undefined" && typeof ScrollTrigger !== "undefined") {
+        try {
+          document.querySelectorAll('[data-scroll-reveal]').forEach((el) => {
+            gsap.from(el, {
+              scrollTrigger: {
+                trigger: el,
+                start: "top 85%",
+                toggleActions: "play none none reverse"
+              },
+              y: 30,
+              opacity: 0,
+              duration: 0.7,
+              ease: "power2.out"
+            });
+          });
 
-      // Staggered categories layout cards reveal
-      document.querySelectorAll('.cat-group').forEach(group => {
-        const cards = group.querySelectorAll('.premium-card');
-        gsap.from(cards, {
-          scrollTrigger: {
-            trigger: group,
-            start: "top 80%",
-          },
-          y: 25,
-          opacity: 0,
-          duration: 0.5,
-          stagger: 0.08,
-          ease: "power1.out"
-        });
-      });
+          document.querySelectorAll('.cat-group').forEach(group => {
+            const cards = group.querySelectorAll('.premium-card');
+            gsap.from(cards, {
+              scrollTrigger: {
+                trigger: group,
+                start: "top 80%",
+              },
+              y: 25,
+              opacity: 0,
+              duration: 0.5,
+              stagger: 0.08,
+              ease: "power1.out"
+            });
+          });
+        } catch(e) {
+          console.warn("GSAP scroll triggers failed:", e);
+        }
+      }
     });
   </script>
 </body>
