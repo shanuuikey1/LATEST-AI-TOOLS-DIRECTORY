@@ -324,6 +324,121 @@
       .grid-wrapper { grid-template-columns: 1fr; gap: 20px; }
     }
 
+    /* Unified Results Grid */
+    .unified-results-wrapper {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 30px;
+      margin-bottom: 80px;
+    }
+    @media (max-width: 1200px) {
+      .unified-results-wrapper { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 768px) {
+      .unified-results-wrapper { grid-template-columns: 1fr; gap: 20px; }
+    }
+
+    /* Unified Premium Tool Card */
+    .unified-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      padding: 26px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      backdrop-filter: blur(16px);
+      transition: all 0.5s cubic-bezier(0.25, 0.8, 0.25, 1);
+      position: relative;
+      overflow: hidden;
+      height: 100%;
+    }
+    .unified-card:hover {
+      transform: translateY(-6px);
+      border-color: var(--card-accent-border, rgba(255,255,255,0.12));
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4),
+                  0 0 30px var(--card-accent-glow, rgba(255,255,255,0.02));
+    }
+    .unified-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, rgba(255,255,255,0.02) 0%, rgba(255,255,255,0) 100%);
+      opacity: 0;
+      transition: opacity 0.3s;
+      z-index: 0;
+    }
+    .unified-card:hover::before {
+      opacity: 1;
+    }
+    .unified-card-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 1;
+    }
+    .unified-card-tag {
+      font-size: 9px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      padding: 5px 12px;
+      border-radius: 20px;
+      background: var(--card-accent-bg);
+      color: var(--card-accent);
+      border: 1px solid var(--card-accent-border);
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .unified-card-num {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 11px;
+      color: var(--text-subtle);
+      font-weight: 700;
+    }
+    .unified-card-info {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      flex: 1;
+      z-index: 1;
+    }
+    .unified-card-title {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 20px;
+      font-weight: 600;
+      color: #fff;
+      margin: 0;
+    }
+    .unified-card-title a {
+      color: inherit;
+      text-decoration: none;
+      transition: color 0.3s;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .unified-card-title a:hover {
+      color: var(--card-accent, var(--accent));
+    }
+    .unified-card-desc {
+      font-size: 13.5px;
+      color: var(--text-muted);
+      line-height: 1.55;
+    }
+    .unified-card-badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: auto;
+      padding-top: 10px;
+      z-index: 1;
+    }
+
     /* Category Section Bento Box */
     .cat-section {
       background: var(--surface);
@@ -804,7 +919,7 @@
           <span class="cat-count">8 tools</span>
         </div>
         <div class="tools-list">
-          <div class="tool-row">
+          <div class="tool-row" data-cat-title="AI Assistants & Chatbots" data-cat-accent="#6366f1" data-cat-icon="💬" data-cat-bg="rgba(99, 102, 241, 0.08)" data-cat-border="rgba(99, 102, 241, 0.2)" data-cat-glow="rgba(99, 102, 241, 0.12)">
             <span class="tool-num">01</span>
             <div class="tool-info">
               <a class="tool-link" href="https://chatgpt.com/" rel="noopener" target="_blank">
@@ -816,7 +931,7 @@
               </div>
             </div>
           </div>
-          <div class="tool-row">
+          <div class="tool-row" data-cat-title="AI Assistants & Chatbots" data-cat-accent="#6366f1" data-cat-icon="💬" data-cat-bg="rgba(99, 102, 241, 0.08)" data-cat-border="rgba(99, 102, 241, 0.2)" data-cat-glow="rgba(99, 102, 241, 0.12)">
             <span class="tool-num">02</span>
             <div class="tool-info">
               <a class="tool-link" href="https://claude.ai" rel="noopener" target="_blank">
@@ -828,7 +943,7 @@
               </div>
             </div>
           </div>
-          <div class="tool-row">
+          <div class="tool-row" data-cat-title="AI Assistants & Chatbots" data-cat-accent="#6366f1" data-cat-icon="💬" data-cat-bg="rgba(99, 102, 241, 0.08)" data-cat-border="rgba(99, 102, 241, 0.2)" data-cat-glow="rgba(99, 102, 241, 0.12)">
             <span class="tool-num">03</span>
             <div class="tool-info">
               <a class="tool-link" href="https://gemini.google.com" rel="noopener" target="_blank">
@@ -840,7 +955,7 @@
               </div>
             </div>
           </div>
-          <div class="tool-row">
+          <div class="tool-row" data-cat-title="AI Assistants & Chatbots" data-cat-accent="#6366f1" data-cat-icon="💬" data-cat-bg="rgba(99, 102, 241, 0.08)" data-cat-border="rgba(99, 102, 241, 0.2)" data-cat-glow="rgba(99, 102, 241, 0.12)">
             <span class="tool-num">04</span>
             <div class="tool-info">
               <a class="tool-link" href="https://www.perplexity.ai" rel="noopener" target="_blank">
@@ -852,7 +967,7 @@
               </div>
             </div>
           </div>
-          <div class="tool-row">
+          <div class="tool-row" data-cat-title="AI Assistants & Chatbots" data-cat-accent="#6366f1" data-cat-icon="💬" data-cat-bg="rgba(99, 102, 241, 0.08)" data-cat-border="rgba(99, 102, 241, 0.2)" data-cat-glow="rgba(99, 102, 241, 0.12)">
             <span class="tool-num">05</span>
             <div class="tool-info">
               <a class="tool-link" href="https://x.ai/grok" rel="noopener" target="_blank">
@@ -864,7 +979,7 @@
               </div>
             </div>
           </div>
-          <div class="tool-row">
+          <div class="tool-row" data-cat-title="AI Assistants & Chatbots" data-cat-accent="#6366f1" data-cat-icon="💬" data-cat-bg="rgba(99, 102, 241, 0.08)" data-cat-border="rgba(99, 102, 241, 0.2)" data-cat-glow="rgba(99, 102, 241, 0.12)">
             <span class="tool-num">06</span>
             <div class="tool-info">
               <a class="tool-link" href="https://copilot.microsoft.com" rel="noopener" target="_blank">
@@ -876,7 +991,7 @@
               </div>
             </div>
           </div>
-          <div class="tool-row">
+          <div class="tool-row" data-cat-title="AI Assistants & Chatbots" data-cat-accent="#6366f1" data-cat-icon="💬" data-cat-bg="rgba(99, 102, 241, 0.08)" data-cat-border="rgba(99, 102, 241, 0.2)" data-cat-glow="rgba(99, 102, 241, 0.12)">
             <span class="tool-num">07</span>
             <div class="tool-info">
               <a class="tool-link" href="https://chat.deepseek.com" rel="noopener" target="_blank">
@@ -888,7 +1003,7 @@
               </div>
             </div>
           </div>
-          <div class="tool-row">
+          <div class="tool-row" data-cat-title="AI Assistants & Chatbots" data-cat-accent="#6366f1" data-cat-icon="💬" data-cat-bg="rgba(99, 102, 241, 0.08)" data-cat-border="rgba(99, 102, 241, 0.2)" data-cat-glow="rgba(99, 102, 241, 0.12)">
             <span class="tool-num">08</span>
             <div class="tool-info">
               <a class="tool-link" href="https://huggingface.co/chat/" rel="noopener" target="_blank">
@@ -909,7 +1024,7 @@
           <span class="cat-count">8 tools</span>
         </div>
         <div class="tools-list">
-          <div class="tool-row">
+          <div class="tool-row" data-cat-title="Image Generation & Design" data-cat-accent="#ec4899" data-cat-icon="🎨" data-cat-bg="rgba(236, 72, 153, 0.08)" data-cat-border="rgba(236, 72, 153, 0.2)" data-cat-glow="rgba(236, 72, 153, 0.12)">
             <span class="tool-num">09</span>
             <div class="tool-info">
               <a class="tool-link" href="https://www.midjourney.com" rel="noopener" target="_blank">
@@ -921,7 +1036,7 @@
               </div>
             </div>
           </div>
-          <div class="tool-row">
+          <div class="tool-row" data-cat-title="Image Generation & Design" data-cat-accent="#ec4899" data-cat-icon="🎨" data-cat-bg="rgba(236, 72, 153, 0.08)" data-cat-border="rgba(236, 72, 153, 0.2)" data-cat-glow="rgba(236, 72, 153, 0.12)">
             <span class="tool-num">10</span>
             <div class="tool-info">
               <a class="tool-link" href="https://openai.com/index/dall-e-3/" rel="noopener" target="_blank">
@@ -933,7 +1048,7 @@
               </div>
             </div>
           </div>
-          <div class="tool-row">
+          <div class="tool-row" data-cat-title="Image Generation & Design" data-cat-accent="#ec4899" data-cat-icon="🎨" data-cat-bg="rgba(236, 72, 153, 0.08)" data-cat-border="rgba(236, 72, 153, 0.2)" data-cat-glow="rgba(236, 72, 153, 0.12)">
             <span class="tool-num">11</span>
             <div class="tool-info">
               <a class="tool-link" href="https://firefly.adobe.com" rel="noopener" target="_blank">
@@ -945,7 +1060,7 @@
               </div>
             </div>
           </div>
-          <div class="tool-row">
+          <div class="tool-row" data-cat-title="Image Generation & Design" data-cat-accent="#ec4899" data-cat-icon="🎨" data-cat-bg="rgba(236, 72, 153, 0.08)" data-cat-border="rgba(236, 72, 153, 0.2)" data-cat-glow="rgba(236, 72, 153, 0.12)">
             <span class="tool-num">12</span>
             <div class="tool-info">
               <a class="tool-link" href="https://leonardo.ai" rel="noopener" target="_blank">
@@ -957,7 +1072,7 @@
               </div>
             </div>
           </div>
-          <div class="tool-row">
+          <div class="tool-row" data-cat-title="Image Generation & Design" data-cat-accent="#ec4899" data-cat-icon="🎨" data-cat-bg="rgba(236, 72, 153, 0.08)" data-cat-border="rgba(236, 72, 153, 0.2)" data-cat-glow="rgba(236, 72, 153, 0.12)">
             <span class="tool-num">13</span>
             <div class="tool-info">
               <a class="tool-link" href="https://ideogram.ai" rel="noopener" target="_blank">
@@ -969,7 +1084,7 @@
               </div>
             </div>
           </div>
-          <div class="tool-row">
+          <div class="tool-row" data-cat-title="Image Generation & Design" data-cat-accent="#ec4899" data-cat-icon="🎨" data-cat-bg="rgba(236, 72, 153, 0.08)" data-cat-border="rgba(236, 72, 153, 0.2)" data-cat-glow="rgba(236, 72, 153, 0.12)">
             <span class="tool-num">14</span>
             <div class="tool-info">
               <a class="tool-link" href="https://stability.ai" rel="noopener" target="_blank">
@@ -981,7 +1096,7 @@
               </div>
             </div>
           </div>
-          <div class="tool-row">
+          <div class="tool-row" data-cat-title="Image Generation & Design" data-cat-accent="#ec4899" data-cat-icon="🎨" data-cat-bg="rgba(236, 72, 153, 0.08)" data-cat-border="rgba(236, 72, 153, 0.2)" data-cat-glow="rgba(236, 72, 153, 0.12)">
             <span class="tool-num">15</span>
             <div class="tool-info">
               <a class="tool-link" href="https://www.canva.com/ai-image-generator/" rel="noopener" target="_blank">
@@ -993,7 +1108,7 @@
               </div>
             </div>
           </div>
-          <div class="tool-row">
+          <div class="tool-row" data-cat-title="Image Generation & Design" data-cat-accent="#ec4899" data-cat-icon="🎨" data-cat-bg="rgba(236, 72, 153, 0.08)" data-cat-border="rgba(236, 72, 153, 0.2)" data-cat-glow="rgba(236, 72, 153, 0.12)">
             <span class="tool-num">16</span>
             <div class="tool-info">
               <a class="tool-link" href="https://bfl.ai/" rel="noopener" target="_blank">
@@ -1014,7 +1129,7 @@
           <span class="cat-count">6 tools</span>
         </div>
         <div class="tools-list">
-          <div class="tool-row">
+          <div class="tool-row" data-cat-title="Video Generation & Editing" data-cat-accent="#f59e0b" data-cat-icon="📹" data-cat-bg="rgba(245, 158, 11, 0.08)" data-cat-border="rgba(245, 158, 11, 0.2)" data-cat-glow="rgba(245, 158, 11, 0.12)">
             <span class="tool-num">17</span>
             <div class="tool-info">
               <a class="tool-link" href="https://runwayml.com" rel="noopener" target="_blank">
@@ -1026,7 +1141,7 @@
               </div>
             </div>
           </div>
-          <div class="tool-row">
+          <div class="tool-row" data-cat-title="Video Generation & Editing" data-cat-accent="#f59e0b" data-cat-icon="📹" data-cat-bg="rgba(245, 158, 11, 0.08)" data-cat-border="rgba(245, 158, 11, 0.2)" data-cat-glow="rgba(245, 158, 11, 0.12)">
             <span class="tool-num">18</span>
             <div class="tool-info">
               <a class="tool-link" href="https://deepmind.google/models/veo/" rel="noopener" target="_blank">
@@ -1038,7 +1153,7 @@
               </div>
             </div>
           </div>
-          <div class="tool-row">
+          <div class="tool-row" data-cat-title="Video Generation & Editing" data-cat-accent="#f59e0b" data-cat-icon="📹" data-cat-bg="rgba(245, 158, 11, 0.08)" data-cat-border="rgba(245, 158, 11, 0.2)" data-cat-glow="rgba(245, 158, 11, 0.12)">
             <span class="tool-num">19</span>
             <div class="tool-info">
               <a class="tool-link" href="https://pika.art" rel="noopener" target="_blank">
@@ -1050,7 +1165,7 @@
               </div>
             </div>
           </div>
-          <div class="tool-row">
+          <div class="tool-row" data-cat-title="Video Generation & Editing" data-cat-accent="#f59e0b" data-cat-icon="📹" data-cat-bg="rgba(245, 158, 11, 0.08)" data-cat-border="rgba(245, 158, 11, 0.2)" data-cat-glow="rgba(245, 158, 11, 0.12)">
             <span class="tool-num">20</span>
             <div class="tool-info">
               <a class="tool-link" href="https://kling.ai/" rel="noopener" target="_blank">
@@ -1062,7 +1177,7 @@
               </div>
             </div>
           </div>
-          <div class="tool-row">
+          <div class="tool-row" data-cat-title="Video Generation & Editing" data-cat-accent="#f59e0b" data-cat-icon="📹" data-cat-bg="rgba(245, 158, 11, 0.08)" data-cat-border="rgba(245, 158, 11, 0.2)" data-cat-glow="rgba(245, 158, 11, 0.12)">
             <span class="tool-num">21</span>
             <div class="tool-info">
               <a class="tool-link" href="https://www.descript.com" rel="noopener" target="_blank">
@@ -1074,7 +1189,7 @@
               </div>
             </div>
           </div>
-          <div class="tool-row">
+          <div class="tool-row" data-cat-title="Video Generation & Editing" data-cat-accent="#f59e0b" data-cat-icon="📹" data-cat-bg="rgba(245, 158, 11, 0.08)" data-cat-border="rgba(245, 158, 11, 0.2)" data-cat-glow="rgba(245, 158, 11, 0.12)">
             <span class="tool-num">22</span>
             <div class="tool-info">
               <a class="tool-link" href="https://www.synthesia.io" rel="noopener" target="_blank">
@@ -1095,7 +1210,7 @@
           <span class="cat-count">5 tools</span>
         </div>
         <div class="tools-list">
-          <div class="tool-row">
+          <div class="tool-row" data-cat-title="Audio, Voice & Music" data-cat-accent="#10b981" data-cat-icon="🎵" data-cat-bg="rgba(16, 185, 129, 0.08)" data-cat-border="rgba(16, 185, 129, 0.2)" data-cat-glow="rgba(16, 185, 129, 0.12)">
             <span class="tool-num">23</span>
             <div class="tool-info">
               <a class="tool-link" href="https://elevenlabs.io" rel="noopener" target="_blank">
@@ -1107,7 +1222,7 @@
               </div>
             </div>
           </div>
-          <div class="tool-row">
+          <div class="tool-row" data-cat-title="Audio, Voice & Music" data-cat-accent="#10b981" data-cat-icon="🎵" data-cat-bg="rgba(16, 185, 129, 0.08)" data-cat-border="rgba(16, 185, 129, 0.2)" data-cat-glow="rgba(16, 185, 129, 0.12)">
             <span class="tool-num">24</span>
             <div class="tool-info">
               <a class="tool-link" href="https://suno.com" rel="noopener" target="_blank">
@@ -1119,7 +1234,7 @@
               </div>
             </div>
           </div>
-          <div class="tool-row">
+          <div class="tool-row" data-cat-title="Audio, Voice & Music" data-cat-accent="#10b981" data-cat-icon="🎵" data-cat-bg="rgba(16, 185, 129, 0.08)" data-cat-border="rgba(16, 185, 129, 0.2)" data-cat-glow="rgba(16, 185, 129, 0.12)">
             <span class="tool-num">25</span>
             <div class="tool-info">
               <a class="tool-link" href="https://podcast.adobe.com" rel="noopener" target="_blank">
@@ -1131,7 +1246,7 @@
               </div>
             </div>
           </div>
-          <div class="tool-row">
+          <div class="tool-row" data-cat-title="Audio, Voice & Music" data-cat-accent="#10b981" data-cat-icon="🎵" data-cat-bg="rgba(16, 185, 129, 0.08)" data-cat-border="rgba(16, 185, 129, 0.2)" data-cat-glow="rgba(16, 185, 129, 0.12)">
             <span class="tool-num">26</span>
             <div class="tool-info">
               <a class="tool-link" href="https://openai.com/index/whisper/" rel="noopener" target="_blank">
@@ -1143,7 +1258,7 @@
               </div>
             </div>
           </div>
-          <div class="tool-row">
+          <div class="tool-row" data-cat-title="Audio, Voice & Music" data-cat-accent="#10b981" data-cat-icon="🎵" data-cat-bg="rgba(16, 185, 129, 0.08)" data-cat-border="rgba(16, 185, 129, 0.2)" data-cat-glow="rgba(16, 185, 129, 0.12)">
             <span class="tool-num">27</span>
             <div class="tool-info">
               <a class="tool-link" href="https://murf.ai" rel="noopener" target="_blank">
@@ -1164,7 +1279,7 @@
           <span class="cat-count">6 tools</span>
         </div>
         <div class="tools-list">
-          <div class="tool-row">
+          <div class="tool-row" data-cat-title="Coding & Development" data-cat-accent="#3b82f6" data-cat-icon="💻" data-cat-bg="rgba(59, 130, 246, 0.08)" data-cat-border="rgba(59, 130, 246, 0.2)" data-cat-glow="rgba(59, 130, 246, 0.12)">
             <span class="tool-num">28</span>
             <div class="tool-info">
               <a class="tool-link" href="https://cursor.com/" rel="noopener" target="_blank">
@@ -1176,7 +1291,7 @@
               </div>
             </div>
           </div>
-          <div class="tool-row">
+          <div class="tool-row" data-cat-title="Coding & Development" data-cat-accent="#3b82f6" data-cat-icon="💻" data-cat-bg="rgba(59, 130, 246, 0.08)" data-cat-border="rgba(59, 130, 246, 0.2)" data-cat-glow="rgba(59, 130, 246, 0.12)">
             <span class="tool-num">29</span>
             <div class="tool-info">
               <a class="tool-link" href="https://github.com/features/copilot" rel="noopener" target="_blank">
@@ -1188,7 +1303,7 @@
               </div>
             </div>
           </div>
-          <div class="tool-row">
+          <div class="tool-row" data-cat-title="Coding & Development" data-cat-accent="#3b82f6" data-cat-icon="💻" data-cat-bg="rgba(59, 130, 246, 0.08)" data-cat-border="rgba(59, 130, 246, 0.2)" data-cat-glow="rgba(59, 130, 246, 0.12)">
             <span class="tool-num">30</span>
             <div class="tool-info">
               <a class="tool-link" href="https://claude.ai/code" rel="noopener" target="_blank">
@@ -1200,7 +1315,7 @@
               </div>
             </div>
           </div>
-          <div class="tool-row">
+          <div class="tool-row" data-cat-title="Coding & Development" data-cat-accent="#3b82f6" data-cat-icon="💻" data-cat-bg="rgba(59, 130, 246, 0.08)" data-cat-border="rgba(59, 130, 246, 0.2)" data-cat-glow="rgba(59, 130, 246, 0.12)">
             <span class="tool-num">31</span>
             <div class="tool-info">
               <a class="tool-link" href="https://replit.com" rel="noopener" target="_blank">
@@ -1212,7 +1327,7 @@
               </div>
             </div>
           </div>
-          <div class="tool-row">
+          <div class="tool-row" data-cat-title="Coding & Development" data-cat-accent="#3b82f6" data-cat-icon="💻" data-cat-bg="rgba(59, 130, 246, 0.08)" data-cat-border="rgba(59, 130, 246, 0.2)" data-cat-glow="rgba(59, 130, 246, 0.12)">
             <span class="tool-num">32</span>
             <div class="tool-info">
               <a class="tool-link" href="https://devin.ai/desktop" rel="noopener" target="_blank">
@@ -1224,7 +1339,7 @@
               </div>
             </div>
           </div>
-          <div class="tool-row">
+          <div class="tool-row" data-cat-title="Coding & Development" data-cat-accent="#3b82f6" data-cat-icon="💻" data-cat-bg="rgba(59, 130, 246, 0.08)" data-cat-border="rgba(59, 130, 246, 0.2)" data-cat-glow="rgba(59, 130, 246, 0.12)">
             <span class="tool-num">33</span>
             <div class="tool-info">
               <a class="tool-link" href="https://v0.dev" rel="noopener" target="_blank">
@@ -1245,7 +1360,7 @@
           <span class="cat-count">7 tools</span>
         </div>
         <div class="tools-list">
-          <div class="tool-row">
+          <div class="tool-row" data-cat-title="Writing & Content Creation" data-cat-accent="#8b5cf6" data-cat-icon="✍️" data-cat-bg="rgba(139, 92, 246, 0.08)" data-cat-border="rgba(139, 92, 246, 0.2)" data-cat-glow="rgba(139, 92, 246, 0.12)">
             <span class="tool-num">34</span>
             <div class="tool-info">
               <a class="tool-link" href="https://www.jasper.ai" rel="noopener" target="_blank">
@@ -1257,7 +1372,7 @@
               </div>
             </div>
           </div>
-          <div class="tool-row">
+          <div class="tool-row" data-cat-title="Writing & Content Creation" data-cat-accent="#8b5cf6" data-cat-icon="✍️" data-cat-bg="rgba(139, 92, 246, 0.08)" data-cat-border="rgba(139, 92, 246, 0.2)" data-cat-glow="rgba(139, 92, 246, 0.12)">
             <span class="tool-num">35</span>
             <div class="tool-info">
               <a class="tool-link" href="https://www.copy.ai" rel="noopener" target="_blank">
@@ -1269,7 +1384,7 @@
               </div>
             </div>
           </div>
-          <div class="tool-row">
+          <div class="tool-row" data-cat-title="Writing & Content Creation" data-cat-accent="#8b5cf6" data-cat-icon="✍️" data-cat-bg="rgba(139, 92, 246, 0.08)" data-cat-border="rgba(139, 92, 246, 0.2)" data-cat-glow="rgba(139, 92, 246, 0.12)">
             <span class="tool-num">36</span>
             <div class="tool-info">
               <a class="tool-link" href="https://writesonic.com" rel="noopener" target="_blank">
@@ -1281,7 +1396,7 @@
               </div>
             </div>
           </div>
-          <div class="tool-row">
+          <div class="tool-row" data-cat-title="Writing & Content Creation" data-cat-accent="#8b5cf6" data-cat-icon="✍️" data-cat-bg="rgba(139, 92, 246, 0.08)" data-cat-border="rgba(139, 92, 246, 0.2)" data-cat-glow="rgba(139, 92, 246, 0.12)">
             <span class="tool-num">37</span>
             <div class="tool-info">
               <a class="tool-link" href="https://rytr.me" rel="noopener" target="_blank">
@@ -1293,7 +1408,7 @@
               </div>
             </div>
           </div>
-          <div class="tool-row">
+          <div class="tool-row" data-cat-title="Writing & Content Creation" data-cat-accent="#8b5cf6" data-cat-icon="✍️" data-cat-bg="rgba(139, 92, 246, 0.08)" data-cat-border="rgba(139, 92, 246, 0.2)" data-cat-glow="rgba(139, 92, 246, 0.12)">
             <span class="tool-num">38</span>
             <div class="tool-info">
               <a class="tool-link" href="https://www.grammarly.com" rel="noopener" target="_blank">
@@ -1305,7 +1420,7 @@
               </div>
             </div>
           </div>
-          <div class="tool-row">
+          <div class="tool-row" data-cat-title="Writing & Content Creation" data-cat-accent="#8b5cf6" data-cat-icon="✍️" data-cat-bg="rgba(139, 92, 246, 0.08)" data-cat-border="rgba(139, 92, 246, 0.2)" data-cat-glow="rgba(139, 92, 246, 0.12)">
             <span class="tool-num">39</span>
             <div class="tool-info">
               <a class="tool-link" href="https://www.notion.so/product/ai" rel="noopener" target="_blank">
@@ -1317,7 +1432,7 @@
               </div>
             </div>
           </div>
-          <div class="tool-row">
+          <div class="tool-row" data-cat-title="Writing & Content Creation" data-cat-accent="#8b5cf6" data-cat-icon="✍️" data-cat-bg="rgba(139, 92, 246, 0.08)" data-cat-border="rgba(139, 92, 246, 0.2)" data-cat-glow="rgba(139, 92, 246, 0.12)">
             <span class="tool-num">40</span>
             <div class="tool-info">
               <a class="tool-link" href="https://quillbot.com" rel="noopener" target="_blank">
@@ -1338,7 +1453,7 @@
           <span class="cat-count">5 tools</span>
         </div>
         <div class="tools-list">
-          <div class="tool-row">
+          <div class="tool-row" data-cat-title="Research & Productivity" data-cat-accent="#06b6d4" data-cat-icon="🔍" data-cat-bg="rgba(6, 182, 212, 0.08)" data-cat-border="rgba(6, 182, 212, 0.2)" data-cat-glow="rgba(6, 182, 212, 0.12)">
             <span class="tool-num">41</span>
             <div class="tool-info">
               <a class="tool-link" href="https://notebooklm.google.com" rel="noopener" target="_blank">
@@ -1350,7 +1465,7 @@
               </div>
             </div>
           </div>
-          <div class="tool-row">
+          <div class="tool-row" data-cat-title="Research & Productivity" data-cat-accent="#06b6d4" data-cat-icon="🔍" data-cat-bg="rgba(6, 182, 212, 0.08)" data-cat-border="rgba(6, 182, 212, 0.2)" data-cat-glow="rgba(6, 182, 212, 0.12)">
             <span class="tool-num">42</span>
             <div class="tool-info">
               <a class="tool-link" href="https://elicit.com" rel="noopener" target="_blank">
@@ -1362,7 +1477,7 @@
               </div>
             </div>
           </div>
-          <div class="tool-row">
+          <div class="tool-row" data-cat-title="Research & Productivity" data-cat-accent="#06b6d4" data-cat-icon="🔍" data-cat-bg="rgba(6, 182, 212, 0.08)" data-cat-border="rgba(6, 182, 212, 0.2)" data-cat-glow="rgba(6, 182, 212, 0.12)">
             <span class="tool-num">43</span>
             <div class="tool-info">
               <a class="tool-link" href="https://consensus.app" rel="noopener" target="_blank">
@@ -1374,7 +1489,7 @@
               </div>
             </div>
           </div>
-          <div class="tool-row">
+          <div class="tool-row" data-cat-title="Research & Productivity" data-cat-accent="#06b6d4" data-cat-icon="🔍" data-cat-bg="rgba(6, 182, 212, 0.08)" data-cat-border="rgba(6, 182, 212, 0.2)" data-cat-glow="rgba(6, 182, 212, 0.12)">
             <span class="tool-num">44</span>
             <div class="tool-info">
               <a class="tool-link" href="https://www.napkin.ai" rel="noopener" target="_blank">
@@ -1386,7 +1501,7 @@
               </div>
             </div>
           </div>
-          <div class="tool-row">
+          <div class="tool-row" data-cat-title="Research & Productivity" data-cat-accent="#06b6d4" data-cat-icon="🔍" data-cat-bg="rgba(6, 182, 212, 0.08)" data-cat-border="rgba(6, 182, 212, 0.2)" data-cat-glow="rgba(6, 182, 212, 0.12)">
             <span class="tool-num">45</span>
             <div class="tool-info">
               <a class="tool-link" href="https://gamma.app" rel="noopener" target="_blank">
@@ -1407,7 +1522,7 @@
           <span class="cat-count">4 tools</span>
         </div>
         <div class="tools-list">
-          <div class="tool-row">
+          <div class="tool-row" data-cat-title="Design & UI/UX Tools" data-cat-accent="#f97316" data-cat-icon="🖌️" data-cat-bg="rgba(249, 115, 22, 0.08)" data-cat-border="rgba(249, 115, 22, 0.2)" data-cat-glow="rgba(249, 115, 22, 0.12)">
             <span class="tool-num">46</span>
             <div class="tool-info">
               <a class="tool-link" href="https://www.figma.com/ai/" rel="noopener" target="_blank">
@@ -1419,7 +1534,7 @@
               </div>
             </div>
           </div>
-          <div class="tool-row">
+          <div class="tool-row" data-cat-title="Design & UI/UX Tools" data-cat-accent="#f97316" data-cat-icon="🖌️" data-cat-bg="rgba(249, 115, 22, 0.08)" data-cat-border="rgba(249, 115, 22, 0.2)" data-cat-glow="rgba(249, 115, 22, 0.12)">
             <span class="tool-num">47</span>
             <div class="tool-info">
               <a class="tool-link" href="https://looka.com" rel="noopener" target="_blank">
@@ -1431,7 +1546,7 @@
               </div>
             </div>
           </div>
-          <div class="tool-row">
+          <div class="tool-row" data-cat-title="Design & UI/UX Tools" data-cat-accent="#f97316" data-cat-icon="🖌️" data-cat-bg="rgba(249, 115, 22, 0.08)" data-cat-border="rgba(249, 115, 22, 0.2)" data-cat-glow="rgba(249, 115, 22, 0.12)">
             <span class="tool-num">48</span>
             <div class="tool-info">
               <a class="tool-link" href="https://uizard.io" rel="noopener" target="_blank">
@@ -1443,7 +1558,7 @@
               </div>
             </div>
           </div>
-          <div class="tool-row">
+          <div class="tool-row" data-cat-title="Design & UI/UX Tools" data-cat-accent="#f97316" data-cat-icon="🖌️" data-cat-bg="rgba(249, 115, 22, 0.08)" data-cat-border="rgba(249, 115, 22, 0.2)" data-cat-glow="rgba(249, 115, 22, 0.12)">
             <span class="tool-num">49</span>
             <div class="tool-info">
               <a class="tool-link" href="https://www.framer.com" rel="noopener" target="_blank">
@@ -1464,7 +1579,7 @@
           <span class="cat-count">4 tools</span>
         </div>
         <div class="tools-list">
-          <div class="tool-row">
+          <div class="tool-row" data-cat-title="Automation & AI Agents" data-cat-accent="#14b8a6" data-cat-icon="⚡" data-cat-bg="rgba(20, 184, 166, 0.08)" data-cat-border="rgba(20, 184, 166, 0.2)" data-cat-glow="rgba(20, 184, 166, 0.12)">
             <span class="tool-num">50</span>
             <div class="tool-info">
               <a class="tool-link" href="https://n8n.io" rel="noopener" target="_blank">
@@ -1476,7 +1591,7 @@
               </div>
             </div>
           </div>
-          <div class="tool-row">
+          <div class="tool-row" data-cat-title="Automation & AI Agents" data-cat-accent="#14b8a6" data-cat-icon="⚡" data-cat-bg="rgba(20, 184, 166, 0.08)" data-cat-border="rgba(20, 184, 166, 0.2)" data-cat-glow="rgba(20, 184, 166, 0.12)">
             <span class="tool-num">51</span>
             <div class="tool-info">
               <a class="tool-link" href="https://zapier.com" rel="noopener" target="_blank">
@@ -1488,7 +1603,7 @@
               </div>
             </div>
           </div>
-          <div class="tool-row">
+          <div class="tool-row" data-cat-title="Automation & AI Agents" data-cat-accent="#14b8a6" data-cat-icon="⚡" data-cat-bg="rgba(20, 184, 166, 0.08)" data-cat-border="rgba(20, 184, 166, 0.2)" data-cat-glow="rgba(20, 184, 166, 0.12)">
             <span class="tool-num">52</span>
             <div class="tool-info">
               <a class="tool-link" href="https://www.make.com/en" rel="noopener" target="_blank">
@@ -1500,7 +1615,7 @@
               </div>
             </div>
           </div>
-          <div class="tool-row">
+          <div class="tool-row" data-cat-title="Automation & AI Agents" data-cat-accent="#14b8a6" data-cat-icon="⚡" data-cat-bg="rgba(20, 184, 166, 0.08)" data-cat-border="rgba(20, 184, 166, 0.2)" data-cat-glow="rgba(20, 184, 166, 0.12)">
             <span class="tool-num">53</span>
             <div class="tool-info">
               <a class="tool-link" href="https://www.lindy.ai" rel="noopener" target="_blank">
@@ -1521,7 +1636,7 @@
           <span class="cat-count">4 tools</span>
         </div>
         <div class="tools-list">
-          <div class="tool-row">
+          <div class="tool-row" data-cat-title="Business & Marketing" data-cat-accent="#84cc16" data-cat-icon="📊" data-cat-bg="rgba(132, 204, 22, 0.08)" data-cat-border="rgba(132, 204, 22, 0.2)" data-cat-glow="rgba(132, 204, 22, 0.12)">
             <span class="tool-num">54</span>
             <div class="tool-info">
               <a class="tool-link" href="https://surferseo.com" rel="noopener" target="_blank">
@@ -1533,7 +1648,7 @@
               </div>
             </div>
           </div>
-          <div class="tool-row">
+          <div class="tool-row" data-cat-title="Business & Marketing" data-cat-accent="#84cc16" data-cat-icon="📊" data-cat-bg="rgba(132, 204, 22, 0.08)" data-cat-border="rgba(132, 204, 22, 0.2)" data-cat-glow="rgba(132, 204, 22, 0.12)">
             <span class="tool-num">55</span>
             <div class="tool-info">
               <a class="tool-link" href="https://www.hubspot.com/products/artificial-intelligence" rel="noopener" target="_blank">
@@ -1545,7 +1660,7 @@
               </div>
             </div>
           </div>
-          <div class="tool-row">
+          <div class="tool-row" data-cat-title="Business & Marketing" data-cat-accent="#84cc16" data-cat-icon="📊" data-cat-bg="rgba(132, 204, 22, 0.08)" data-cat-border="rgba(132, 204, 22, 0.2)" data-cat-glow="rgba(132, 204, 22, 0.12)">
             <span class="tool-num">56</span>
             <div class="tool-info">
               <a class="tool-link" href="https://www.tidio.com" rel="noopener" target="_blank">
@@ -1557,7 +1672,7 @@
               </div>
             </div>
           </div>
-          <div class="tool-row">
+          <div class="tool-row" data-cat-title="Business & Marketing" data-cat-accent="#84cc16" data-cat-icon="📊" data-cat-bg="rgba(132, 204, 22, 0.08)" data-cat-border="rgba(132, 204, 22, 0.2)" data-cat-glow="rgba(132, 204, 22, 0.12)">
             <span class="tool-num">57</span>
             <div class="tool-info">
               <a class="tool-link" href="https://www.adcreative.ai" rel="noopener" target="_blank">
@@ -1578,7 +1693,7 @@
           <span class="cat-count">5 tools</span>
         </div>
         <div class="tools-list">
-          <div class="tool-row">
+          <div class="tool-row" data-cat-title="Meetings & Transcription" data-cat-accent="#fb923c" data-cat-icon="📝" data-cat-bg="rgba(251, 146, 60, 0.08)" data-cat-border="rgba(251, 146, 60, 0.2)" data-cat-glow="rgba(251, 146, 60, 0.12)">
             <span class="tool-num">58</span>
             <div class="tool-info">
               <a class="tool-link" href="https://www.fathom.ai/" rel="noopener" target="_blank">
@@ -1590,7 +1705,7 @@
               </div>
             </div>
           </div>
-          <div class="tool-row">
+          <div class="tool-row" data-cat-title="Meetings & Transcription" data-cat-accent="#fb923c" data-cat-icon="📝" data-cat-bg="rgba(251, 146, 60, 0.08)" data-cat-border="rgba(251, 146, 60, 0.2)" data-cat-glow="rgba(251, 146, 60, 0.12)">
             <span class="tool-num">59</span>
             <div class="tool-info">
               <a class="tool-link" href="https://otter.ai" rel="noopener" target="_blank">
@@ -1602,7 +1717,7 @@
               </div>
             </div>
           </div>
-          <div class="tool-row">
+          <div class="tool-row" data-cat-title="Meetings & Transcription" data-cat-accent="#fb923c" data-cat-icon="📝" data-cat-bg="rgba(251, 146, 60, 0.08)" data-cat-border="rgba(251, 146, 60, 0.2)" data-cat-glow="rgba(251, 146, 60, 0.12)">
             <span class="tool-num">60</span>
             <div class="tool-info">
               <a class="tool-link" href="https://fireflies.ai" rel="noopener" target="_blank">
@@ -1614,7 +1729,7 @@
               </div>
             </div>
           </div>
-          <div class="tool-row">
+          <div class="tool-row" data-cat-title="Meetings & Transcription" data-cat-accent="#fb923c" data-cat-icon="📝" data-cat-bg="rgba(251, 146, 60, 0.08)" data-cat-border="rgba(251, 146, 60, 0.2)" data-cat-glow="rgba(251, 146, 60, 0.12)">
             <span class="tool-num">61</span>
             <div class="tool-info">
               <a class="tool-link" href="https://krisp.ai" rel="noopener" target="_blank">
@@ -1626,7 +1741,7 @@
               </div>
             </div>
           </div>
-          <div class="tool-row">
+          <div class="tool-row" data-cat-title="Meetings & Transcription" data-cat-accent="#fb923c" data-cat-icon="📝" data-cat-bg="rgba(251, 146, 60, 0.08)" data-cat-border="rgba(251, 146, 60, 0.2)" data-cat-glow="rgba(251, 146, 60, 0.12)">
             <span class="tool-num">62</span>
             <div class="tool-info">
               <a class="tool-link" href="https://tldv.io" rel="noopener" target="_blank">
@@ -1647,7 +1762,7 @@
           <span class="cat-count">3 tools</span>
         </div>
         <div class="tools-list">
-          <div class="tool-row">
+          <div class="tool-row" data-cat-title="Education & Learning" data-cat-accent="#e879f9" data-cat-icon="🎓" data-cat-bg="rgba(232, 121, 249, 0.08)" data-cat-border="rgba(232, 121, 249, 0.2)" data-cat-glow="rgba(232, 121, 249, 0.12)">
             <span class="tool-num">63</span>
             <div class="tool-info">
               <a class="tool-link" href="https://khanmigo.ai" rel="noopener" target="_blank">
@@ -1659,7 +1774,7 @@
               </div>
             </div>
           </div>
-          <div class="tool-row">
+          <div class="tool-row" data-cat-title="Education & Learning" data-cat-accent="#e879f9" data-cat-icon="🎓" data-cat-bg="rgba(232, 121, 249, 0.08)" data-cat-border="rgba(232, 121, 249, 0.2)" data-cat-glow="rgba(232, 121, 249, 0.12)">
             <span class="tool-num">64</span>
             <div class="tool-info">
               <a class="tool-link" href="https://research.duolingo.com/" rel="noopener" target="_blank">
@@ -1671,7 +1786,7 @@
               </div>
             </div>
           </div>
-          <div class="tool-row">
+          <div class="tool-row" data-cat-title="Education & Learning" data-cat-accent="#e879f9" data-cat-icon="🎓" data-cat-bg="rgba(232, 121, 249, 0.08)" data-cat-border="rgba(232, 121, 249, 0.2)" data-cat-glow="rgba(232, 121, 249, 0.12)">
             <span class="tool-num">65</span>
             <div class="tool-info">
               <a class="tool-link" href="https://www.coursera.org" rel="noopener" target="_blank">
@@ -1686,6 +1801,9 @@
         </div>
       </div>
     </main>
+
+    <!-- Unified Grid Results for Filtering -->
+    <div class="unified-results-wrapper" id="unified-results" style="display: none;"></div>
 
     <!-- Footer -->
     <footer class="footer">
@@ -1918,11 +2036,26 @@
       let searchQuery = '';
 
       function applyFilterAndSearch() {
+        const gridWrapper = document.querySelector('.grid-wrapper');
+        const unifiedWrapper = document.getElementById('unified-results');
+        
+        let matchesAny = false;
+        let matchedHTML = '';
+
         toolRows.forEach(row => {
-          const textContent = row.textContent.toLowerCase();
-          const matchesSearch = textContent.includes(searchQuery);
-          
+          let matchesSearch = false;
           let matchesFilter = false;
+
+          // Search check
+          const name = row.querySelector('.tool-link').textContent.toLowerCase();
+          const desc = row.querySelector('.tool-desc').textContent.toLowerCase();
+          const catTitle = row.getAttribute('data-cat-title').toLowerCase();
+
+          if (name.includes(searchQuery) || desc.includes(searchQuery) || catTitle.includes(searchQuery)) {
+            matchesSearch = true;
+          }
+
+          // Filter check
           if (activeFilter === 'all') {
             matchesFilter = true;
           } else {
@@ -1934,20 +2067,74 @@
 
           if (matchesSearch && matchesFilter) {
             row.classList.remove('filtered-out');
+            matchesAny = true;
+
+            const num = row.querySelector('.tool-num').textContent;
+            const url = row.querySelector('.tool-link').getAttribute('href');
+            const toolName = row.querySelector('.tool-link').textContent.trim().replace('↗', '').trim();
+            const toolDesc = row.querySelector('.tool-desc').textContent;
+            const badgeHTML = row.querySelector('.badge-row').innerHTML;
+
+            const catName = row.getAttribute('data-cat-title');
+            const catAccent = row.getAttribute('data-cat-accent');
+            const catAccentBg = row.getAttribute('data-cat-bg');
+            const catAccentBorder = row.getAttribute('data-cat-border');
+            const catAccentGlow = row.getAttribute('data-cat-glow');
+            const catIcon = row.getAttribute('data-cat-icon');
+
+            matchedHTML += `
+              <div class="unified-card" data-cat-name="${catName}" style="--card-accent: ${catAccent}; --card-accent-bg: ${catAccentBg}; --card-accent-border: ${catAccentBorder}; --card-accent-glow: ${catAccentGlow};">
+                <div class="unified-card-header">
+                  <span class="unified-card-tag">
+                    <span>${catIcon}</span> ${catName}
+                  </span>
+                  <span class="unified-card-num">${num}</span>
+                </div>
+                <div class="unified-card-info">
+                  <h3 class="unified-card-title">
+                    <a href="${url}" target="_blank" rel="noopener" class="unified-card-link">
+                      ${toolName} <span class="arrow">↗</span>
+                    </a>
+                  </h3>
+                  <div class="unified-card-desc">${toolDesc}</div>
+                </div>
+                <div class="unified-card-badges">
+                  ${badgeHTML}
+                </div>
+              </div>
+            `;
           } else {
             row.classList.add('filtered-out');
           }
         });
-        
-        document.querySelectorAll('.cat-section').forEach(section => {
-          const total = section.querySelectorAll('.tool-row').length;
-          const hidden = section.querySelectorAll('.tool-row.filtered-out').length;
-          if (total > 0 && total === hidden) {
-            section.style.display = 'none';
-          } else {
+
+        if (activeFilter === 'all' && searchQuery === '') {
+          // Standard Bento view
+          gridWrapper.style.display = 'grid';
+          unifiedWrapper.style.display = 'none';
+          unifiedWrapper.innerHTML = '';
+          
+          document.querySelectorAll('.cat-section').forEach(section => {
             section.style.display = 'flex';
+          });
+        } else {
+          // Unified Search / Filter view
+          gridWrapper.style.display = 'none';
+          unifiedWrapper.style.display = 'grid';
+
+          if (matchesAny) {
+            unifiedWrapper.innerHTML = matchedHTML;
+            setupUnifiedPreviewListeners();
+          } else {
+            unifiedWrapper.innerHTML = `
+              <div style="grid-column: 1 / -1; text-align: center; padding: 80px 20px; color: var(--text-muted); background: var(--surface); border: 1px solid var(--border); border-radius: 24px; backdrop-filter: blur(16px);">
+                <div style="font-size: 48px; margin-bottom: 20px;">🔍</div>
+                <h3>No matching tools found</h3>
+                <p style="font-size: 14px; margin-top: 8px; color: var(--text-subtle);">Try searching for something else or clearing the active filter.</p>
+              </div>
+            `;
           }
-        });
+        }
       }
 
       if (searchBox) {
@@ -1964,10 +2151,15 @@
             pill.classList.add('active');
             activeFilter = pill.getAttribute('data-filter');
             applyFilterAndSearch();
+
+            // Smooth scroll to results
+            const controls = document.querySelector('.controls-wrapper');
+            if (controls) {
+              controls.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
           });
         });
         filterPills[0].classList.add('active');
-        // Initial application
         applyFilterAndSearch();
       }
 
@@ -2039,6 +2231,61 @@
       }
 
       // 8. Tooltip Preview Handlers
+      function showPreview(name, categoryName, accent, accentGlow) {
+        previewTitleText.textContent = name;
+        previewCatText.textContent = categoryName;
+        previewPanel.style.setProperty('--preview-accent', accent);
+        previewPanel.style.setProperty('--preview-accent-glow', accentGlow);
+        
+        previewBodyContent.innerHTML = buildMockupMarkup(categoryName, name);
+        previewPanel.classList.add('active');
+
+        gsap.to(previewPanel, {
+          opacity: 1,
+          scale: 1,
+          duration: 0.3,
+          ease: 'power2.out',
+          overwrite: 'auto'
+        });
+        if (cursor) cursor.classList.add('hovering');
+      }
+
+      function hidePreview() {
+        previewPanel.classList.remove('active');
+        gsap.to(previewPanel, {
+          opacity: 0,
+          scale: 0.9,
+          duration: 0.25,
+          ease: 'power2.in',
+          overwrite: 'auto',
+          onComplete: () => {
+            if (!previewPanel.classList.contains('active')) {
+              previewBodyContent.innerHTML = '';
+            }
+          }
+        });
+        if (cursor) cursor.classList.remove('hovering');
+      }
+
+      function setupUnifiedPreviewListeners() {
+        document.querySelectorAll('.unified-card').forEach(card => {
+          card.addEventListener('pointerenter', (e) => {
+            if (e.pointerType === 'touch') return;
+            const linkEl = card.querySelector('.unified-card-link');
+            if (!linkEl) return;
+            const name = linkEl.childNodes[0].textContent.trim();
+            const categoryName = card.getAttribute('data-cat-name');
+            const accent = card.style.getPropertyValue('--card-accent');
+            const accentGlow = card.style.getPropertyValue('--card-accent-glow');
+            showPreview(name, categoryName, accent, accentGlow);
+          });
+          card.addEventListener('pointerleave', (e) => {
+            if (e.pointerType === 'touch') return;
+            hidePreview();
+          });
+        });
+      }
+
       if (previewPanel && typeof gsap !== 'undefined') {
         gsap.set(previewPanel, { scale: 0.9, opacity: 0 });
         toolRows.forEach(row => {
@@ -2052,41 +2299,12 @@
             const categoryName = catSection.querySelector('.cat-title').textContent.trim();
             const accent = catSection.style.getPropertyValue('--cat-accent');
             const accentGlow = catSection.style.getPropertyValue('--cat-accent-glow');
-
-            previewTitleText.textContent = name;
-            previewCatText.textContent = categoryName;
-            previewPanel.style.setProperty('--preview-accent', accent);
-            previewPanel.style.setProperty('--preview-accent-glow', accentGlow);
-            
-            previewBodyContent.innerHTML = buildMockupMarkup(categoryName, name);
-            previewPanel.classList.add('active');
-
-            gsap.to(previewPanel, {
-              opacity: 1,
-              scale: 1,
-              duration: 0.3,
-              ease: 'power2.out',
-              overwrite: 'auto'
-            });
-            if (cursor) cursor.classList.add('hovering');
+            showPreview(name, categoryName, accent, accentGlow);
           });
 
           row.addEventListener('pointerleave', (e) => {
             if (e.pointerType === 'touch') return;
-            previewPanel.classList.remove('active');
-            gsap.to(previewPanel, {
-              opacity: 0,
-              scale: 0.9,
-              duration: 0.25,
-              ease: 'power2.in',
-              overwrite: 'auto',
-              onComplete: () => {
-                if (!previewPanel.classList.contains('active')) {
-                  previewBodyContent.innerHTML = '';
-                }
-              }
-            });
-            if (cursor) cursor.classList.remove('hovering');
+            hidePreview();
           });
         });
       }
