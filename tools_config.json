@@ -11,7 +11,7 @@
       "check_version": false,
       "current_version": "",
       "version_regex": "",
-      "last_seen_ok": "2026-06-13",
+      "last_seen_ok": "2026-07-24",
       "suggested_version": "",
       "needs_review": false
     },
@@ -33,7 +33,7 @@
       "check_version": false,
       "current_version": "",
       "version_regex": "",
-      "last_seen_ok": "2026-06-13",
+      "last_seen_ok": "2026-07-24",
       "suggested_version": "",
       "needs_review": false
     },
@@ -44,7 +44,7 @@
       "check_version": false,
       "current_version": "",
       "version_regex": "",
-      "last_seen_ok": "2026-06-13",
+      "last_seen_ok": "2026-07-24",
       "suggested_version": "",
       "needs_review": false
     },
@@ -55,7 +55,7 @@
       "check_version": false,
       "current_version": "",
       "version_regex": "",
-      "last_seen_ok": "2026-06-13",
+      "last_seen_ok": "2026-07-24",
       "suggested_version": "",
       "needs_review": false
     },
@@ -66,7 +66,7 @@
       "check_version": false,
       "current_version": "",
       "version_regex": "",
-      "last_seen_ok": "2026-06-13",
+      "last_seen_ok": "2026-07-24",
       "suggested_version": "",
       "needs_review": false
     },
@@ -77,7 +77,7 @@
       "check_version": true,
       "current_version": "V4",
       "version_regex": "DeepSeek[-\\s]?V(\\d+(?:\\.\\d+)?)",
-      "last_seen_ok": "2026-06-13",
+      "last_seen_ok": "2026-07-24",
       "suggested_version": "",
       "needs_review": false
     },
@@ -88,7 +88,7 @@
       "check_version": false,
       "current_version": "",
       "version_regex": "",
-      "last_seen_ok": "2026-06-13",
+      "last_seen_ok": "2026-07-24",
       "suggested_version": "",
       "needs_review": false
     },
@@ -110,7 +110,7 @@
       "check_version": false,
       "current_version": "",
       "version_regex": "",
-      "last_seen_ok": "2026-06-13",
+      "last_seen_ok": "2026-07-24",
       "suggested_version": "",
       "needs_review": false
     },
@@ -121,7 +121,7 @@
       "check_version": false,
       "current_version": "",
       "version_regex": "",
-      "last_seen_ok": "2026-06-13",
+      "last_seen_ok": "2026-07-24",
       "suggested_version": "",
       "needs_review": false
     },
@@ -143,7 +143,7 @@
       "check_version": true,
       "current_version": "4.0",
       "version_regex": "Ideogram\\s+(\\d+(?:\\.\\d+)?)",
-      "last_seen_ok": "2026-06-13",
+      "last_seen_ok": "2026-07-24",
       "suggested_version": "",
       "needs_review": false
     },
@@ -154,7 +154,7 @@
       "check_version": false,
       "current_version": "",
       "version_regex": "",
-      "last_seen_ok": "2026-06-13",
+      "last_seen_ok": "2026-07-24",
       "suggested_version": "",
       "needs_review": false
     },
@@ -165,7 +165,7 @@
       "check_version": false,
       "current_version": "",
       "version_regex": "",
-      "last_seen_ok": "2026-06-13",
+      "last_seen_ok": "2026-07-24",
       "suggested_version": "",
       "needs_review": false
     },
@@ -176,18 +176,18 @@
       "check_version": true,
       "current_version": "Flux 2",
       "version_regex": "Flux\\s+(\\d+(?:\\.\\d+)?)",
-      "last_seen_ok": "2026-06-13",
+      "last_seen_ok": "2026-07-24",
       "suggested_version": "",
       "needs_review": false
     },
     {
       "name": "Runway ML (Gen-4.5)",
-      "url": "https://runwayml.com",
+      "url": "https://runway.com/",
       "status": "active",
       "check_version": true,
       "current_version": "Gen-4.5",
       "version_regex": "Gen[-\\s]?(\\d+(?:\\.\\d+)?)",
-      "last_seen_ok": "2026-06-13",
+      "last_seen_ok": "2026-07-24",
       "suggested_version": "",
       "needs_review": false
     },
@@ -198,7 +198,7 @@
       "check_version": true,
       "current_version": "Veo 3.1",
       "version_regex": "Veo\\s+(\\d+(?:\\.\\d+)?)",
-      "last_seen_ok": "2026-06-13",
+      "last_seen_ok": "2026-07-24",
       "suggested_version": "",
       "needs_review": false
     },
@@ -209,7 +209,7 @@
       "check_version": false,
       "current_version": "",
       "version_regex": "",
-      "last_seen_ok": "2026-06-13",
+      "last_seen_ok": "2026-07-24",
       "suggested_version": "",
       "needs_review": false
     },
@@ -220,7 +220,7 @@
       "check_version": true,
       "current_version": "3.5",
       "version_regex": "Kling\\s+(\\d+(?:\\.\\d+)?)",
-      "last_seen_ok": "2026-06-13",
+      "last_seen_ok": "2026-07-24",
       "suggested_version": "",
       "needs_review": false
     },
@@ -231,7 +231,7 @@
       "check_version": false,
       "current_version": "",
       "version_regex": "",
-      "last_seen_ok": "2026-06-13",
+      "last_seen_ok": "2026-07-24",
       "suggested_version": "",
       "needs_review": false
     },
@@ -242,7 +242,7 @@
       "check_version": false,
       "current_version": "",
       "version_regex": "",
-      "last_seen_ok": "2026-06-13",
+      "last_seen_ok": "2026-07-24",
       "suggested_version": "",
       "needs_review": false
     },
@@ -253,7 +253,7 @@
       "check_version": false,
       "current_version": "",
       "version_regex": "",
-      "last_seen_ok": "2026-06-13",
+      "last_seen_ok": "2026-07-24",
       "suggested_version": "",
       "needs_review": false
     },
@@ -264,8 +264,8 @@
       "check_version": true,
       "current_version": "V5.5",
       "version_regex": "[Vv](\\d+(?:\\.\\d+)?)",
-      "last_seen_ok": "2026-06-13",
-      "suggested_version": "82",
+      "last_seen_ok": "2026-07-24",
+      "suggested_version": "9",
       "needs_review": true
     },
     {
@@ -275,7 +275,7 @@
       "check_version": false,
       "current_version": "",
       "version_regex": "",
-      "last_seen_ok": "2026-06-13",
+      "last_seen_ok": "2026-07-24",
       "suggested_version": "",
       "needs_review": false
     },
@@ -286,7 +286,7 @@
       "check_version": false,
       "current_version": "",
       "version_regex": "",
-      "last_seen_ok": "2026-06-13",
+      "last_seen_ok": "2026-07-24",
       "suggested_version": "",
       "needs_review": false
     },
@@ -297,7 +297,7 @@
       "check_version": false,
       "current_version": "",
       "version_regex": "",
-      "last_seen_ok": "2026-06-13",
+      "last_seen_ok": "2026-07-24",
       "suggested_version": "",
       "needs_review": false
     },
@@ -308,7 +308,7 @@
       "check_version": false,
       "current_version": "",
       "version_regex": "",
-      "last_seen_ok": "2026-06-13",
+      "last_seen_ok": "2026-07-24",
       "suggested_version": "",
       "needs_review": false
     },
@@ -319,7 +319,7 @@
       "check_version": false,
       "current_version": "",
       "version_regex": "",
-      "last_seen_ok": "2026-06-13",
+      "last_seen_ok": "2026-07-24",
       "suggested_version": "",
       "needs_review": false
     },
@@ -330,7 +330,7 @@
       "check_version": true,
       "current_version": "Opus 4.6",
       "version_regex": "Opus\\s+(\\d+(?:\\.\\d+)?)",
-      "last_seen_ok": "2026-06-13",
+      "last_seen_ok": "2026-07-24",
       "suggested_version": "",
       "needs_review": false
     },
@@ -341,7 +341,7 @@
       "check_version": false,
       "current_version": "",
       "version_regex": "",
-      "last_seen_ok": "2026-06-13",
+      "last_seen_ok": "2026-07-24",
       "suggested_version": "",
       "needs_review": false
     },
@@ -352,7 +352,7 @@
       "check_version": false,
       "current_version": "",
       "version_regex": "",
-      "last_seen_ok": "2026-06-13",
+      "last_seen_ok": "2026-07-24",
       "suggested_version": "",
       "needs_review": false
     },
@@ -363,7 +363,7 @@
       "check_version": false,
       "current_version": "",
       "version_regex": "",
-      "last_seen_ok": "2026-06-13",
+      "last_seen_ok": "2026-07-24",
       "suggested_version": "",
       "needs_review": false
     },
@@ -374,7 +374,7 @@
       "check_version": false,
       "current_version": "",
       "version_regex": "",
-      "last_seen_ok": "2026-06-13",
+      "last_seen_ok": "2026-07-24",
       "suggested_version": "",
       "needs_review": false
     },
@@ -385,7 +385,7 @@
       "check_version": false,
       "current_version": "",
       "version_regex": "",
-      "last_seen_ok": "2026-06-13",
+      "last_seen_ok": "2026-07-24",
       "suggested_version": "",
       "needs_review": false
     },
@@ -396,7 +396,7 @@
       "check_version": false,
       "current_version": "",
       "version_regex": "",
-      "last_seen_ok": "2026-06-13",
+      "last_seen_ok": "2026-07-24",
       "suggested_version": "",
       "needs_review": false
     },
@@ -407,7 +407,7 @@
       "check_version": false,
       "current_version": "",
       "version_regex": "",
-      "last_seen_ok": "2026-06-13",
+      "last_seen_ok": "2026-07-24",
       "suggested_version": "",
       "needs_review": false
     },
@@ -418,7 +418,7 @@
       "check_version": false,
       "current_version": "",
       "version_regex": "",
-      "last_seen_ok": "2026-06-13",
+      "last_seen_ok": "2026-07-24",
       "suggested_version": "",
       "needs_review": false
     },
@@ -429,7 +429,7 @@
       "check_version": false,
       "current_version": "",
       "version_regex": "",
-      "last_seen_ok": "2026-06-13",
+      "last_seen_ok": "2026-07-24",
       "suggested_version": "",
       "needs_review": false
     },
@@ -440,7 +440,7 @@
       "check_version": false,
       "current_version": "",
       "version_regex": "",
-      "last_seen_ok": "2026-06-13",
+      "last_seen_ok": "2026-07-24",
       "suggested_version": "",
       "needs_review": false
     },
@@ -451,7 +451,7 @@
       "check_version": false,
       "current_version": "",
       "version_regex": "",
-      "last_seen_ok": "2026-06-13",
+      "last_seen_ok": "2026-07-24",
       "suggested_version": "",
       "needs_review": false
     },
@@ -462,7 +462,7 @@
       "check_version": false,
       "current_version": "",
       "version_regex": "",
-      "last_seen_ok": "2026-06-13",
+      "last_seen_ok": "2026-07-24",
       "suggested_version": "",
       "needs_review": false
     },
@@ -473,7 +473,7 @@
       "check_version": false,
       "current_version": "",
       "version_regex": "",
-      "last_seen_ok": "2026-06-13",
+      "last_seen_ok": "2026-07-24",
       "suggested_version": "",
       "needs_review": false
     },
@@ -484,7 +484,7 @@
       "check_version": false,
       "current_version": "",
       "version_regex": "",
-      "last_seen_ok": "2026-06-13",
+      "last_seen_ok": "2026-07-24",
       "suggested_version": "",
       "needs_review": false
     },
@@ -506,7 +506,7 @@
       "check_version": false,
       "current_version": "",
       "version_regex": "",
-      "last_seen_ok": "2026-06-13",
+      "last_seen_ok": "2026-07-24",
       "suggested_version": "",
       "needs_review": false
     },
@@ -528,7 +528,7 @@
       "check_version": false,
       "current_version": "",
       "version_regex": "",
-      "last_seen_ok": "2026-06-13",
+      "last_seen_ok": "2026-07-24",
       "suggested_version": "",
       "needs_review": false
     },
@@ -539,7 +539,7 @@
       "check_version": false,
       "current_version": "",
       "version_regex": "",
-      "last_seen_ok": "2026-06-13",
+      "last_seen_ok": "2026-07-24",
       "suggested_version": "",
       "needs_review": false
     },
@@ -550,7 +550,7 @@
       "check_version": false,
       "current_version": "",
       "version_regex": "",
-      "last_seen_ok": "2026-06-13",
+      "last_seen_ok": "2026-07-24",
       "suggested_version": "",
       "needs_review": false
     },
@@ -561,7 +561,7 @@
       "check_version": false,
       "current_version": "",
       "version_regex": "",
-      "last_seen_ok": "2026-06-13",
+      "last_seen_ok": "2026-07-24",
       "suggested_version": "",
       "needs_review": false
     },
@@ -583,7 +583,7 @@
       "check_version": false,
       "current_version": "",
       "version_regex": "",
-      "last_seen_ok": "2026-06-13",
+      "last_seen_ok": "2026-07-24",
       "suggested_version": "",
       "needs_review": false
     },
@@ -594,7 +594,7 @@
       "check_version": false,
       "current_version": "",
       "version_regex": "",
-      "last_seen_ok": "2026-06-13",
+      "last_seen_ok": "2026-07-24",
       "suggested_version": "",
       "needs_review": false
     },
@@ -605,7 +605,7 @@
       "check_version": false,
       "current_version": "",
       "version_regex": "",
-      "last_seen_ok": "2026-06-13",
+      "last_seen_ok": "2026-07-24",
       "suggested_version": "",
       "needs_review": false
     },
@@ -616,7 +616,7 @@
       "check_version": false,
       "current_version": "",
       "version_regex": "",
-      "last_seen_ok": "2026-06-13",
+      "last_seen_ok": "2026-07-24",
       "suggested_version": "",
       "needs_review": false
     },
@@ -627,7 +627,7 @@
       "check_version": false,
       "current_version": "",
       "version_regex": "",
-      "last_seen_ok": "2026-06-13",
+      "last_seen_ok": "2026-07-24",
       "suggested_version": "",
       "needs_review": false
     },
@@ -638,7 +638,7 @@
       "check_version": false,
       "current_version": "",
       "version_regex": "",
-      "last_seen_ok": "2026-06-13",
+      "last_seen_ok": "2026-07-24",
       "suggested_version": "",
       "needs_review": false
     },
@@ -649,7 +649,7 @@
       "check_version": false,
       "current_version": "",
       "version_regex": "",
-      "last_seen_ok": "2026-06-13",
+      "last_seen_ok": "2026-07-24",
       "suggested_version": "",
       "needs_review": false
     },
@@ -660,7 +660,7 @@
       "check_version": false,
       "current_version": "",
       "version_regex": "",
-      "last_seen_ok": "2026-06-13",
+      "last_seen_ok": "2026-07-24",
       "suggested_version": "",
       "needs_review": false
     },
@@ -671,7 +671,7 @@
       "check_version": false,
       "current_version": "",
       "version_regex": "",
-      "last_seen_ok": "2026-06-13",
+      "last_seen_ok": "2026-07-24",
       "suggested_version": "",
       "needs_review": false
     },
@@ -682,7 +682,7 @@
       "check_version": false,
       "current_version": "",
       "version_regex": "",
-      "last_seen_ok": "2026-06-13",
+      "last_seen_ok": "2026-07-24",
       "suggested_version": "",
       "needs_review": false
     },
@@ -693,7 +693,7 @@
       "check_version": false,
       "current_version": "",
       "version_regex": "",
-      "last_seen_ok": "2026-06-13",
+      "last_seen_ok": "2026-07-24",
       "suggested_version": "",
       "needs_review": false
     },
@@ -704,7 +704,7 @@
       "check_version": false,
       "current_version": "",
       "version_regex": "",
-      "last_seen_ok": "2026-06-13",
+      "last_seen_ok": "2026-07-24",
       "suggested_version": "",
       "needs_review": false
     },
@@ -715,7 +715,7 @@
       "check_version": false,
       "current_version": "",
       "version_regex": "",
-      "last_seen_ok": "2026-06-13",
+      "last_seen_ok": "2026-07-24",
       "suggested_version": "",
       "needs_review": false
     }
