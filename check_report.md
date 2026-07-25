@@ -1,12 +1,12 @@
 # 🔍 AI Tools Daily Check Report
-**Date:** 2026-07-24 05:38 UTC
+**Date:** 2026-07-25 05:30 UTC
 **Tools checked:** 65
-**Auto-changes (URL updates):** 1
+**Auto-changes (URL updates):** 0
 
 ## Summary
 
-- ✅ Healthy: 55
-- 🔀 Auto-fixed redirects: 1
+- ✅ Healthy: 56
+- 🔀 Auto-fixed redirects: 0
 - ⚠️ Blocked / needs manual check: 6
 - 📢 Version drift flagged: 1
 - ❌ Dead tools: 0
@@ -23,10 +23,6 @@
 - **Gamma**: ⚠️ Blocked (403) — may need manual check: https://gamma.app
 - **Looka**: ⚠️ Blocked (403) — may need manual check: https://looka.com
 - **Make (Integromat)**: ⚠️ Blocked (403) — may need manual check: https://www.make.com/en
-
-## 🔀 Auto-Fixed Redirects
-
-- **Runway ML (Gen-4.5)**: 🔀 Permanent redirect: https://runwayml.com -> https://runway.com/
 
 
 ---
