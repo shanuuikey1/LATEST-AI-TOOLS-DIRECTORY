@@ -1,5 +1,5 @@
 # 🔍 AI Tools Daily Check Report
-**Date:** 2026-09-28 08:54 UTC
+**Date:** 2026-09-29 08:52 UTC
 **Tools checked:** 65
 **Auto-changes (URL updates):** 0
 
@@ -8,13 +8,12 @@
 - ✅ Healthy: 54
 - 🔀 Auto-fixed redirects: 0
 - ⚠️ Blocked / needs manual check: 8
-- 📢 Version drift flagged: 2
+- 📢 Version drift flagged: 1
 - ❌ Dead tools: 0
 
 ## 📢 Version Drift (Needs Review)
 
-- **Kling AI 3.5**: 📢 Version drift suspected for Kling AI 3.5: found '3.0' (expected '3.5')
-- **Suno V5.5**: 📢 Version drift suspected for Suno V5.5: found '9' (expected 'V5.5')
+- **Suno V5.5**: 📢 Version drift suspected for Suno V5.5: found '8' (expected 'V5.5')
 
 ## ⚠️ Blocked / Manual Review
 
