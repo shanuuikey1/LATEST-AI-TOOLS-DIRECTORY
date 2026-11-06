@@ -1500,7 +1500,7 @@
 <div class="cat-group-icon">💻</div>
 <div class="cat-group-title-wrap">
 <h3 class="cat-group-title">Coding &amp; Development</h3>
-<p class="cat-group-tagline">DevTools &amp; Code AI · 6 Tools</p>
+<p class="cat-group-tagline">DevTools &amp; Code AI · 7 Tools</p>
 </div>
 </div>
 <div class="premium-grid">
@@ -1619,6 +1619,21 @@
 <span class="premium-badge b-free">FREE tier</span><span class="premium-badge b-hot">🔥 HOT</span>
 </div>
 <a class="premium-visit" href="https://v0.dev" rel="noopener" target="_blank">
+                            Visit Site
+                            <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"></path></svg>
+</a>
+</div>
+</div>
+<div class="premium-card" data-scroll-reveal="" data-tilt="" data-tilt-glare="" data-tilt-max="5" data-tilt-max-glare="0.1" data-tilt-speed="400">
+<div class="premium-card-inner">
+<div class="premium-card-top">
+<div class="premium-logo"><img alt="" onerror="this.style.display='none'" src="https://www.google.com/s2/favicons?domain=vostride.com&amp;sz=64"/></div>
+
+</div>
+<h4 class="premium-name">agent-qa</h4>
+<p class="premium-desc">Web/mobile QA · CLI/MCP · memidex persistent memory · validated self-improvement · reviewable evidence</p>
+<div class="premium-badges"><span class="premium-badge b-free">Free package; models extra</span></div>
+<a class="premium-visit" href="https://vostride.com" rel="noopener" target="_blank">
                             Visit Site
                             <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"></path></svg>
 </a>
@@ -3185,6 +3200,26 @@
     "rating": "4.8"
   },
   {
+    "num": "66",
+    "name": "agent-qa",
+    "url": "https://vostride.com",
+    "domain": "vostride.com",
+    "desc": "Web/mobile QA · CLI/MCP · memidex persistent memory · validated self-improvement · reviewable evidence",
+    "badges": [
+      {
+        "text": "Free package; models extra",
+        "class": "b-free"
+      }
+    ],
+    "cat_title": "Coding & Development",
+    "accent": "#3b82f6",
+    "accent_bg": "rgba(59, 130, 246, 0.04)",
+    "accent_border": "rgba(59, 130, 246, 0.15)",
+    "accent_glow": "rgba(59, 130, 246, 0.08)",
+    "icon": "💻",
+    "rating": null
+  },
+  {
     "num": "34",
     "name": "Jasper AI",
     "url": "https://www.jasper.ai",
@@ -4185,10 +4220,10 @@
                           <div class="premium-card-inner">
                               <div class="premium-card-top">
                                   <div class="premium-logo"><img src="${logoUrl}" alt="" onerror="this.style.display='none'"></div>
-                                  <div class="premium-rating">
+                                  ${t.rating == null ? '' : `<div class="premium-rating">
                                       <div class="stars">★★★★★</div>
                                       <span>${t.rating}</span>
-                                  </div>
+                                  </div>`}
                               </div>
                               <div class="unified-card-cat" style="--cat-accent: ${t.accent}">${t.icon} ${t.cat_title}</div>
                               <h4 class="premium-name">${t.name}</h4>
