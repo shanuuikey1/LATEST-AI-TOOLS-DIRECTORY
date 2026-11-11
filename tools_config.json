@@ -718,6 +718,17 @@
       "last_seen_ok": "2026-10-23",
       "suggested_version": "",
       "needs_review": false
+    },
+    {
+      "name": "agent-qa",
+      "url": "https://vostride.com",
+      "status": "active",
+      "check_version": false,
+      "current_version": "",
+      "version_regex": "",
+      "last_seen_ok": "",
+      "suggested_version": "",
+      "needs_review": false
     }
   ]
 }

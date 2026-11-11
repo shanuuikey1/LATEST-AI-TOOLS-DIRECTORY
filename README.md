@@ -1,6 +1,6 @@
 # AI Tools Directory 2026
 
-AI Tools Directory with 65 tools across 12 categories. Auto-updated daily via GitHub Actions.
+AI Tools Directory with 66 tools across 12 categories. Auto-updated daily via GitHub Actions.
 
 ## Files
 
@@ -13,7 +13,7 @@ AI Tools Directory with 65 tools across 12 categories. Auto-updated daily via Gi
 ## How It Works
 
 Every day at 06:00 UTC, GitHub Actions runs `tools_monitor.py` which:
-1. Checks all 65 tool URLs for 404s, redirects, and server errors
+1. Checks all 66 tool URLs for 404s, redirects, and server errors
 2. Auto-fixes permanent redirects (301/308) in `index.html`
 3. Flags version drift for high-churn tools
 4. Commits changes back to the repo
